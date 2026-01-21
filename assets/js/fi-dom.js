@@ -1,7 +1,7 @@
 (function(){
-  const PAGE_ID = 'ne_dom';
+  const PAGE_ID = 'fi_dom';
 
-  // 1..5 bubbles (Option B)
+  // 1..5 bubbles
   const SCALE = [
     { v: 1, key: 'scale_1' },
     { v: 2, key: 'scale_2' },
@@ -15,26 +15,19 @@
   function centeredPoints(v){ return v - 3; } // 1..5 -> -2..+2
 
   /**
-   * Scoring model (same logic, but improved verdict + positive score):
-   * - Raw sum is centered around 0 (negative -> unlikely Ne-dom, positive -> likely)
-   * - Normalize raw sum by maximum possible magnitude => normScore in [-1, +1]
-   * - Display "score" as 0..100 likelihood = (normScore+1)/2 * 100
-   * - Examples bonus still applies only when strong (4-5) and at least 1 example checked
-   * - Can't recall does NOT null Likert; it only reduces Accuracy and disables example bonus for that item
-   * - NEW: if strong (4–5) but no example selected (and not can't recall), reduce Accuracy slightly
-   *
-   * Tuned for ~10 questions:
-   * - Can't recall: -10% each (heavy but not instantly kills the result)
-   * - Strong but no example: -3% each (light “evidence missing” penalty)
+   * Same scoring model as Ne-dom:
+   * - raw score centered around 0 (negative -> unlikely Fi-dom, positive -> likely)
+   * - normalized by max possible => normScore in [-1,+1]
+   * - displayed score100 = (normScore+1)/2 * 100
+   * - examples bonus when strong (4–5) and at least 1 example checked
+   * - can't recall reduces accuracy and disables bonus for that item
+   * - strong but no example (and not can't recall) reduces accuracy slightly
    */
   function computeScore(items, answers, examples, cantRecall){
     let raw = 0;
     let cant = 0;
-    let unconfirmedStrong = 0; // strong (4–5) but no examples checked and not cantRecall
+    let unconfirmedStrong = 0;
 
-    // For normalization
-    // Each item core contributes up to 2*abs(dir) (since centeredPoints in [-2,+2])
-    // Example bonus contributes up to 1*abs(dir) if item has examples
     let maxCore = 0;
     let maxBonus = 0;
 
@@ -48,64 +41,48 @@
       const v = answers[it.id];
       if(typeof v !== 'number') continue;
 
-      // core contribution
       raw += centeredPoints(v) * dir;
 
       const cantOn = !!cantRecall[it.id];
       if(cantOn){
         cant += 1;
-        continue; // no example bonus; also do not count as "unconfirmed"
+        continue;
       }
 
-      // bonus/penalty on strong answers
       if(isStrong(v) && it.examples && it.examples.length){
         let anyChecked = false;
         for(let i=0;i<it.examples.length;i++){
           const exId = `${it.id}__ex${i}`;
           if(examples[exId]) { anyChecked = true; break; }
         }
-
         if(anyChecked){
-          raw += 1 * dir; // small confirm bonus
+          raw += 1 * dir;
         }else{
-          // Strong claim, but no supporting example chosen
           unconfirmedStrong += 1;
         }
       }
     }
 
-    // Accuracy penalty:
-    // - can't recall is heavy
-    // - strong but no example is light
-    // tuned for ~10 questions
-    const penaltyEach = 10;     // was 12; slightly less brutal
-    const noExamplePenalty = 3; // new light penalty per “strong but no example”
+    const penaltyEach = 10;     // per can't recall
+    const noExamplePenalty = 3; // per strong but no example
     const accuracy = clamp(
       100 - cant * penaltyEach - unconfirmedStrong * noExamplePenalty,
       25,
       100
     );
 
-    // Normalize raw score into [-1, +1]
-    const maxPossible = Math.max(1, (maxCore + maxBonus)); // guard
+    const maxPossible = Math.max(1, (maxCore + maxBonus));
     const normScore = clamp(raw / maxPossible, -1, 1);
 
-    // Display-friendly score: 0..100
-    const likelihood = clamp(Math.round((normScore + 1) * 50), 0, 100);
+    const score100 = clamp(Math.round((normScore + 1) * 50), 0, 100);
 
-    // Confidence: based on (1) accuracy and (2) separation from the middle
-    const sep = Math.abs(normScore); // 0..1
+    const sep = Math.abs(normScore);
     let confidence = 'low';
     if(accuracy >= 85 && sep >= 0.35) confidence = 'high';
     else if(accuracy >= 70 && sep >= 0.22) confidence = 'medium';
 
-    // Verdict:
-    // - If accuracy is too low, always inconclusive
-    // - Otherwise decide by normScore threshold
     const MIN_ACC_FOR_VERDICT = 55;
-
-    // Narrower “inconclusive band”
-    const TH = 0.18; // ~ 59/41 on the 0..100 scale
+    const TH = 0.18;
 
     let verdict = 'inconclusive';
     if(accuracy < MIN_ACC_FOR_VERDICT){
@@ -118,8 +95,6 @@
       verdict = 'inconclusive';
     }
 
-    // Numeric "verdict confidence %" for display text
-    // Mix accuracy and separation.
     const verdictPct = clamp(
       Math.round(0.6 * accuracy + 0.4 * (sep * 100)),
       0,
@@ -129,7 +104,7 @@
     return {
       rawScore: raw,
       normScore,
-      score100: likelihood,
+      score100,
       accuracy,
       confidence,
       verdict,
@@ -146,7 +121,6 @@
   function renderLikert(currentValue, onPick){
     const row = el('div', { class: 'likert-row' });
 
-    // Change text here ONLY (no other files):
     const left = el('div', {
       class: 'likert-label disagree',
       text: window.App.t('scale_left', 'Never')
@@ -210,7 +184,6 @@
 
     const list = el('ul', { class: 'ex-list' });
 
-    // Normal examples
     item.examples.forEach((txt, idx) => {
       const exId = `${item.id}__ex${idx}`;
       const checked = !!state.examples[exId];
@@ -219,7 +192,6 @@
       input.checked = checked;
 
       input.addEventListener('change', () => {
-        // If they pick any real example, auto-uncheck cant-recall
         if(input.checked){
           state.cantRecall[item.id] = false;
         }
@@ -236,7 +208,6 @@
       list.appendChild(el('li', { class: 'ex-item' }, [input, label]));
     });
 
-    // "Can't recall examples" option (does NOT null Likert)
     const cantId = `${item.id}__cant`;
     const cantInput = el('input', { type: 'checkbox', id: cantId });
     cantInput.checked = !!state.cantRecall[item.id];
@@ -246,13 +217,12 @@
       state.cantRecall[item.id] = on;
 
       if(on){
-        // Clear normal example checks (since they said they can't recall examples)
         for(let i=0;i<item.examples.length;i++){
           delete state.examples[`${item.id}__ex${i}`];
         }
       }
 
-      onUpdate(true); // rerender to reflect cleared boxes
+      onUpdate(true);
     });
 
     const cantLabel = el('label', { for: cantId });
@@ -273,7 +243,6 @@
     block.appendChild(renderLikert(current, (picked) => {
       state.answers[item.id] = picked;
 
-      // If answer is not strong anymore, clear cant recall and examples
       if(!isStrong(picked)){
         state.cantRecall[item.id] = false;
         if(item.examples && item.examples.length){
@@ -295,7 +264,6 @@
   function updateScoreUI(items, state){
     const s = computeScore(items, state.answers, state.examples, state.cantRecall);
 
-    // Display positive score (0..100)
     const scoreEl = document.getElementById('scoreValue');
     if(scoreEl) scoreEl.textContent = String(s.score100);
 
@@ -313,14 +281,13 @@
     const bar = document.getElementById('accuracyBar');
     if(bar) bar.style.width = `${s.accuracy}%`;
 
-    // Verdict text (only updates if element exists)
     const verdictEl = document.getElementById('verdictValue');
     if(verdictEl){
       verdictEl.textContent =
         s.verdict === 'likely'
-          ? window.App.t('verdict_likely', 'Likely Ne-dominant') + ` (${s.verdictPct}%)`
+          ? window.App.t('fi_verdict_likely', 'Likely Fi-dominant') + ` (${s.verdictPct}%)`
           : s.verdict === 'unlikely'
-            ? window.App.t('verdict_unlikely', 'Unlikely Ne-dominant') + ` (${s.verdictPct}%)`
+            ? window.App.t('fi_verdict_unlikely', 'Unlikely Fi-dominant') + ` (${s.verdictPct}%)`
             : window.App.t('verdict_inconclusive', 'Inconclusive');
     }
 
@@ -340,7 +307,6 @@
     await window.App.init({ ui: paths.ui });
     window.App.applyI18n(document);
 
-    // Language toggle
     const langBtn = document.getElementById('langToggleBtn');
     const langPill = document.getElementById('langPill');
 
@@ -360,8 +326,8 @@
     const casesPath = paths.cases[window.App.getLang()];
     const cases = await window.App.loadJSON(casesPath);
 
-    const page = cases.pages && cases.pages.ne_dom;
-    if(!page) throw new Error('Missing pages.ne_dom in cases JSON.');
+    const page = cases.pages && cases.pages.fi_dom;
+    if(!page) throw new Error('Missing pages.fi_dom in cases JSON.');
 
     const titleEl = document.getElementById('pageTitle');
     const introEl = document.getElementById('pageIntro');
@@ -371,7 +337,6 @@
     const items = page.items || [];
     const list = document.getElementById('questionList');
 
-    // Load saved
     const saved = window.AppStorage.loadPage(PAGE_ID) || {};
     const state = {
       answers: saved.answers || {},
@@ -380,7 +345,6 @@
       _computed: null
     };
 
-    // Defaults
     items.forEach(it => {
       if(!Object.prototype.hasOwnProperty.call(state.answers, it.id)){
         state.answers[it.id] = 3;
@@ -404,7 +368,6 @@
 
     renderAll();
 
-    // Save/reset
     const saveBtn = document.getElementById('saveBtn');
     const resetBtn = document.getElementById('resetBtn');
     const status = document.getElementById('saveStatus');
