@@ -1,110 +1,112 @@
 {
-  "scale": { "labels": ["Never", "Rarely", "Sometimes", "Often", "Almost always"], "values": [0, 1, 2, 3, 4] },
-  "cases": [
-    {
-      "id": "people_pleasing",
-      "title": "People-pleasing / Hard to say no",
-      "oneLiner": "You often agree to avoid conflict, then feel stressed or resentful.",
-      "signals": [
-        "You say yes quickly, then regret it.",
-        "You avoid asking for what you need.",
-        "You worry others will be disappointed."
-      ],
-      "questions": [
-        { "id": "pp_q1", "text": "I agree to requests even when I don't have time.", "weight": 1.0 },
-        { "id": "pp_q2", "text": "I feel anxious when I might disappoint someone.", "weight": 1.0 },
-        { "id": "pp_q3", "text": "After saying yes, I feel resentful or exhausted.", "weight": 1.2 },
-        { "id": "pp_q4", "text": "I avoid giving honest feedback to keep the peace.", "weight": 0.9 }
-      ],
-      "exampleTemplates": [
+  "pages": {
+    "ne_dom": {
+      "title": "Confirm / Exclude: Ne dominant",
+      "intro": "For each statement, pick how strongly you agree for your typical life pattern. If you choose strong (4–5), optional examples will appear so you can check whether you mean the same thing.",
+      "items": [
         {
-          "title": "Work/School boundary",
-          "text": "When [person] asks you to take on [task] last-minute, say: “I can’t do it today. I can do [smaller part] by [time], or we can schedule it for [date].”"
+          "id": "ne_01",
+          "dir": 1,
+          "text": "My mind naturally generates many different possibilities / paths.",
+          "examples": [
+            "In a new situation, I immediately see multiple ways it could work.",
+            "When someone proposes a plan, I quickly think of alternate versions or improvements.",
+            "I often have more ideas than time, and it’s hard to pick just one."
+          ]
         },
         {
-          "title": "Family request",
-          "text": "If [family member] wants you to do [favor], reply: “I can help for [30 minutes] on [day]. If you need more, let’s plan together.”"
+          "id": "ne_02",
+          "dir": 1,
+          "text": "I feel frustrated or disappointed when my ideas are dismissed or can’t be explored.",
+          "examples": [
+            "I feel my energy drop when people shut down possibilities too early.",
+            "I get restless when I must follow a single fixed plan with no alternatives.",
+            "I feel ‘stuck’ if there’s no room to try new directions."
+          ]
         },
         {
-          "title": "Friend invitation",
-          "text": "When a friend invites you to [event] but you’re tired, say: “I’m going to rest tonight. Can we do [shorter option] on [other day]?”"
+          "id": "ne_03",
+          "dir": 1,
+          "text": "It’s important to me to be open-minded and resourceful (finding new ways to solve things).",
+          "examples": [
+            "I prefer exploring options instead of committing early.",
+            "I enjoy experimenting with approaches, tools, or methods.",
+            "I naturally ask “What else could work?”"
+          ]
+        },
+        {
+          "id": "ne_04",
+          "dir": 1,
+          "text": "Interesting possibilities lift my mood quickly; I like brainstorming with people.",
+          "examples": [
+            "A new idea can make me feel hopeful again even if I was tired.",
+            "I enjoy bouncing ideas back and forth to develop them.",
+            "I feel alive when discussing future possibilities."
+          ]
+        },
+        {
+          "id": "ne_05",
+          "dir": 1,
+          "text": "Feeling stuck (little possibility for change) feels especially bad to me.",
+          "examples": [
+            "I feel trapped if the future looks fixed and repetitive.",
+            "I start searching for new directions when life becomes too predictable.",
+            "I’m sensitive to environments that restrict options."
+          ]
+        },
+        {
+          "id": "ne_06",
+          "dir": 1,
+          "text": "I often dislike people who are closed-minded, rigid, overly literal, or pessimistic about ideas.",
+          "examples": [
+            "“We always do it this way” annoys me if no one considers alternatives.",
+            "I dislike when people criticize an idea before exploring it.",
+            "A consistently negative ‘wet blanket’ attitude drains me."
+          ]
+        },
+
+        {
+          "id": "ne_07",
+          "dir": 1,
+          "text": "I’ve received feedback like: scattered, impractical, inconsistent, unpredictable, or unreliable.",
+          "examples": [
+            "People say I jump between interests or start more than I finish.",
+            "Others think I ignore practical details until late.",
+            "I get accused of changing my mind often."
+          ]
+        },
+
+        {
+          "id": "ne_08",
+          "dir": -1,
+          "text": "I rarely have new ideas and usually refuse to entertain new possibilities.",
+          "examples": [
+            "Brainstorming feels pointless and I prefer to stay with one known approach.",
+            "I strongly resist alternatives even when the situation changes.",
+            "I dislike exploring options and prefer decisions to stay fixed."
+          ]
+        },
+        {
+          "id": "ne_09",
+          "dir": -1,
+          "text": "I genuinely enjoy routine, repetitive practice, and logistical planning (as a preference).",
+          "examples": [
+            "Repeating the same system is satisfying and I prefer it over novelty.",
+            "I like maintaining stable routines more than exploring new directions.",
+            "I feel happiest when life is predictable and well-scheduled."
+          ]
+        },
+        {
+          "id": "ne_10",
+          "dir": -1,
+          "text": "Before I act, I must think through every contingency; improvising feels unsafe.",
+          "examples": [
+            "I delay action until I feel fully prepared and certain.",
+            "I avoid changing plans on the fly.",
+            "Uncertainty makes me stop rather than explore."
+          ]
         }
-      ],
-      "howToPullFromLife": [
-        "List 3 situations this month where you said “yes” too fast.",
-        "For each, write: who asked, what they asked, your real capacity (time/energy).",
-        "Pick one situation and rewrite a 1-sentence boundary using the templates."
-      ]
-    },
-    {
-      "id": "perfectionism",
-      "title": "Perfectionism / Over-polishing",
-      "oneLiner": "You delay finishing because it must be “perfect”, which costs time and energy.",
-      "signals": [
-        "You redo work many times.",
-        "You fear being judged for mistakes.",
-        "You procrastinate on important tasks."
-      ],
-      "questions": [
-        { "id": "pf_q1", "text": "I spend too long polishing details that others barely notice.", "weight": 1.0 },
-        { "id": "pf_q2", "text": "I hesitate to start because I’m not sure I can do it perfectly.", "weight": 1.1 },
-        { "id": "pf_q3", "text": "I feel bad when my work is 'good' but not 'excellent'.", "weight": 1.0 },
-        { "id": "pf_q4", "text": "I avoid sharing drafts because they aren’t ready.", "weight": 1.2 }
-      ],
-      "exampleTemplates": [
-        {
-          "title": "Define 'good enough'",
-          "text": "Before starting [task], define a 70% version: “Success means [3 bullet criteria]. Anything beyond that is optional.”"
-        },
-        {
-          "title": "Timebox polishing",
-          "text": "Set a timer for [25 minutes] to polish [section]. When it ends, ship it or ask for feedback."
-        },
-        {
-          "title": "Draft-first communication",
-          "text": "Send a draft to [person] with a label: “Rough draft — I want feedback on [2 questions], not grammar.”"
-        }
-      ],
-      "howToPullFromLife": [
-        "Choose one task you keep delaying.",
-        "Write what 'failure' looks like in your head; then write what is actually acceptable.",
-        "Pick a timebox (15–45 min) and decide what you will deliver at the end."
-      ]
-    },
-    {
-      "id": "avoidance",
-      "title": "Avoidance / Hard conversations",
-      "oneLiner": "You postpone uncomfortable conversations, so small issues grow bigger.",
-      "signals": [
-        "You 'wait for the right time' that never comes.",
-        "You replay conversations in your head.",
-        "You feel relief when you avoid it, then more anxiety later."
-      ],
-      "questions": [
-        { "id": "av_q1", "text": "I delay addressing issues because I fear conflict.", "weight": 1.1 },
-        { "id": "av_q2", "text": "I hope problems resolve on their own instead of talking.", "weight": 1.0 },
-        { "id": "av_q3", "text": "I overthink what to say and never start.", "weight": 1.1 },
-        { "id": "av_q4", "text": "After avoiding, the issue becomes harder to handle.", "weight": 1.2 }
-      ],
-      "exampleTemplates": [
-        {
-          "title": "2-minute opener",
-          "text": "Open with: “Can we talk for 5 minutes about [topic]? My goal is [goal], not blaming.”"
-        },
-        {
-          "title": "Observation → Impact → Request",
-          "text": "Say: “When [specific behavior], I feel [emotion] because [impact]. Can we try [request]?”"
-        },
-        {
-          "title": "Schedule it instead of forcing now",
-          "text": "If timing is bad: “I want to discuss [topic]. When is a good time today or tomorrow?”"
-        }
-      ],
-      "howToPullFromLife": [
-        "Write the 1-sentence issue: “We need to talk about ____.”",
-        "Write your goal (what you want after the talk).",
-        "Pick one template and fill in blanks with names and one concrete example."
       ]
     }
-  ]
+  }
 }
