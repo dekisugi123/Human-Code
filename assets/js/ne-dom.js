@@ -14,59 +14,110 @@
   function isStrong(v){ return v === 4 || v === 5; }
   function centeredPoints(v){ return v - 3; } // 1..5 -> -2..+2
 
-  // Scoring + confidence:
-  // - Base score from Likert (centeredPoints * dir)
-  // - If answer is 4–5 and user checks >=1 example -> small confirm bonus
-  // - "Can't recall" DOES NOT null the Likert anymore.
-  //   It only reduces Accuracy (heavy) and disables example bonus for that item.
+  /**
+   * Scoring model (same logic, but improved verdict + positive score):
+   * - Raw sum is centered around 0 (negative -> unlikely Ne-dom, positive -> likely)
+   * - Normalize raw sum by maximum possible magnitude => normScore in [-1, +1]
+   * - Display "score" as 0..100 likelihood = (normScore+1)/2 * 100
+   * - Examples bonus still applies only when strong (4-5) and at least 1 example checked
+   * - Can't recall does NOT null Likert; it only reduces Accuracy and disables example bonus for that item
+   */
   function computeScore(items, answers, examples, cantRecall){
-    let sum = 0;
+    let raw = 0;
     let cant = 0;
 
+    // For normalization
+    // Each item core contributes up to 2*abs(dir) (since centeredPoints in [-2,+2])
+    // Example bonus contributes up to 1*abs(dir) if item has examples
+    let maxCore = 0;
+    let maxBonus = 0;
+
     for(const it of items){
-      const v = answers[it.id];
       const dir = (typeof it.dir === 'number') ? it.dir : 1;
+      const absDir = Math.abs(dir);
 
-      if(typeof v === 'number'){
-        sum += centeredPoints(v) * dir;
+      maxCore += 2 * absDir;
+      if(it.examples && it.examples.length) maxBonus += 1 * absDir;
 
-        const cantOn = !!cantRecall[it.id];
-        if(cantOn) {
-          cant += 1;
-          continue; // no example bonus when they can't recall examples
+      const v = answers[it.id];
+      if(typeof v !== 'number') continue;
+
+      raw += centeredPoints(v) * dir;
+
+      const cantOn = !!cantRecall[it.id];
+      if(cantOn){
+        cant += 1;
+        continue; // no example bonus when can't recall examples
+      }
+
+      if(isStrong(v) && it.examples && it.examples.length){
+        let anyChecked = false;
+        for(let i=0;i<it.examples.length;i++){
+          const exId = `${it.id}__ex${i}`;
+          if(examples[exId]) { anyChecked = true; break; }
         }
-
-        if(isStrong(v) && it.examples && it.examples.length){
-          let anyChecked = false;
-          for(let i=0;i<it.examples.length;i++){
-            const exId = `${it.id}__ex${i}`;
-            if(examples[exId]) { anyChecked = true; break; }
-          }
-          if(anyChecked){
-            sum += 1 * dir; // small confirm bonus
-          }
+        if(anyChecked){
+          raw += 1 * dir; // small confirm bonus
         }
       }
     }
 
-    // Heavy penalty if they cannot recall real-life examples
-    const penaltyEach = 15; // adjust later
+    // Accuracy penalty: each "can't recall" reduces accuracy
+    // Keep it heavy, but don't wreck everything too fast.
+    const penaltyEach = 12; // was 15 (slightly less brutal)
     const accuracy = clamp(100 - cant * penaltyEach, 25, 100);
 
-    const abs = Math.abs(sum);
+    // Normalize raw score into [-1, +1]
+    const maxPossible = Math.max(1, (maxCore + maxBonus)); // guard
+    const normScore = clamp(raw / maxPossible, -1, 1);
+
+    // Display-friendly score: 0..100
+    const likelihood = clamp(Math.round((normScore + 1) * 50), 0, 100);
+
+    // Confidence: based on (1) accuracy and (2) separation from the middle
+    const sep = Math.abs(normScore); // 0..1
     let confidence = 'low';
-    if(accuracy >= 85 && abs >= 8) confidence = 'high';
-    else if(accuracy >= 70 && abs >= 5) confidence = 'medium';
+    if(accuracy >= 85 && sep >= 0.35) confidence = 'high';
+    else if(accuracy >= 70 && sep >= 0.22) confidence = 'medium';
 
-    // Verdict thresholds (simple + readable)
-    // score > +6 => likely Ne-dom (given this page is Ne-dom confirmation)
-    // score < -6 => unlikely
-    // else inconclusive
+    // Verdict: harder to be inconclusive
+    // - If accuracy is too low, always inconclusive
+    // - Otherwise decide by normScore threshold
+    const MIN_ACC_FOR_VERDICT = 55;
+
+    // These thresholds decide how quickly we give likely/unlikely
+    // (Make inconclusive narrower around the center)
+    const TH = 0.18; // ~ 59/41 on the 0..100 scale
+
     let verdict = 'inconclusive';
-    if(sum >= 6 && accuracy >= 55) verdict = 'likely';
-    else if(sum <= -6 && accuracy >= 55) verdict = 'unlikely';
+    if(accuracy < MIN_ACC_FOR_VERDICT){
+      verdict = 'inconclusive';
+    }else if(normScore >= TH){
+      verdict = 'likely';
+    }else if(normScore <= -TH){
+      verdict = 'unlikely';
+    }else{
+      verdict = 'inconclusive';
+    }
 
-    return { score: sum, accuracy, confidence, verdict, cantRecallCount: cant };
+    // Optional: a numeric "verdict confidence %" for display text
+    // Mix accuracy and separation.
+    const verdictPct = clamp(
+      Math.round(0.6 * accuracy + 0.4 * (sep * 100)),
+      0,
+      100
+    );
+
+    return {
+      rawScore: raw,
+      normScore,
+      score100: likelihood,
+      accuracy,
+      confidence,
+      verdict,
+      verdictPct,
+      cantRecallCount: cant
+    };
   }
 
   function el(tag, attrs={}, children=[]){
@@ -76,8 +127,15 @@
   function renderLikert(currentValue, onPick){
     const row = el('div', { class: 'likert-row' });
 
-    const left = el('div', { class: 'likert-label disagree', text: window.App.t('scale_left', 'Disagree') });
-    const right = el('div', { class: 'likert-label agree', text: window.App.t('scale_right', 'Agree') });
+    // Change text here ONLY (no other files):
+    const left = el('div', {
+      class: 'likert-label disagree',
+      text: window.App.t('scale_left', 'Never')
+    });
+    const right = el('div', {
+      class: 'likert-label agree',
+      text: window.App.t('scale_right', 'Always')
+    });
 
     const bubbles = el('div', {
       class: 'bubbles',
@@ -159,7 +217,7 @@
       list.appendChild(el('li', { class: 'ex-item' }, [input, label]));
     });
 
-    // "Can't recall examples" option (does NOT null Likert anymore)
+    // "Can't recall examples" option (does NOT null Likert)
     const cantId = `${item.id}__cant`;
     const cantInput = el('input', { type: 'checkbox', id: cantId });
     cantInput.checked = !!state.cantRecall[item.id];
@@ -218,8 +276,9 @@
   function updateScoreUI(items, state){
     const s = computeScore(items, state.answers, state.examples, state.cantRecall);
 
+    // Display positive score (0..100)
     const scoreEl = document.getElementById('scoreValue');
-    if(scoreEl) scoreEl.textContent = String(s.score);
+    if(scoreEl) scoreEl.textContent = String(s.score100);
 
     const accEl = document.getElementById('accuracyValue');
     if(accEl) accEl.textContent = `${s.accuracy}%`;
@@ -238,10 +297,14 @@
     // Verdict text (only updates if element exists)
     const verdictEl = document.getElementById('verdictValue');
     if(verdictEl){
+      // Include a % to make it feel like a real conclusion.
+      // Uses verdictPct which already blends accuracy + separation.
       verdictEl.textContent =
-        s.verdict === 'likely' ? window.App.t('verdict_likely', 'Likely Ne-dominant') :
-        s.verdict === 'unlikely' ? window.App.t('verdict_unlikely', 'Unlikely Ne-dominant') :
-        window.App.t('verdict_inconclusive', 'Inconclusive');
+        s.verdict === 'likely'
+          ? window.App.t('verdict_likely', 'Likely Ne-dominant') + ` (${s.verdictPct}%)`
+          : s.verdict === 'unlikely'
+            ? window.App.t('verdict_unlikely', 'Unlikely Ne-dominant') + ` (${s.verdictPct}%)`
+            : window.App.t('verdict_inconclusive', 'Inconclusive');
     }
 
     state._computed = s;
