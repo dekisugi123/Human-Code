@@ -1,0 +1,110 @@
+{
+  "scale": { "labels": ["Không bao giờ", "Hiếm khi", "Thỉnh thoảng", "Thường", "Gần như luôn"], "values": [0, 1, 2, 3, 4] },
+  "cases": [
+    {
+      "id": "people_pleasing",
+      "title": "Chiều lòng người khác / Khó từ chối",
+      "oneLiner": "Bạn hay đồng ý để tránh căng thẳng, rồi lại stress hoặc bực bội.",
+      "signals": [
+        "Bạn nói “được” rất nhanh rồi hối hận.",
+        "Bạn ngại đòi hỏi nhu cầu của mình.",
+        "Bạn sợ người khác thất vọng."
+      ],
+      "questions": [
+        { "id": "pp_q1", "text": "Tôi nhận lời giúp dù biết mình không đủ thời gian.", "weight": 1.0 },
+        { "id": "pp_q2", "text": "Tôi lo lắng khi có khả năng làm ai đó thất vọng.", "weight": 1.0 },
+        { "id": "pp_q3", "text": "Sau khi nói “đồng ý”, tôi thấy bực bội hoặc kiệt sức.", "weight": 1.2 },
+        { "id": "pp_q4", "text": "Tôi tránh góp ý thẳng vì muốn yên ổn.", "weight": 0.9 }
+      ],
+      "exampleTemplates": [
+        {
+          "title": "Ranh giới ở công việc/học tập",
+          "text": "Khi [người] nhờ bạn làm [việc] gấp, nói: “Hôm nay mình không kịp. Mình có thể làm [phần nhỏ] trước [giờ], hoặc mình hẹn [ngày] để xử lý.”"
+        },
+        {
+          "title": "Nhờ vả trong gia đình",
+          "text": "Nếu [người thân] nhờ bạn [việc], trả lời: “Mình giúp được [30 phút] vào [ngày]. Nếu cần thêm, mình cùng lên kế hoạch nhé.”"
+        },
+        {
+          "title": "Bạn bè rủ đi chơi",
+          "text": "Khi bạn rủ đi [sự kiện] nhưng bạn mệt, nói: “Tối nay mình nghỉ. Mình đi [phiên bản ngắn hơn] vào [ngày khác] được không?”"
+        }
+      ],
+      "howToPullFromLife": [
+        "Ghi lại 3 tình huống trong tháng này bạn đã “đồng ý” quá nhanh.",
+        "Với mỗi tình huống, viết: ai nhờ, nhờ việc gì, năng lượng/thời gian thật của bạn.",
+        "Chọn 1 tình huống và viết lại 1 câu 'từ chối mềm' theo template."
+      ]
+    },
+    {
+      "id": "perfectionism",
+      "title": "Cầu toàn / Mài giũa quá mức",
+      "oneLiner": "Bạn khó hoàn thành vì muốn “hoàn hảo”, tốn nhiều thời gian và sức lực.",
+      "signals": [
+        "Bạn sửa đi sửa lại nhiều lần.",
+        "Bạn sợ bị đánh giá nếu sai.",
+        "Bạn trì hoãn việc quan trọng."
+      ],
+      "questions": [
+        { "id": "pf_q1", "text": "Tôi mất quá nhiều thời gian cho chi tiết mà người khác ít để ý.", "weight": 1.0 },
+        { "id": "pf_q2", "text": "Tôi ngại bắt đầu vì sợ không làm được thật hoàn hảo.", "weight": 1.1 },
+        { "id": "pf_q3", "text": "Tôi thấy khó chịu khi kết quả 'ổn' nhưng chưa 'xuất sắc'.", "weight": 1.0 },
+        { "id": "pf_q4", "text": "Tôi ngại đưa bản nháp vì thấy chưa đủ tốt.", "weight": 1.2 }
+      ],
+      "exampleTemplates": [
+        {
+          "title": "Định nghĩa 'đủ tốt'",
+          "text": "Trước khi làm [việc], đặt mục tiêu 70%: “Xong nghĩa là đạt [3 tiêu chí]. Phần còn lại là tùy chọn.”"
+        },
+        {
+          "title": "Giới hạn thời gian mài giũa",
+          "text": "Đặt hẹn giờ [25 phút] để chỉnh [phần]. Hết giờ thì nộp/đẩy đi hoặc xin feedback."
+        },
+        {
+          "title": "Gửi bản nháp trước",
+          "text": "Gửi bản nháp cho [người] kèm nhãn: “Bản nháp — mình cần góp ý về [2 câu hỏi], không cần soi lỗi chính tả.”"
+        }
+      ],
+      "howToPullFromLife": [
+        "Chọn 1 việc bạn đang trì hoãn.",
+        "Viết 'thất bại' trong đầu bạn là gì; rồi viết mức chấp nhận được thực tế là gì.",
+        "Chọn một timebox (15–45 phút) và quyết định bạn sẽ bàn giao gì khi hết giờ."
+      ]
+    },
+    {
+      "id": "avoidance",
+      "title": "Né tránh / Ngại nói chuyện khó",
+      "oneLiner": "Bạn trì hoãn nói chuyện khó, làm vấn đề nhỏ thành lớn.",
+      "signals": [
+        "Bạn cứ chờ 'đúng thời điểm' nhưng không bao giờ đến.",
+        "Bạn suy đi nghĩ lại trong đầu.",
+        "Tránh thì nhẹ người lúc đó, nhưng sau lại lo hơn."
+      ],
+      "questions": [
+        { "id": "av_q1", "text": "Tôi trì hoãn nói thẳng vì sợ xung đột.", "weight": 1.1 },
+        { "id": "av_q2", "text": "Tôi hy vọng vấn đề tự hết thay vì nói chuyện.", "weight": 1.0 },
+        { "id": "av_q3", "text": "Tôi nghĩ quá nhiều về cách nói nên mãi không bắt đầu.", "weight": 1.1 },
+        { "id": "av_q4", "text": "Tránh xong thì vấn đề càng khó xử hơn.", "weight": 1.2 }
+      ],
+      "exampleTemplates": [
+        {
+          "title": "Mở đầu 2 phút",
+          "text": "Mở đầu: “Mình nói 5 phút về [chủ đề] được không? Mục tiêu của mình là [mục tiêu], không phải đổ lỗi.”"
+        },
+        {
+          "title": "Quan sát → Tác động → Đề nghị",
+          "text": "Nói: “Khi [hành vi cụ thể], mình thấy [cảm xúc] vì [tác động]. Mình muốn thử [đề nghị] được không?”"
+        },
+        {
+          "title": "Hẹn lịch thay vì ép nói ngay",
+          "text": "Nếu chưa tiện: “Mình muốn nói về [chủ đề]. Khi nào hôm nay hoặc ngày mai bạn rảnh?”"
+        }
+      ],
+      "howToPullFromLife": [
+        "Viết 1 câu vấn đề: “Mình cần nói về ____.”",
+        "Viết mục tiêu sau cuộc nói chuyện (bạn muốn điều gì).",
+        "Chọn 1 template và điền tên người + 1 ví dụ cụ thể."
+      ]
+    }
+  ]
+}
