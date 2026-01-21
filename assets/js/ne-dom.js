@@ -1,255 +1,418 @@
-(function(){
-  const PAGE_ID = 'ne_dom';
+(function () {
+  const PAGE_ID = "ne_dom";
 
-  // Scale: Never=0, Rarely=1, Sometimes=2, Often=3, Almost always=4
+  // =========================
+  // Option B: 5-point scale
+  // + "Don't remember"
+  // Values: 1..5, and -1 for "Don't remember"
+  // =========================
   const SCALE = [
-    { v: 0, label: 'Never / almost never' },
-    { v: 1, label: 'Rarely' },
-    { v: 2, label: 'Sometimes' },
-    { v: 3, label: 'Often' },
-    { v: 4, label: 'Almost always' }
+    { v: 1, label: "Never" },
+    { v: 2, label: "Rarely" },
+    { v: 3, label: "Sometimes" },
+    { v: 4, label: "Often" },
+    { v: 5, label: "Almost always" },
+    { v: -1, label: "Don’t remember / can’t recall" },
   ];
 
-  // Structured versions of the exact ideas you provided (no personal “life story” invention).
-  const presenceItems = [
+  // Top-2 highest (4-5) triggers showing examples
+  const TOP2_MIN = 4;
+
+  // =========================
+  // Ne-dominant confirmation items (NO exclusion section)
+  // Keep them clean, short, not "Part A / Part B"
+  // =========================
+  const items = [
     {
-      id: 'ne_p1',
-      title: 'My mind naturally generates many different possibilities / paths.',
-      note: 'Diverse ideas, aspirations, “what-if” branches.',
+      id: "ne_1",
+      title:
+        "My mind naturally generates many different possibilities or paths (\"what-if\" branches).",
       examples: [
-        'You quickly see multiple ways something could play out.',
-        'You get energized by exploring alternatives, not just one plan.'
-      ]
+        "You quickly see multiple ways something could go.",
+        "You naturally jump to alternative interpretations or options.",
+        "You often ask “What else could we do?” before committing.",
+      ],
     },
     {
-      id: 'ne_p2',
-      title: 'I value open-mindedness and resourcefulness, and I enjoy creating new approaches.',
-      note: 'Preference for novel methods; old methods may feel stale.',
+      id: "ne_2",
+      title:
+        "I feel energized by new ideas, new angles, or new options—even if I don’t act on them yet.",
       examples: [
-        'You enjoy trying new tools/solutions rather than repeating the same method.',
-        'You adapt by reframing or changing the approach when stuck.'
-      ]
+        "New possibilities lift your mood or motivation quickly.",
+        "You get a “spark” when a new angle appears.",
+        "You feel more alive when there are options to explore.",
+      ],
     },
     {
-      id: 'ne_p3',
-      title: 'Interesting possibilities lift my mood quickly; I like brainstorming with people.',
-      note: 'Hopeful/optimistic “spark” from options and ideas.',
+      id: "ne_3",
+      title:
+        "I enjoy brainstorming (alone or with others) more than following a fixed plan.",
       examples: [
-        'A new possibility makes you perk up and re-engage.',
-        'You like bouncing ideas back-and-forth to develop them.'
-      ]
+        "You like bouncing ideas back and forth to expand them.",
+        "You prefer exploring alternatives before locking in.",
+        "You can generate variants quickly, even under time pressure.",
+      ],
     },
     {
-      id: 'ne_p4',
-      title: 'Feeling stuck (no room to change) feels especially bad to me.',
-      note: '“No possibility” feels dire; stuckness feels heavy.',
+      id: "ne_4",
+      title:
+        "Feeling stuck (few options, repetitive life, little possibility to change) feels especially unbearable to me.",
       examples: [
-        'You feel trapped when life becomes too fixed or repetitive.',
-        'You seek new options when you sense a dead-end.'
-      ]
+        "When life becomes repetitive, you urgently search for new options.",
+        "A “dead-end” feeling makes you restless or low.",
+        "You feel better once you can see a new path forward.",
+      ],
     },
     {
-      id: 'ne_p5',
-      title: 'I strongly dislike people who are closed-minded, overly rigid, or pessimistic “wet blankets.”',
-      note: 'Reactivity to unimaginative / overly literal / rigid attitudes.',
+      id: "ne_5",
+      title:
+        "I strongly value open-mindedness and exploring alternatives; rigid thinking annoys me.",
       examples: [
-        'You get frustrated with “we always do it this way.”',
-        'You dislike shutting down ideas before exploring them.'
-      ]
+        "You dislike “we always do it this way” without trying alternatives.",
+        "You get frustrated when people shut down ideas too early.",
+        "You prefer “let’s explore” over “just follow the rule.”",
+      ],
     },
     {
-      id: 'ne_p6',
-      title: 'I have received feedback like: scattered, impractical, inconsistent, unreliable, or unpredictable.',
-      note: 'Common downside labels associated with high Ne.',
+      id: "ne_6",
+      title:
+        "I’ve been told I can be scattered, inconsistent, or impractical because I chase possibilities.",
       examples: [
-        'Others say you jump between interests or start more than you finish.',
-        'Others feel you ignore practical details or logistics.'
-      ]
-    }
+        "You start more ideas than you finish.",
+        "You switch interests when something more interesting appears.",
+        "You may forget practical details while exploring concepts.",
+      ],
+    },
   ];
 
-  // Your “NOT Ne dominant” signs (as exclusion items).
-  const exclusionItems = [
-    {
-      id: 'ne_x1',
-      title: 'I rarely have new ideas and I usually refuse to entertain new possibilities.',
-      note: 'Low openness to alternatives.',
-      examples: [
-        'Brainstorming feels annoying or pointless.',
-        'You prefer sticking to the known path almost always.'
-      ]
-    },
-    {
-      id: 'ne_x2',
-      title: 'I genuinely enjoy routine, repetitive practice, and logistical planning.',
-      note: 'Routine comfort as a preference (not just coping).',
-      examples: [
-        'You prefer repeating what works.',
-        'Maintaining systems feels more satisfying than exploring new ones.'
-      ]
-    },
-    {
-      id: 'ne_x3',
-      title: 'I must think through every contingency before acting.',
-      note: 'High need for certainty before action.',
-      examples: [
-        'You delay action until fully prepared.',
-        'You avoid improvising because it feels unsafe.'
-      ]
-    },
-    {
-      id: 'ne_x4',
-      title: 'I do not dream big and I don’t relate to big-picture possibility thinking.',
-      note: 'Low pull toward future possibilities.',
-      examples: [
-        'You focus mostly on immediate, concrete goals.',
-        '“Dreaming” feels unrealistic or unnecessary.'
-      ]
-    }
-  ];
-
-  function el(tag, attrs = {}, children = []){
+  // =========================
+  // DOM helpers
+  // =========================
+  function el(tag, attrs = {}, children = []) {
     const node = document.createElement(tag);
-    Object.entries(attrs).forEach(([k,v]) => {
-      if(k === 'class') node.className = v;
+    for (const [k, v] of Object.entries(attrs)) {
+      if (k === "class") node.className = v;
+      else if (k === "text") node.textContent = v;
       else node.setAttribute(k, v);
-    });
-    children.forEach(ch => node.appendChild(ch));
+    }
+    for (const ch of children) node.appendChild(ch);
     return node;
   }
 
-  function renderQuestion(item, kind, saved){
-    const defaultVal = (saved && typeof saved[item.id] === 'number') ? saved[item.id] : 0;
+  function clamp(n, lo, hi) {
+    return Math.max(lo, Math.min(hi, n));
+  }
 
-    const title = el('div', { class: 'qtitle' });
-    title.textContent = item.title;
+  // =========================
+  // Scoring (prototype)
+  // - Primary score: sum of 1..5 responses
+  // - "Don't remember" penalizes confidence heavily
+  // =========================
+  function computeScores(answers) {
+    let sum = 0;
+    let answered = 0;
+    let dontRememberCount = 0;
 
-    const meta = el('div', { class: 'qmeta' });
-    meta.textContent = item.note || '';
+    for (const it of items) {
+      const v = answers[it.id];
+      if (typeof v !== "number") continue;
 
-    const select = el('select', { 'data-qid': item.id, 'data-kind': kind });
-    SCALE.forEach(opt => {
-      const o = document.createElement('option');
-      o.value = String(opt.v);
-      o.textContent = opt.label;
-      if(opt.v === defaultVal) o.selected = true;
-      select.appendChild(o);
-    });
+      if (v === -1) {
+        dontRememberCount += 1;
+        continue;
+      }
 
-    const selectRow = el('div', { class: 'select-row' }, [
-      el('label', {}, [document.createTextNode('How often is this true?')]),
-      select
-    ]);
-
-    let examplesNode = null;
-    if(item.examples && item.examples.length){
-      const ul = el('ul');
-      item.examples.forEach(t => ul.appendChild(el('li', {}, [document.createTextNode(t)])));
-      examplesNode = el('details', { class: 'examples' }, [
-        el('summary', {}, [document.createTextNode('Examples (optional)')]),
-        ul
-      ]);
+      answered += 1;
+      sum += v; // 1..5
     }
 
-    const top = el('div', { class: 'qtop' }, [
-      el('div', {}, [title, meta]),
+    // Normalize-ish presence strength (0..1)
+    // If answered==0 -> 0
+    const maxPossible = answered * 5;
+    const strength = maxPossible > 0 ? sum / maxPossible : 0;
+
+    // Confidence: starts from coverage + strength, then reduced by don't-remember
+    const coverage = items.length > 0 ? answered / items.length : 0;
+    let conf = 0.45 * coverage + 0.55 * strength;
+
+    // big penalty per "don't remember"
+    conf -= dontRememberCount * 0.18;
+
+    conf = clamp(conf, 0, 1);
+
+    let confidenceLabel = "Low";
+    if (conf >= 0.72) confidenceLabel = "High";
+    else if (conf >= 0.5) confidenceLabel = "Medium";
+
+    return {
+      presence: sum, // reuse existing UI box "Ne presence"
+      exclusion: dontRememberCount, // reuse existing UI box "Ne exclusion" (now shows don't-remember count)
+      net: Math.round(conf * 100), // reuse "Net" box as Confidence %
+      confidence: confidenceLabel,
+      meta: {
+        answered,
+        dontRememberCount,
+        strength: Number(strength.toFixed(3)),
+        coverage: Number(coverage.toFixed(3)),
+        confidence01: Number(conf.toFixed(3)),
+      },
+    };
+  }
+
+  // =========================
+  // Render one question with:
+  // - big bubble radio scale (like your image)
+  // - examples only appear when value is 4 or 5
+  // - includes "Don't remember"
+  // =========================
+  function renderQuestion(it, savedAnswers) {
+    const defaultVal =
+      savedAnswers && typeof savedAnswers[it.id] === "number"
+        ? savedAnswers[it.id]
+        : null;
+
+    const qTitle = el("div", { class: "qtitle", text: it.title });
+
+    // Big choices row
+    const choicesRow = el("div", { class: "likert-row" });
+
+    // We'll create a radio group per question
+    const name = `q_${it.id}`;
+
+    SCALE.forEach((opt) => {
+      const inputId = `${name}_${opt.v}`;
+
+      // wrapper
+      const wrap = el("label", {
+        class:
+          opt.v === -1 ? "likert-choice dont-remember" : "likert-choice",
+        for: inputId,
+      });
+
+      const input = el("input", {
+        type: "radio",
+        id: inputId,
+        name,
+        value: String(opt.v),
+        "data-qid": it.id,
+      });
+
+      if (defaultVal !== null && opt.v === defaultVal) input.checked = true;
+
+      const bubble = el("span", { class: "bubble", "aria-hidden": "true" });
+      const label = el("span", { class: "choice-label", text: opt.label });
+
+      wrap.appendChild(input);
+      wrap.appendChild(bubble);
+      wrap.appendChild(label);
+
+      choicesRow.appendChild(wrap);
+    });
+
+    // Examples box (hidden by default; shown only when 4 or 5)
+    const exTitle = el("div", {
+      class: "examples-title",
+      text: "Examples (only shown when you choose Often / Almost always)",
+    });
+
+    const exList = el("ul", { class: "examples-list" });
+    (it.examples || []).forEach((t) => {
+      exList.appendChild(el("li", { text: t }));
+    });
+
+    const examplesBox = el("div", { class: "examples-box hidden" }, [
+      exTitle,
+      exList,
     ]);
 
-    const qcard = el('div', { class: 'qcard' }, [top, selectRow]);
-    if(examplesNode) qcard.appendChild(examplesNode);
-    return qcard;
+    // Whole card
+    const card = el("div", { class: "qcard big" }, [
+      qTitle,
+      choicesRow,
+      examplesBox,
+    ]);
+
+    // Set initial examples visibility
+    if (defaultVal !== null && defaultVal >= TOP2_MIN) {
+      examplesBox.classList.remove("hidden");
+    }
+
+    return { card, examplesBox };
   }
 
-  function computeScores(presenceAnswers, exclusionAnswers){
-    const presence = Object.values(presenceAnswers).reduce((a,b)=>a+b,0);
-    const exclusion = Object.values(exclusionAnswers).reduce((a,b)=>a+b,0);
-    const net = presence - exclusion;
+  // =========================
+  // Inject minimal CSS (so you don’t have to edit CSS yet)
+  // This makes it "like the image": big text, big bubbles, clean.
+  // =========================
+  function injectStyleOnce() {
+    if (document.getElementById("ne_dom_inline_style")) return;
 
-    // Placeholder confidence thresholds (tune later)
-    let confidence = 'Low';
-    if(net >= 14) confidence = 'High';
-    else if(net >= 8) confidence = 'Medium';
+    const css = `
+      /* Big readable page */
+      .qcard.big{ padding: 22px; border: 1px solid rgba(0,0,0,0.08); border-radius: 16px; }
+      .qtitle{ font-size: 28px; line-height: 1.25; font-weight: 600; margin-bottom: 18px; }
+      .likert-row{ display:flex; flex-wrap: wrap; gap: 16px; align-items: center; }
 
-    return { presence, exclusion, net, confidence };
+      .likert-choice{
+        display:flex; align-items:center; gap:10px;
+        cursor:pointer; user-select:none;
+        padding: 10px 12px; border-radius: 12px;
+      }
+      .likert-choice:hover{ background: rgba(0,0,0,0.03); }
+
+      .likert-choice input{ position:absolute; opacity:0; pointer-events:none; }
+      .bubble{
+        width: 44px; height: 44px; border-radius: 999px;
+        border: 4px solid rgba(0,0,0,0.25);
+        display:inline-block;
+      }
+      .choice-label{ font-size: 20px; line-height: 1.1; }
+
+      /* Checked states */
+      .likert-choice input:checked + .bubble{
+        border-color: rgba(0,0,0,0.75);
+      }
+
+      /* "Don't remember" more obvious */
+      .likert-choice.dont-remember .bubble{
+        border-style: dashed;
+      }
+
+      .examples-box{
+        margin-top: 16px;
+        background: rgba(0,0,0,0.03);
+        border-radius: 14px;
+        padding: 14px 16px;
+      }
+      .examples-box.hidden{ display:none; }
+      .examples-title{ font-size: 16px; opacity: 0.75; margin-bottom: 10px; }
+      .examples-list{ margin: 0; padding-left: 18px; }
+      .examples-list li{ font-size: 18px; line-height: 1.35; margin: 6px 0; }
+
+      /* Reduce “letters stuck together” */
+      .stack{ display:flex; flex-direction:column; gap: 18px; }
+    `;
+
+    const style = document.createElement("style");
+    style.id = "ne_dom_inline_style";
+    style.textContent = css;
+    document.head.appendChild(style);
   }
 
-  function main(){
-    const presenceList = document.getElementById('presenceList');
-    const exclusionList = document.getElementById('exclusionList');
+  // =========================
+  // Main
+  // =========================
+  function main() {
+    injectStyleOnce();
 
-    const saved = window.AppStorage.loadPage(PAGE_ID) || {};
+    // Render into presenceList if exists, else exclusionList, else main container
+    const mount =
+      document.getElementById("presenceList") ||
+      document.getElementById("exclusionList") ||
+      document.querySelector("main") ||
+      document.body;
+
+    // Clear existing content if any
+    if (mount) mount.innerHTML = "";
+
+    const saved = window.AppStorage?.loadPage(PAGE_ID) || {};
     const savedAnswers = saved.answers || {};
 
-    const presenceAnswers = {};
-    const exclusionAnswers = {};
+    const answers = {};
 
-    presenceItems.forEach(item => {
-      const card = renderQuestion(item, 'presence', savedAnswers);
-      presenceList.appendChild(card);
-      presenceAnswers[item.id] = (typeof savedAnswers[item.id] === 'number') ? savedAnswers[item.id] : 0;
+    // Build UI
+    const exampleBoxesById = {};
+
+    items.forEach((it) => {
+      const { card, examplesBox } = renderQuestion(it, savedAnswers);
+      mount.appendChild(card);
+
+      const v =
+        typeof savedAnswers[it.id] === "number" ? savedAnswers[it.id] : null;
+      if (v !== null) answers[it.id] = v;
+
+      exampleBoxesById[it.id] = examplesBox;
     });
 
-    exclusionItems.forEach(item => {
-      const card = renderQuestion(item, 'exclusion', savedAnswers);
-      exclusionList.appendChild(card);
-      exclusionAnswers[item.id] = (typeof savedAnswers[item.id] === 'number') ? savedAnswers[item.id] : 0;
-    });
+    // Score elements (reuse existing ids from your HTML)
+    const presenceScoreEl = document.getElementById("presenceScore");
+    const exclusionScoreEl = document.getElementById("exclusionScore");
+    const netScoreEl = document.getElementById("netScore");
+    const confidenceEl = document.getElementById("confidence");
 
-    const presenceScoreEl = document.getElementById('presenceScore');
-    const exclusionScoreEl = document.getElementById('exclusionScore');
-    const netScoreEl = document.getElementById('netScore');
-    const confidenceEl = document.getElementById('confidence');
+    function refreshScores() {
+      const s = computeScores(answers);
 
-    function refresh(){
-      const s = computeScores(presenceAnswers, exclusionAnswers);
-      presenceScoreEl.textContent = String(s.presence);
-      exclusionScoreEl.textContent = String(s.exclusion);
-      netScoreEl.textContent = String(s.net);
-      confidenceEl.textContent = s.confidence;
+      // If score widgets are present, update them; otherwise do nothing
+      if (presenceScoreEl) presenceScoreEl.textContent = String(s.presence);
+      if (exclusionScoreEl) exclusionScoreEl.textContent = String(s.exclusion); // now shows "don't remember count"
+      if (netScoreEl) netScoreEl.textContent = String(s.net); // now shows confidence %
+      if (confidenceEl) confidenceEl.textContent = s.confidence;
+
+      return s;
     }
 
-    document.addEventListener('change', (e) => {
+    // Handle clicks/changes (radio inputs)
+    document.addEventListener("change", (e) => {
       const t = e.target;
-      if(!(t instanceof HTMLSelectElement)) return;
-      const qid = t.getAttribute('data-qid');
-      const kind = t.getAttribute('data-kind');
-      if(!qid || !kind) return;
+      if (!(t instanceof HTMLInputElement)) return;
+      if (t.type !== "radio") return;
+
+      const qid = t.getAttribute("data-qid");
+      if (!qid) return;
 
       const val = parseInt(t.value, 10);
-      if(Number.isNaN(val)) return;
+      if (Number.isNaN(val)) return;
 
-      if(kind === 'presence') presenceAnswers[qid] = val;
-      if(kind === 'exclusion') exclusionAnswers[qid] = val;
+      answers[qid] = val;
 
-      refresh();
+      // Show examples only when 4 or 5
+      const exBox = exampleBoxesById[qid];
+      if (exBox) {
+        if (val >= TOP2_MIN) exBox.classList.remove("hidden");
+        else exBox.classList.add("hidden");
+      }
+
+      refreshScores();
     });
 
-    refresh();
+    // Initial refresh
+    const initialScores = refreshScores();
 
-    const saveBtn = document.getElementById('saveBtn');
-    const saveStatus = document.getElementById('saveStatus');
-    saveBtn.addEventListener('click', () => {
-      const answers = { ...presenceAnswers, ...exclusionAnswers };
-      const scores = computeScores(presenceAnswers, exclusionAnswers);
-      window.AppStorage.savePage(PAGE_ID, {
-        answers,
-        scores,
-        updated_at: new Date().toISOString()
+    // Save / Reset buttons (reuse your existing HTML buttons)
+    const saveBtn = document.getElementById("saveBtn");
+    const saveStatus = document.getElementById("saveStatus");
+
+    if (saveBtn) {
+      saveBtn.addEventListener("click", () => {
+        const scores = refreshScores();
+        window.AppStorage.savePage(PAGE_ID, {
+          answers: { ...answers },
+          scores,
+          updated_at: new Date().toISOString(),
+        });
+        if (saveStatus) {
+          saveStatus.textContent = `Saved ✓ (${new Date().toLocaleString()})`;
+        }
       });
-      saveStatus.textContent = `Saved ✓ (${new Date().toLocaleString()})`;
-    });
+    }
 
-    const resetPageBtn = document.getElementById('resetPageBtn');
-    resetPageBtn.addEventListener('click', () => {
-      if(!confirm('Reset answers for this page?')) return;
-      window.AppStorage.resetPage(PAGE_ID);
-      location.reload();
-    });
+    const resetPageBtn = document.getElementById("resetPageBtn");
+    if (resetPageBtn) {
+      resetPageBtn.addEventListener("click", () => {
+        if (!confirm("Reset answers for this page?")) return;
+        window.AppStorage.resetPage(PAGE_ID);
+        location.reload();
+      });
+    }
+
+    // If nothing was answered but saved had scores, don't care; prototype.
+    // (We compute live anyway.)
   }
 
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', main);
-  }else{
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", main);
+  } else {
     main();
   }
 })();
