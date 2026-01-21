@@ -283,7 +283,13 @@ a{ color:inherit; }
 
 .bubble.l1{ border-color: color-mix(in srgb, var(--disagree) 60%, white); color: var(--disagree); }
 .bubble.l2{ border-color: color-mix(in srgb, var(--disagree) 85%, white); color: var(--disagree); }
-.bubble.l3{ width: 34px; height: 34px; border-width: 3px; border-color: var(--neutral); color: var(--neutral); }
+.bubble.l3{
+  width: 54px;
+  height: 54px;
+  border-width: 4px;
+  border-color: var(--neutral);
+  color: var(--text);   /* important so the dot is visible */
+}
 .bubble.l4{ border-color: color-mix(in srgb, var(--agree) 85%, white); color: var(--agree); }
 .bubble.l5{ border-color: color-mix(in srgb, var(--agree) 60%, white); color: var(--agree); }
 
