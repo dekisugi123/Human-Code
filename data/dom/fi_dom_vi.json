@@ -1,1 +1,158 @@
+{
+  "title": "Xác nhận Fi (Dominant)",
+  "intro": "Trả lời theo kiểu hành vi ổn định lâu dài của bạn. Chỉ chọn 4–5 khi điều đó đúng một cách nhất quán trong đời. Nếu chọn 4–5, bạn có thể tick ví dụ đời thật để xác nhận thêm (không bắt buộc).",
+  "items": [
+    {
+      "id": "fi_p1",
+      "dir": 1,
+      "text": "Cảm xúc và giá trị cá nhân ảnh hưởng mạnh đến sở thích, gắn bó, và quyết định của tôi (rất khó để phớt lờ).",
+      "examples": [
+        "Dù hiệu quả, tôi vẫn tránh làm nếu nó khiến tôi thấy sai.",
+        "Tôi khó chọn một hướng nếu nó không ‘đúng với mình’.",
+        "Tôi thường biết nhanh mình thích/ghét gì mà không cần người khác định hướng.",
+        "Tôi rất khó làm điều trái với giá trị của mình, kể cả khi bị ép.",
+        "Khi tôi phản bội giá trị của mình, tôi thấy tội lỗi hoặc tự khinh mình mạnh.",
+        "Tâm trạng/đời sống bên trong ảnh hưởng rõ đến tôi muốn làm gì trong ngày.",
+        "Tôi có gu cá nhân mạnh (nhạc, thẩm mỹ, người) và nó gắn với bản sắc.",
+        "Tôi thà sống đúng với mình hơn là được tất cả mọi người thích."
+      ]
+    },
+    {
+      "id": "fi_p2",
+      "dir": 1,
+      "text": "Sống có chính trực rất quan trọng với tôi; tôi coi trọng sự chân thật và tôn trọng trải nghiệm riêng của mỗi người.",
+      "examples": [
+        "Tôi ghét bị ép phải giả vờ hoặc ‘diễn’ một phiên bản không phải mình.",
+        "Tôi khó chịu khi người ta coi nhẹ cảm xúc của người khác vì ‘không logic’.",
+        "Tôi không thích môi trường lạnh lùng, vô hồn, chỉ chạy theo địa vị.",
+        "Tôi rất nhạy với chuyện tôn trọng ranh giới và cá tính riêng.",
+        "Tôi lên tiếng (hoặc rút lui) khi thấy điều gì đó sai về mặt đạo đức.",
+        "Tôi quan tâm ý nghĩa hơn là hình thức.",
+        "Tôi nhạy với sự giả tạo/đạo đức giả (nói một đằng làm một nẻo).",
+        "Tôi muốn hành động khớp với niềm tin chứ không chỉ nói hay."
+      ]
+    },
+    {
+      "id": "fi_p3",
+      "dir": 1,
+      "text": "Tôi thường nhận biết mình đang cảm thấy gì và tôi cần không gian để xử lý/biểu đạt (thường theo cách riêng hoặc sáng tạo).",
+      "examples": [
+        "Tôi nhận ra các thay đổi tinh tế trong tâm trạng và nguyên nhân của nó.",
+        "Tôi cần thời gian một mình để hiểu thật sự mình đang cảm gì.",
+        "Tôi hay biểu đạt cảm xúc qua nghệ thuật, nhạc, viết, phong cách, dự án cá nhân.",
+        "Tôi khó chịu nếu bị ép giải thích cảm xúc khi chưa sẵn sàng.",
+        "Tôi thích cảm xúc sâu thật hơn là vui vẻ hời hợt.",
+        "Tôi không thoải mái khi người khác coi cảm xúc là ‘nhiễu’ cần loại bỏ.",
+        "Tôi đôi khi cảm rất mạnh và cần thời gian để ổn định lại.",
+        "Tôi coi trọng một thế giới nội tâm riêng tư, không dễ chia sẻ."
+      ]
+    },
+    {
+      "id": "fi_p4",
+      "dir": 1,
+      "text": "Khi xuống tinh thần, tôi có xu hướng rút vào trong/xa cách và cần thời gian một mình để ổn định thì mới hoạt động tốt lại.",
+      "examples": [
+        "Khi buồn/đau, tôi không thể ‘cố vượt qua’ ngay; tôi cần thời gian reset.",
+        "Tôi hay im lặng khi bị tổn thương; nói quá sớm làm tệ hơn.",
+        "Nếu thấy bị hiểu lầm, tôi có thể cô lập và nghiền ngẫm trong đầu.",
+        "Tôi mất động lực nếu nhu cầu cảm xúc của tôi bị phớt lờ.",
+        "Tôi cần rõ ràng cảm xúc rồi mới làm việc hiệu quả lại.",
+        "Tôi ghét bị nói “đừng nhạy cảm quá” khi tôi đang khó.",
+        "Tôi đỡ hơn sau khi tự xử lý cảm xúc (ngủ, viết, đi bộ).",
+        "Tôi không thích bị kéo vào giao tiếp xã hội khi đã kiệt cảm xúc."
+      ]
+    },
+    {
+      "id": "fi_p5",
+      "dir": 1,
+      "text": "Tôi rất khó chịu với người giả tạo, xâm phạm, thiếu tôn trọng, hoặc lạnh lùng/vô cảm và quá ‘phi cá nhân’.",
+      "examples": [
+        "Tôi không thích người kiểm soát, phớt lờ ranh giới người khác.",
+        "Tôi ghét lịch sự giả để thao túng.",
+        "Tôi không thích bị tò mò xoi mói đời tư mà không tôn trọng.",
+        "Tôi không tin người đạo đức ngoài mặt nhưng tàn nhẫn bên trong.",
+        "Tôi khó chịu với kiểu áp đặt “một là theo tao, hai là biến”.",
+        "Tôi tránh người coi người khác như công cụ.",
+        "Tôi ghét môi trường chế giễu hoặc trừng phạt sự đồng cảm.",
+        "Tôi thích người chân thành hơn người bóng bẩy xã giao."
+      ]
+    },
+    {
+      "id": "fi_p6",
+      "dir": 1,
+      "text": "Tôi thường bị nhận xét là nhạy cảm hoặc khó bị thuyết phục khi liên quan đến giá trị (đôi khi trông cứng đầu hoặc ‘tự cho mình đúng’).",
+      "examples": [
+        "Người khác nói tôi hay để bụng/chấp.",
+        "Tôi nhạy với việc bị gán là ích kỷ, yếu đuối, hoặc phi lý.",
+        "Khi đụng giá trị của tôi, tôi không ‘dễ thỏa hiệp’.",
+        "Tôi có thể trông như đang moralize khi tôi rất quan tâm một vấn đề.",
+        "Tôi có thể im lặng khi thấy bị phán xét.",
+        "Người khác nói tôi khó nói chuyện nếu họ phớt lờ cái tôi coi là đúng.",
+        "Tôi có thể thất thường khi thấy bị thiếu tôn trọng.",
+        "Tôi ưu tiên sống đúng với mình hơn là thắng tranh luận."
+      ]
+    },
+
+    {
+      "id": "fi_x1",
+      "dir": -1,
+      "text": "Tôi có cảm giác bản sắc yếu; sở thích/gắn bó yếu; giá trị mơ hồ hoặc dễ đổi theo người khác.",
+      "examples": [
+        "Tôi thường không biết mình thích gì cho tới khi người khác chọn trước.",
+        "Sở thích của tôi đổi chủ yếu vì ảnh hưởng xã hội.",
+        "Tôi hiếm khi thấy gắn bó mạnh với người, nơi chốn, hoặc ý nghĩa cá nhân.",
+        "Tôi có thể nhận giá trị của người khác mà không thấy xung đột bên trong.",
+        "Tôi thấy ‘trống’ khi bị hỏi điều gì quan trọng nhất với mình.",
+        "Tôi bỏ mối quan hệ/sở thích khá dễ mà ít bị ảnh hưởng cảm xúc.",
+        "Tôi không liên hệ với chuyện có gu cá nhân mạnh gắn với bản sắc.",
+        "Tôi thường không có cảm giác ‘niềm tin nội tâm’ về cái đúng cho mình."
+      ]
+    },
+    {
+      "id": "fi_x2",
+      "dir": -1,
+      "text": "Tôi vẫn hoạt động tốt dù không hạnh phúc; cảm xúc không ảnh hưởng mạnh đến năng suất hay quyết định của tôi.",
+      "examples": [
+        "Dù rất khó chịu, tôi vẫn làm việc bình thường mà ít chậm lại.",
+        "Tôi có thể phớt lờ cảm xúc để đạt mục tiêu mà ít ‘trả giá’ bên trong.",
+        "Quyết định của tôi ít bị ảnh hưởng bởi tâm trạng hay ý nghĩa cá nhân.",
+        "Tôi hiếm khi cần thời gian một mình để xử lý cảm xúc.",
+        "Tôi tin cảm xúc không nên ảnh hưởng nhiều tới quyết định quan trọng.",
+        "Tôi vẫn giữ hiệu quả dù đang ở tình huống cảm xúc khó chịu.",
+        "Tôi nhanh qua chuyện cảm xúc mà không cần nghiền ngẫm sâu.",
+        "Tôi không liên hệ với chuyện cảm xúc chi phối cả ngày."
+      ]
+    },
+    {
+      "id": "fi_x3",
+      "dir": -1,
+      "text": "Tôi dè chừng cảm xúc mạnh và thường cần ‘lý do’ rõ ràng để chấp nhận ý kiến/cảm xúc mạnh.",
+      "examples": [
+        "Cảm xúc mạnh làm tôi nghi ngờ; tôi muốn ‘kiểm chứng’ nó.",
+        "Tôi né chủ đề cảm xúc vì nó rối và dễ thiên kiến.",
+        "Tôi không thoải mái khi người khác bộc lộ cảm xúc quá mạnh.",
+        "Tôi thường giải thích quan điểm bằng lý do hơn là ‘niềm tin cá nhân’.",
+        "Tôi không thích kiểu “tôi thấy đúng” như một lý do đủ.",
+        "Tôi thích bình tĩnh khách quan hơn là chân thật cảm xúc.",
+        "Tôi hay giảm nhẹ cảm xúc vì tôi không tin nó đáng tin.",
+        "Tôi nghĩ cảm xúc kém tin cậy hơn sự kiện."
+      ]
+    },
+    {
+      "id": "fi_x4",
+      "dir": -1,
+      "text": "Tôi ít nhận biết cảm xúc; tôi hay tin rằng cảm xúc thiên lệch/không đáng tin và tôi không theo dõi trạng thái bên trong nhiều.",
+      "examples": [
+        "Tôi thường không biết mình đang cảm gì cho tới rất lâu sau.",
+        "Người khác nói tôi trông ‘tách cảm xúc’ hoặc khó đoán.",
+        "Tôi khó gọi tên cảm xúc một cách chính xác.",
+        "Tôi coi cảm xúc là gián đoạn, không phải thông tin.",
+        "Tôi không bị ảnh hưởng nhiều bởi ý nghĩa cá nhân hoặc sự sentimental.",
+        "Tôi hiếm khi tự soi cảm xúc trừ khi có chuyện cực lớn.",
+        "Tôi thích tập trung việc bên ngoài hơn là sự ‘khớp bên trong’.",
+        "Tôi không liên hệ với chuyện có một đời sống cảm xúc nội tâm phong phú."
+      ]
+    }
+  ]
+}
 
