@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Life Examples Helper</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <div class="logo">◎</div>
+      <div>
+        <div id="appTitle" class="title"></div>
+        <div id="tagline" class="tagline"></div>
+      </div>
+    </div>
+
+    <div class="topbar">
+      <label id="languageLabel" class="muted" for="langSelect">Ngôn ngữ</label>
+      <select id="langSelect">
+        <option value="vi">VI</option>
+        <option value="en">EN</option>
+      </select>
+      <button id="restartBtn" class="ghost" type="button">Làm lại</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <div id="app" class="card"></div>
+  </main>
+
+  <footer class="footer">
+    <span id="footerText"></span>
+  </footer>
+
+  <script type="module" src="assets/app.js"></script>
+</body>
+</html>
