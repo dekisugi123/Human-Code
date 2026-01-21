@@ -52,22 +52,22 @@
         {
           "id": "ne_p4",
           "dir": 1,
-          "text": "Cảm giác bị kẹt (không có đường thay đổi) làm tôi khó chịu đặc biệt.",
+          "text": "Cảm giác bị kẹt (không có sự thay đổi) làm tôi đặc biệt khó chịu.",
           "examples": [
-            "Nếu cuộc sống lặp lại quá lâu, tôi bứt rứt như bị nhốt.",
-            "Tôi cần cảm giác “còn cửa” trong tương lai để thấy ổn.",
-            "Tôi khó chịu khi mọi thứ bị chốt cứng quá sớm.",
-            "Tôi hay tìm lối rẽ khi thấy một đường cụt.",
-            "Tôi không hợp vai trò làm một thứ y hệt quá lâu.",
-            "Tôi nặng nề khi “không có gì mới để mong”.",
-            "Tôi chịu mơ hồ tốt hơn là chịu bị kẹt.",
-            "Tôi thích giữ nhiều cánh cửa mở."
+            "Nếu cuộc sống lặp lại quá lâu, tôi bứt rứt, thấy bị kìm kẹp.",
+            "Tôi cần cảm giác “có lựa chọn, còn khả năng” trong tương lai để thấy ổn.",
+            "Tôi khó chịu khi mọi thứ bị kết luận quá sớm.",
+            "Tôi hay tìm ra cách khác khi thấy một hướng tiếp cận không thể tiếp tục theo.",
+            "Tôi không hợp việc làm một thứ y hệt quá lâu.",
+            "Tôi cảm thấy nặng nề khi không có gì mới để mong chờ.",
+            "Tôi chịu mơ hồ tốt hơn là chịu bị kẹt trong một lựa chọn duy nhất.",
+            "Tôi thích giữ nhiều lựa chọn."
           ]
         },
         {
           "id": "ne_p5",
           "dir": 1,
-          "text": "Tôi rất khó chịu với người quá đóng, quá cứng nhắc, hoặc bi quan kiểu “dội nước lạnh”.",
+          "text": "Tôi rất khó chịu với người quá cứng nhắc, hoặc bi quan kiểu “dội nước lạnh khi người khác đưa ra ý tưởng mới”.",
           "examples": [
             "Tôi bực với câu “xưa giờ làm vậy rồi”.",
             "Tôi khó chịu khi người ta bác ý tưởng trước khi thử nghĩ.",
@@ -86,12 +86,12 @@
           "examples": [
             "Người khác nói tôi khởi động nhiều thứ nhưng không phải cái nào cũng hoàn tất.",
             "Người khác thấy tôi đổi hướng quá nhanh.",
-            "Người khác thấy tôi mạnh ý tưởng nhưng yếu phần logistics/chi tiết.",
+            "Người khác thấy tôi mạnh ý tưởng nhưng yếu phần chi tiết.",
             "Tôi đôi khi bỏ qua chi tiết vì đang theo đuổi lựa chọn mới.",
             "Ưu tiên của tôi có thể đổi khi xuất hiện khả năng hấp dẫn hơn.",
             "Người khác thấy tôi khó đoán vì tôi luôn để nhiều đường mở.",
             "Tôi đôi khi thấy tội vì mình không nhất quán theo thời gian.",
-            "Người khác bảo tôi cần khuôn/structure hơn tôi nghĩ."
+            "Người khác bảo tôi cần khuôn mẫu/structure hơn tôi nghĩ."
           ]
         },
 
