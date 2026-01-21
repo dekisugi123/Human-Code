@@ -1,109 +1,158 @@
 {
   "pages": {
     "ne_dom": {
-      "title": "Xác nhận / Loại trừ: Ne trội",
-      "intro": "Với mỗi câu, chọn mức độ đồng ý theo kiểu sống ‘thường ngày’ của bạn. Nếu bạn chọn mạnh (4–5), phần ví dụ sẽ hiện ra để kiểm tra xem bạn có hiểu đúng ý không.",
+      "title": "Xác nhận Ne (Dominant)",
+      "intro": "Trả lời theo kiểu hành vi điển hình của bạn trong cuộc sống. Chỉ chọn 4–5 khi điều đó đúng một cách ổn định lâu dài. Nếu chọn 4–5, bạn có thể tick các ví dụ đời thật để xác nhận thêm (không bắt buộc).",
       "items": [
         {
-          "id": "ne_01",
+          "id": "ne_p1",
           "dir": 1,
           "text": "Trong đầu tôi tự nhiên bật ra rất nhiều khả năng / hướng đi khác nhau.",
           "examples": [
-            "Gặp tình huống mới, tôi thấy ngay nhiều cách để làm được.",
-            "Ai đưa kế hoạch, tôi nghĩ ra phiên bản khác hoặc cách cải tiến rất nhanh.",
-            "Tôi hay có nhiều ý tưởng hơn thời gian, khó chọn một cái để theo."
+            "Gặp tình huống mới, tôi thấy ngay nhiều hướng giải quyết.",
+            "Tôi hay nhảy từ ý này sang ý khác vì mỗi ý lại mở ra thêm nhánh mới.",
+            "Tôi tự động nghĩ theo chuỗi “nếu… thì…” mà không cần cố.",
+            "Tôi thích xem nhiều cách hiểu khác nhau thay vì chốt một nghĩa.",
+            "Chỉ có một cách làm duy nhất thường làm tôi chán.",
+            "Tôi hay nối hai thứ tưởng không liên quan để ra góc nhìn mới.",
+            "Tôi hay đề xuất phương án khác dù kế hoạch hiện tại vẫn ổn.",
+            "Tôi thấy “kẹt” nếu không được thử/khám phá lựa chọn."
           ]
         },
         {
-          "id": "ne_02",
+          "id": "ne_p2",
           "dir": 1,
-          "text": "Tôi dễ bực hoặc hụt hẫng khi ý tưởng bị gạt đi hoặc không được thử.",
+          "text": "Tôi coi trọng sự cởi mở và linh hoạt; tôi thích nghĩ ra cách làm mới.",
           "examples": [
-            "Tôi tụt năng lượng khi người khác ‘dập’ ý tưởng quá sớm.",
-            "Tôi bứt rứt khi buộc phải theo một kế hoạch cứng, không có lựa chọn khác.",
-            "Tôi thấy ‘kẹt’ nếu không có không gian để thử hướng mới."
+            "Cách làm cũ/rập khuôn khiến tôi muốn sửa lại hoặc làm lại.",
+            "Tôi thích thử công cụ/cách làm mới chỉ để xem có gì hay.",
+            "Tôi hay nói “mình có thể làm cách khác” dù cách cũ vẫn chạy.",
+            "Khi bí, tôi đổi góc nhìn/chuyển cách tiếp cận nhanh.",
+            "Tôi thích nguyên tắc linh hoạt hơn là quy trình cứng nhắc.",
+            "Tôi ứng biến tốt khi điều kiện thay đổi.",
+            "Tôi có năng lượng khi thử nghiệm hơn là khi duy trì routine.",
+            "Tôi khó chịu khi bị ép theo đúng một quy trình cố định."
           ]
         },
         {
-          "id": "ne_03",
+          "id": "ne_p3",
           "dir": 1,
-          "text": "Với tôi, cởi mở và linh hoạt (tìm cách mới để giải quyết) là rất quan trọng.",
+          "text": "Một khả năng mới thú vị thường làm tôi hứng lên nhanh; tôi thích brainstorm với người khác.",
           "examples": [
-            "Tôi thích mở lựa chọn thay vì chốt sớm.",
-            "Tôi thích thử cách làm, công cụ, phương pháp khác nhau.",
-            "Tôi tự nhiên hay hỏi: “Còn cách nào khác không?”"
+            "Một cơ hội mới có thể kéo tôi khỏi tâm trạng xuống rất nhanh.",
+            "Tôi thích ping-pong ý tưởng để ra phương án tốt hơn.",
+            "Tôi hay brainstorm thành lời với người khác.",
+            "Tôi thích cuộc nói chuyện mở rộng lựa chọn, không chỉ bám sự kiện.",
+            "Tôi hay nêu phản biện để mở thêm góc nhìn.",
+            "Tôi hứng thú khi người khác ném vào một ý tưởng bất ngờ.",
+            "Tôi có thể nói về ý tưởng lâu mà không cần chốt ngay.",
+            "Tôi mệt khi cuộc nói chuyện dập tắt khả năng quá sớm."
           ]
         },
         {
-          "id": "ne_04",
+          "id": "ne_p4",
           "dir": 1,
-          "text": "Một khả năng thú vị có thể kéo mood tôi lên nhanh; tôi thích brainstorm với người khác.",
+          "text": "Cảm giác bị kẹt (không có đường thay đổi) làm tôi khó chịu đặc biệt.",
           "examples": [
-            "Một ý tưởng mới làm tôi thấy hy vọng lại dù trước đó mệt.",
-            "Tôi thích nảy ý qua lại để phát triển ý tưởng.",
-            "Tôi thấy ‘sống’ hơn khi nói về khả năng tương lai."
+            "Nếu cuộc sống lặp lại quá lâu, tôi bứt rứt như bị nhốt.",
+            "Tôi cần cảm giác “còn cửa” trong tương lai để thấy ổn.",
+            "Tôi khó chịu khi mọi thứ bị chốt cứng quá sớm.",
+            "Tôi hay tìm lối rẽ khi thấy một đường cụt.",
+            "Tôi không hợp vai trò làm một thứ y hệt quá lâu.",
+            "Tôi nặng nề khi “không có gì mới để mong”.",
+            "Tôi chịu mơ hồ tốt hơn là chịu bị kẹt.",
+            "Tôi thích giữ nhiều cánh cửa mở."
           ]
         },
         {
-          "id": "ne_05",
+          "id": "ne_p5",
           "dir": 1,
-          "text": "Cảm giác bị ‘kẹt’ (ít khả năng thay đổi) làm tôi khó chịu đặc biệt mạnh.",
+          "text": "Tôi rất khó chịu với người quá đóng, quá cứng nhắc, hoặc bi quan kiểu “dội nước lạnh”.",
           "examples": [
-            "Tôi thấy ngộp nếu tương lai có vẻ cố định và lặp lại.",
-            "Khi đời quá đoán trước được, tôi tự tìm hướng mới.",
-            "Tôi nhạy với môi trường bóp nghẹt lựa chọn."
+            "Tôi bực với câu “xưa giờ làm vậy rồi”.",
+            "Tôi khó chịu khi người ta bác ý tưởng trước khi thử nghĩ.",
+            "Tôi khó chịu với cách nghĩ quá literal, không chịu nhìn nghĩa khác.",
+            "Tôi thấy bị giới hạn quanh người bám luật chỉ vì luật.",
+            "Tôi né môi trường phạt việc thử nghiệm.",
+            "Tôi không thích sự bi quan giết đà.",
+            "Tôi không thích bắt bẻ vụn vặt làm tắt khám phá.",
+            "Tôi thích người có thể nghe khả năng mà không sợ."
           ]
         },
         {
-          "id": "ne_06",
+          "id": "ne_p6",
           "dir": 1,
-          "text": "Tôi thường không thích người quá đóng, cứng nhắc, quá chữ nghĩa, hoặc bi quan về ý tưởng.",
+          "text": "Tôi từng được góp ý kiểu: lan man, thiếu thực tế, không ổn định, khó đoán, hay đổi ý.",
           "examples": [
-            "Câu “xưa giờ làm vậy” làm tôi khó chịu nếu không ai xem lựa chọn khác.",
-            "Tôi ghét kiểu chê ý tưởng trước khi chịu tìm hiểu.",
-            "Thái độ ‘dội gáo nước lạnh’ liên tục làm tôi mệt."
+            "Người khác nói tôi khởi động nhiều thứ nhưng không phải cái nào cũng hoàn tất.",
+            "Người khác thấy tôi đổi hướng quá nhanh.",
+            "Người khác thấy tôi mạnh ý tưởng nhưng yếu phần logistics/chi tiết.",
+            "Tôi đôi khi bỏ qua chi tiết vì đang theo đuổi lựa chọn mới.",
+            "Ưu tiên của tôi có thể đổi khi xuất hiện khả năng hấp dẫn hơn.",
+            "Người khác thấy tôi khó đoán vì tôi luôn để nhiều đường mở.",
+            "Tôi đôi khi thấy tội vì mình không nhất quán theo thời gian.",
+            "Người khác bảo tôi cần khuôn/structure hơn tôi nghĩ."
           ]
         },
 
         {
-          "id": "ne_07",
-          "dir": 1,
-          "text": "Tôi từng bị góp ý kiểu: lan man, thiếu thực tế, thiếu ổn định, khó đoán, không đáng tin.",
-          "examples": [
-            "Người khác nói tôi nhảy giữa nhiều sở thích hoặc khởi đầu nhiều hơn kết thúc.",
-            "Người khác thấy tôi bỏ qua chi tiết thực tế tới phút chót.",
-            "Tôi hay bị nói là đổi ý nhanh."
-          ]
-        },
-
-        {
-          "id": "ne_08",
+          "id": "ne_x1",
           "dir": -1,
-          "text": "Tôi hiếm khi có ý tưởng mới và thường từ chối xem xét khả năng mới.",
+          "text": "Tôi hiếm khi có ý tưởng mới và thường không muốn cân nhắc khả năng mới.",
           "examples": [
-            "Brainstorm làm tôi thấy vô ích; tôi chỉ muốn bám một cách quen.",
-            "Tôi phản đối lựa chọn khác ngay cả khi tình huống thay đổi.",
-            "Tôi không thích khám phá phương án; tôi muốn mọi thứ giữ nguyên."
+            "Brainstorm thường làm tôi khó chịu hoặc thấy vô ích.",
+            "Tôi muốn một đáp án chắc, không muốn nhiều lựa chọn.",
+            "Tôi không thích nói chuyện giả định “nếu… thì…”.",
+            "Tôi tránh nghĩ phương án khác trừ khi bị ép.",
+            "Cách làm mới thường khiến tôi thấy không cần thiết.",
+            "Tôi hay gạt ý tưởng lạ rất nhanh.",
+            "Tôi thích theo cách làm đã có sẵn.",
+            "Quá nhiều lựa chọn làm tôi stress."
           ]
         },
         {
-          "id": "ne_09",
+          "id": "ne_x2",
           "dir": -1,
-          "text": "Tôi thật sự thích đời sống routine, luyện tập lặp lại, và lập kế hoạch logistics (như một sở thích).",
+          "text": "Tôi thật sự thích routine, luyện tập lặp lại, và lên kế hoạch logistics (như một sở thích).",
           "examples": [
-            "Lặp lại cùng một hệ thống làm tôi thấy đã và tôi thích hơn novelty.",
-            "Tôi thích duy trì routine ổn định hơn là đổi hướng liên tục.",
-            "Tôi hạnh phúc nhất khi đời đoán trước được và có lịch rõ."
+            "Lặp routine ổn định làm tôi thấy sướng chứ không chán.",
+            "Tôi thích duy trì/ổn định hơn là khám phá.",
+            "Tôi bình tâm khi ngày của mình đoán trước được.",
+            "Tôi thích lên kế hoạch từng bước hơn là brainstorm.",
+            "Tôi coi sự tin cậy/quy trình là mục tiêu chính.",
+            "Tôi không thích đổi kế hoạch khi đã chốt.",
+            "Tôi thấy dễ chịu khi làm cái đã chạy ổn.",
+            "Tôi ưu tiên ổn định lâu dài hơn là thử nghiệm."
           ]
         },
         {
-          "id": "ne_10",
+          "id": "ne_x3",
           "dir": -1,
-          "text": "Trước khi làm, tôi phải nghĩ hết mọi tình huống; ứng biến làm tôi thấy không an toàn.",
+          "text": "Tôi phải nghĩ hết mọi tình huống có thể xảy ra trước khi làm.",
           "examples": [
-            "Tôi trì hoãn cho đến khi chắc chắn và chuẩn bị đủ.",
-            "Tôi tránh đổi kế hoạch giữa chừng.",
-            "Không chắc chắn làm tôi dừng lại thay vì thử mở khả năng."
+            "Tôi hay trì hoãn cho tới khi cảm giác chuẩn bị đủ.",
+            "Tôi tránh ứng biến vì thấy không an toàn.",
+            "Tôi cần chắc chắn rồi mới đi tiếp.",
+            "Tôi muốn dẹp mơ hồ càng sớm càng tốt.",
+            "Tôi hay overplan để tránh bất ngờ.",
+            "Tôi không thích hành động khi chưa có kế hoạch rõ.",
+            "Tôi khó chịu với lựa chọn mở và mơ hồ.",
+            "Tôi thích bước đi dự đoán được hơn là mở rộng phương án."
+          ]
+        },
+        {
+          "id": "ne_x4",
+          "dir": -1,
+          "text": "Tôi không liên hệ với kiểu nghĩ “khả năng tương lai”; tôi ít mơ lớn.",
+          "examples": [
+            "Tôi chủ yếu tập trung mục tiêu thực tế trước mắt.",
+            "Tôi thấy suy đoán tương lai khá viển vông.",
+            "Tôi né tầm nhìn lớn; tôi thích việc cụ thể.",
+            "Tôi ít nghĩ về khả năng dài hạn.",
+            "Tôi thích thứ chắc và đo được.",
+            "Mơ “có thể là” khiến tôi thấy không cần thiết.",
+            "Tôi không thích nói chuyện trừu tượng về khả năng.",
+            "Tôi bám thực tại hiện tại hơn là mở tương lai."
           ]
         }
       ]
