@@ -1,102 +1,78 @@
-/* ====== Global ====== */
-:root{
-  --text: #0f172a;
-  --muted: #64748b;
-  --line: #e5e7eb;
-  --bg: #ffffff;
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ne (Dominant) Confirmation</title>
+  <link rel="stylesheet" href="../assets/css/base.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="../index.html" aria-label="Home">
+        <span class="brand-mark">◎</span>
+        <span class="brand-text" data-i18n="brand">Cognitive Pattern</span>
+      </a>
 
-  --card: #ffffff;
-  --cardLine: rgba(15, 23, 42, 0.08);
+      <div class="topbar-actions">
+        <a class="btn" href="../index.html" data-i18n="ne_back">Back</a>
+        <button class="btn" id="resetBtn" type="button" data-i18n="ne_reset">Reset</button>
+        <button class="lang-btn" id="langToggleBtn" type="button" aria-label="Toggle language">
+          <span class="lang-pill" id="langPill">EN</span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-  --btnBg: #0f172a;
-  --btnText: #ffffff;
-  --btnLine: rgba(15, 23, 42, 0.14);
-}
+  <main class="container">
+    <section class="page-card">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title" id="pageTitle">Confirm / Exclude: Ne dominant</h1>
+          <p class="page-sub" id="pageIntro"></p>
+        </div>
+      </div>
 
-html, body{
-  background: var(--bg);
-  color: var(--text);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-  margin: 0;
-}
+      <div class="notice">
+        <span class="muted">
+          This page is only to check Ne-dominant strength. No forced choice. If you select “Can’t recall / not sure”, accuracy goes down.
+        </span>
+      </div>
+    </section>
 
-/* Layout */
-.container{
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 36px 28px 64px;
-}
+    <section class="page-card">
+      <div class="q-list" id="questionList"></div>
+    </section>
 
-/* Topbar (if you use it) */
-.topbar{
-  border-bottom: 1px solid var(--line);
-  background: var(--bg);
-}
-.topbar-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding: 14px 28px;
-}
-.brand-link{
-  color: var(--text);
-  text-decoration:none;
-  font-weight: 700;
-}
-.nav a{
-  color: var(--muted);
-  text-decoration:none;
-  margin-left: 16px;
-}
-.nav a[aria-current="page"]{
-  color: var(--text);
-  font-weight: 650;
-}
+    <section class="page-card">
+      <div class="score-row">
+        <div class="score-box">
+          <div class="score-label" data-i18n="score_label">Score</div>
+          <div class="score-value" id="scoreValue">0</div>
+        </div>
 
-/* Cards */
-.card{
-  background: var(--card);
-  border: 1px solid var(--cardLine);
-  border-radius: 16px;
-  padding: 18px 18px;
-  margin-bottom: 18px;
-}
+        <div class="score-box">
+          <div class="score-label" data-i18n="accuracy_label">Accuracy</div>
+          <div class="score-value" id="accuracyValue">100%</div>
+          <div class="progress" aria-label="Accuracy bar">
+            <div id="accuracyBar"></div>
+          </div>
+        </div>
 
-/* Text helpers */
-.muted{ color: var(--muted); }
-.notice{
-  padding: 12px 14px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: rgba(15, 23, 42, 0.03);
-}
+        <div class="score-box">
+          <div class="score-label" data-i18n="confidence_label">Confidence</div>
+          <div class="score-value" id="confidenceValue">—</div>
+        </div>
+      </div>
 
-/* Buttons */
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap: 8px;
-  padding: 10px 14px;
-  border-radius: 12px;
-  border: 1px solid var(--btnLine);
-  background: var(--card);
-  color: var(--text);
-  cursor: pointer;
-  text-decoration: none;
-  font-weight: 650;
-}
-.btn.primary{
-  background: var(--btnBg);
-  color: var(--btnText);
-  border-color: transparent;
-}
-.btn:active{ transform: translateY(1px); }
+      <div class="row">
+        <button class="btn primary" id="saveBtn" type="button" data-i18n="save">Save</button>
+        <span class="muted" id="saveStatus"></span>
+      </div>
+    </section>
+  </main>
 
-/* Simple row utility */
-.row{
-  display:flex;
-  align-items:center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/ne-dom.js"></script>
+</body>
+</html>
