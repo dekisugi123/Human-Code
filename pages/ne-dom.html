@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -23,10 +22,11 @@
     <section class="card">
       <div class="page-header">
         <div>
-          <h1>Confirm / Exclude: Ne dominant</h1>
+          <h1>Ne (Dominant) confirmation</h1>
           <p class="muted">
-            No forced choice. For each item, select how often it is true in your <b>typical</b> life pattern.
-            Examples are optional and only clarify what the item means.
+            Rate each statement for your <b>typical</b> life pattern.
+            <b>Only if you choose 4–5</b>, an optional “real-life check” (examples) will appear.
+            If you choose <b>Don’t remember</b>, confidence will drop.
           </p>
         </div>
         <div class="page-actions">
@@ -41,57 +41,12 @@
     </section>
 
     <section class="card">
-      <h2>Part A — Signs that Ne is strongly present</h2>
-      <p class="muted">If Ne is dominant, many of these tend to be “Often” or “Almost always” across life (except grip periods).</p>
-      <div id="presenceList" class="stack"></div>
-    </section>
-
-    <section class="card">
-      <h2>Part B — Signs that Ne is <span class="danger">NOT</span> dominant (exclusion)</h2>
-      <p class="muted">If many of these are “Often/Almost always,” Ne-dominant becomes less likely.</p>
-      <div id="exclusionList" class="stack"></div>
+      <div id="questionList" class="stack"></div>
     </section>
 
     <section class="card">
       <h2>Live score (prototype)</h2>
+
       <div class="score-grid">
         <div class="score-box">
-          <div class="score-label">Ne presence</div>
-          <div class="score-value" id="presenceScore">0</div>
-        </div>
-        <div class="score-box">
-          <div class="score-label">Ne exclusion</div>
-          <div class="score-value" id="exclusionScore">0</div>
-        </div>
-        <div class="score-box">
-          <div class="score-label">Net</div>
-          <div class="score-value" id="netScore">0</div>
-        </div>
-        <div class="score-box">
-          <div class="score-label">Confidence</div>
-          <div class="score-value" id="confidence">—</div>
-        </div>
-      </div>
-
-      <details class="details">
-        <summary>How this score works (temporary)</summary>
-        <div class="details-body">
-          <ul>
-            <li>Each presence item adds points (Never=0 … Almost always=4).</li>
-            <li>Each exclusion item subtracts points (Never=0 … Almost always=4).</li>
-            <li>This is only a <b>layout + UX prototype</b>. You can change weights later.</li>
-          </ul>
-        </div>
-      </details>
-
-      <div class="row">
-        <button class="btn primary" id="saveBtn" type="button">Save answers</button>
-        <span class="muted" id="saveStatus"></span>
-      </div>
-    </section>
-  </main>
-
-  <script src="../assets/js/app.js"></script>
-  <script src="../assets/js/ne-dom.js"></script>
-</body>
-</html>
+          <div class="sc
