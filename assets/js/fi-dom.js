@@ -324,10 +324,24 @@
     }
 
     const casesPath = paths.cases[window.App.getLang()];
-    const cases = await window.App.loadJSON(casesPath);
+    const manifest = await window.App.loadJSON(casesPath);
+    
+    const rel = manifest.pages && manifest.pages.fi_dom;
+    if(!rel) throw new Error('Missing pages.fi_dom in cases manifest JSON.');
+    
+    // Resolve relative to /data/ (because manifest lives in ../data/)
+    function resolveDataPath(p){
+      if(!p) return p;
+      if(p.startsWith('http://') || p.startsWith('https://')) return p;
+      if(p.startsWith('../')) return p;
+      if(p.startsWith('data/')) return `../${p}`;
+      if(p.startsWith('./')) return `../data/${p.slice(2)}`;
+      return `../data/${p}`;
+    }
+    
+    const pagePath = resolveDataPath(rel);
+    const page = await window.App.loadJSON(pagePath);
 
-    const page = cases.pages && cases.pages.fi_dom;
-    if(!page) throw new Error('Missing pages.fi_dom in cases JSON.');
 
     const titleEl = document.getElementById('pageTitle');
     const introEl = document.getElementById('pageIntro');
