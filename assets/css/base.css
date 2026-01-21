@@ -296,9 +296,13 @@ a{ color:inherit; }
 .bubble.selected::after{
   content:"";
   position:absolute;
-  inset: 14px;
   border-radius: 999px;
   background: currentColor;
+  inset: 12px;              /* was 14px */
+}
+
+@media (max-width: 740px){
+  .bubble.selected::after{ inset: 10px; }
 }
 
 /* "Can't recall" line */
