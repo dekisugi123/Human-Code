@@ -1,1 +1,157 @@
+{
+  "title": "Fi (Dominant) confirmation",
+  "intro": "Answer based on your long-term life pattern. Use 4–5 only when it is consistently true across your life. If you choose 4–5, you can optionally tick real-life examples to confirm the pattern.",
+  "items": [
+    {
+      "id": "fi_p1",
+      "dir": 1,
+      "text": "My feelings and personal values strongly shape my preferences, attachments, and decisions (it’s hard to ignore them).",
+      "examples": [
+        "Even if something is efficient, I avoid it if it feels wrong to me.",
+        "I can’t fully commit to a choice unless it feels personally right.",
+        "I often know what I like/dislike quickly, without needing external opinions.",
+        "I struggle to do something that conflicts with my values, even under pressure.",
+        "When I betray my own values, I feel guilt or self-disrespect strongly.",
+        "My mood and inner state noticeably influence what I want to do that day.",
+        "I have strong personal tastes (music, aesthetics, people) that feel identity-linked.",
+        "I would rather be true to myself than be approved by everyone."
+      ]
+    },
+    {
+      "id": "fi_p2",
+      "dir": 1,
+      "text": "Living with integrity is extremely important to me; I care about authenticity and honoring each person’s unique experience.",
+      "examples": [
+        "I dislike being pressured to pretend or perform a fake version of myself.",
+        "I get upset when people dismiss someone’s feelings as “not logical enough.”",
+        "I dislike environments that feel cold, soulless, or purely status-driven.",
+        "I feel strongly about respecting personal boundaries and individuality.",
+        "I speak up (or withdraw) when something feels morally wrong to me.",
+        "I care more about meaning than about appearances.",
+        "I’m sensitive to hypocrisy (saying one thing, doing another).",
+        "I want my actions to match my beliefs, not just my words."
+      ]
+    },
+    {
+      "id": "fi_p3",
+      "dir": 1,
+      "text": "I am usually aware of how I feel, and I want space to process or express it (often creatively or privately).",
+      "examples": [
+        "I notice subtle shifts in my mood and what caused them.",
+        "I need time alone to understand what I really feel.",
+        "I express feelings through art, music, writing, style, or personal projects.",
+        "I dislike being forced to explain feelings before I’m ready.",
+        "I prefer deep, honest emotion over shallow positivity.",
+        "I feel uncomfortable when others treat emotions as ‘noise’ to remove.",
+        "I sometimes feel emotions intensely and need time to stabilize.",
+        "I value having a private inner world that is not easily shared."
+      ]
+    },
+    {
+      "id": "fi_p4",
+      "dir": 1,
+      "text": "When I feel low, I can become withdrawn/alienated and need alone time to settle emotionally before I can function well again.",
+      "examples": [
+        "When upset, I can’t just ‘push through’—I need time to reset inside.",
+        "I become quiet when I’m hurt, and talking too early makes it worse.",
+        "If I feel misunderstood, I may isolate and replay the situation internally.",
+        "I can lose motivation if my emotional needs are ignored.",
+        "I need emotional clarity before being productive again.",
+        "I dislike being told to “stop being sensitive” when I’m struggling.",
+        "I feel better after processing feelings privately (sleep, journaling, walking).",
+        "I dislike social demands when I’m emotionally drained."
+      ]
+    },
+    {
+      "id": "fi_p5",
+      "dir": 1,
+      "text": "I strongly dislike people who feel inauthentic, intrusive, disrespectful, or emotionally cold/impersonal.",
+      "examples": [
+        "I dislike controlling people who ignore others’ boundaries.",
+        "I get irritated by fake politeness used to manipulate.",
+        "I dislike nosy behavior that pries into personal life without respect.",
+        "I distrust people who act moral in public but cruel in private.",
+        "I dislike domineering ‘my way or the highway’ attitudes.",
+        "I avoid people who treat others like objects or tools.",
+        "I dislike environments where empathy is mocked or punished.",
+        "I prefer sincere people over socially polished people."
+      ]
+    },
+    {
+      "id": "fi_p6",
+      "dir": 1,
+      "text": "I often receive feedback that I’m sensitive or hard to persuade when my values are involved (and I may appear stubborn or self-righteous).",
+      "examples": [
+        "People say I take things personally.",
+        "I’m sensitive to being called selfish, weak, or irrational.",
+        "When something violates my values, I don’t ‘compromise easily.’",
+        "I can seem moralizing when I care strongly about an issue.",
+        "I can be quiet or uncommunicative when I feel judged.",
+        "People say I’m hard to reason with if they ignore what I feel is right.",
+        "I can become moody when I feel disrespected.",
+        "I prefer staying true to myself over winning an argument."
+      ]
+    },
 
+    {
+      "id": "fi_x1",
+      "dir": -1,
+      "text": "I have a weak sense of identity and weak attachments; my values feel fuzzy or easily changeable.",
+      "examples": [
+        "I often don’t know what I truly like until others choose first.",
+        "My preferences change mainly due to social influence.",
+        "I rarely feel strongly attached to people, places, or personal meaning.",
+        "I can adopt values from others without inner conflict.",
+        "I feel ‘blank’ when asked what matters most to me.",
+        "I can drop relationships or interests easily with little emotional impact.",
+        "I don’t relate to strong personal tastes or identity-linked preferences.",
+        "I usually don’t feel internal conviction about what is right for me."
+      ]
+    },
+    {
+      "id": "fi_x2",
+      "dir": -1,
+      "text": "I can function fine even when unhappy; feelings don’t strongly affect my productivity or decisions.",
+      "examples": [
+        "Even if I’m miserable, I still perform normally without much slowdown.",
+        "I can ignore personal feelings to meet goals with little internal cost.",
+        "My decisions are mostly unaffected by mood or personal meaning.",
+        "I rarely need alone time to process emotions.",
+        "I believe feelings should not matter much for important decisions.",
+        "I can stay neutral and effective even in emotionally uncomfortable situations.",
+        "I quickly move on from emotional events without deep processing.",
+        "I don’t relate to emotional intensity influencing my whole day."
+      ]
+    },
+    {
+      "id": "fi_x3",
+      "dir": -1,
+      "text": "I feel wary of emotional intensity and usually need to justify strong feelings/opinions logically before I accept them.",
+      "examples": [
+        "Strong feelings make me suspicious; I prefer to ‘verify’ them.",
+        "I avoid emotional topics because they feel messy or biased.",
+        "I get uncomfortable when people express intense emotion.",
+        "I usually explain opinions with reasons, not with personal conviction.",
+        "I dislike “I feel it’s right” as a justification.",
+        "I prefer calm objectivity over emotional authenticity.",
+        "I downplay feelings because I don’t trust them.",
+        "I think feelings are unreliable compared to facts."
+      ]
+    },
+    {
+      "id": "fi_x4",
+      "dir": -1,
+      "text": "I have poor emotional awareness; I often believe feelings are biased/unreliable and I don’t track my inner state much.",
+      "examples": [
+        "I often don’t know what I feel until much later.",
+        "People say I seem emotionally disconnected or hard to read.",
+        "I struggle to name emotions precisely.",
+        "I treat emotions as interruptions rather than information.",
+        "I’m not very affected by personal meaning or sentimental value.",
+        "I rarely reflect on feelings unless something extreme happens.",
+        "I prefer to focus on external tasks rather than inner alignment.",
+        "I don’t relate to having a rich inner emotional landscape."
+      ]
+    }
+  ]
+}
