@@ -9,71 +9,63 @@
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
-      <div class="brand">Cognitive Pattern Prototype</div>
-      <nav class="nav">
-        <a href="./index.html" aria-current="page">Home</a>
-        <a href="./pages/ne-dom.html">Ne (Dom) page</a>
-      </nav>
+      <a class="brand" href="./index.html" aria-label="Home">
+        <span class="brand-mark">◎</span>
+        <span class="brand-text" data-i18n="brand">Cognitive Pattern</span>
+      </a>
+
+      <div class="topbar-actions">
+        <button class="lang-btn" id="langToggleBtn" type="button" aria-label="Toggle language">
+          <span class="lang-pill" id="langPill">EN</span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main class="container">
-    <section class="hero card">
-      <h1>Ne-dominant confirmation page (prototype)</h1>
-      <p class="muted">
-        This is a layout + UX prototype. It saves answers locally in your browser (no account).
+    <section class="hero">
+      <h1 class="hero-title" data-i18n="home_title">Check dominant function (prototype)</h1>
+      <p class="hero-sub" data-i18n="home_subtitle">
+        Start with one page (Ne dominant confirmation). Big text, simple clicks. No dark theme.
       </p>
 
-      <div class="row">
-        <a class="btn primary" href="./pages/ne-dom.html">Start: Ne dominant check</a>
-        <button class="btn" id="resetBtn" type="button">Reset saved answers</button>
+      <div class="hero-cta">
+        <a class="btn primary" href="./pages/ne-dom.html" data-i18n="home_start_ne">
+          Start: Ne dominant confirmation
+        </a>
       </div>
 
-      <details class="details">
-        <summary>What this prototype is (and is NOT)</summary>
-        <div class="details-body">
-          <ul>
-            <li><b>NOT</b> a “life example helper.” Examples are short <i>illustrations</i> to clarify meaning (optional).</li>
-            <li><b>YES</b> a “strength / frequency” selector per item (Never → Almost always).</li>
-            <li><b>YES</b> includes both <b>Ne-present</b> signs and <b>Ne-not-dominant</b> signs (exclusion).</li>
-          </ul>
-        </div>
-      </details>
-    </section>
-
-    <section class="card">
-      <h2>Saved status</h2>
-      <p class="muted" id="statusLine">Loading…</p>
-    </section>
-
-    <section class="card">
-      <h2>GitHub Pages deployment (quick)</h2>
-      <ol class="muted">
-        <li>Create a GitHub repo (or use an existing one).</li>
-        <li>Upload these files/folders to the repo root.</li>
-        <li>Repo Settings → Pages → Deploy from branch → select <b>main</b> / <b>root</b>.</li>
-        <li>Open the provided Pages URL.</li>
-      </ol>
+      <div class="hero-note" data-i18n="home_note">
+        Your answers are saved locally in your browser.
+      </div>
     </section>
   </main>
 
   <script src="./assets/js/app.js"></script>
   <script>
-    const statusLine = document.getElementById('statusLine');
-    function refreshStatus() {
-      const s = window.AppStorage.loadState();
-      const hasNe = !!(s.pages && s.pages.ne_dom);
-      statusLine.textContent = hasNe
-        ? 'You have saved answers for: Ne (Dom) page.'
-        : 'No saved answers yet.';
-    }
-    refreshStatus();
+    (function(){
+      window.App.init({
+        ui: { en: './data/ui_en.json', vi: './data/ui_vi.json' }
+      }).then(() => {
+        window.App.applyI18n(document);
+        const btn = document.getElementById('langToggleBtn');
+        const pill = document.getElementById('langPill');
 
-    document.getElementById('resetBtn').addEventListener('click', () => {
-      window.AppStorage.resetAll();
-      refreshStatus();
-      alert('Saved answers cleared.');
-    });
+        function refreshLangUI(){
+          const lang = window.App.getLang();
+          pill.textContent = lang.toUpperCase();
+        }
+
+        refreshLangUI();
+        btn.addEventListener('click', async () => {
+          const next = window.App.getLang() === 'en' ? 'vi' : 'en';
+          await window.App.setLang(next);
+          await window.App.reloadUI();
+          window.App.applyI18n(document);
+          refreshLangUI();
+        });
+      });
+    })();
   </script>
 </body>
 </html>
