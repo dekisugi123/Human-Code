@@ -1,109 +1,158 @@
 {
   "pages": {
     "ne_dom": {
-      "title": "Confirm / Exclude: Ne dominant",
-      "intro": "For each statement, pick how strongly you agree for your typical life pattern. If you choose strong (4–5), optional examples will appear so you can check whether you mean the same thing.",
+      "title": "Ne (Dominant) confirmation",
+      "intro": "Answer based on your typical life pattern. Use 4–5 only when it’s consistently true across your life. If you choose 4–5, you can optionally tick real-life examples to confirm the pattern.",
       "items": [
         {
-          "id": "ne_01",
+          "id": "ne_p1",
           "dir": 1,
           "text": "My mind naturally generates many different possibilities / paths.",
           "examples": [
-            "In a new situation, I immediately see multiple ways it could work.",
-            "When someone proposes a plan, I quickly think of alternate versions or improvements.",
-            "I often have more ideas than time, and it’s hard to pick just one."
+            "When a new situation appears, I immediately see several ways it could play out.",
+            "I often jump from one idea to another because each one opens more branches.",
+            "I naturally think in 'what if...' chains without trying.",
+            "I enjoy exploring multiple interpretations rather than locking into one meaning.",
+            "I get bored if there is only one allowed approach.",
+            "I can connect unrelated topics and see new angles quickly.",
+            "I frequently propose alternatives even when the current plan is fine.",
+            "I feel mentally 'stuck' if I cannot explore options."
           ]
         },
         {
-          "id": "ne_02",
+          "id": "ne_p2",
           "dir": 1,
-          "text": "I feel frustrated or disappointed when my ideas are dismissed or can’t be explored.",
+          "text": "I value open-mindedness and resourcefulness, and I enjoy creating new approaches.",
           "examples": [
-            "I feel my energy drop when people shut down possibilities too early.",
-            "I get restless when I must follow a single fixed plan with no alternatives.",
-            "I feel ‘stuck’ if there’s no room to try new directions."
+            "If a method feels old or rigid, I want to redesign it.",
+            "I enjoy testing new tools, workflows, or ideas just to see what happens.",
+            "I often suggest “we could do it another way” even if the old way works.",
+            "I adapt quickly by reframing a problem rather than repeating the same steps.",
+            "I prefer flexible guidelines over strict procedures.",
+            "I’m good at improvising when conditions change.",
+            "I get energy from experimenting, not from maintaining routines.",
+            "I dislike being forced into one fixed process."
           ]
         },
         {
-          "id": "ne_03",
-          "dir": 1,
-          "text": "It’s important to me to be open-minded and resourceful (finding new ways to solve things).",
-          "examples": [
-            "I prefer exploring options instead of committing early.",
-            "I enjoy experimenting with approaches, tools, or methods.",
-            "I naturally ask “What else could work?”"
-          ]
-        },
-        {
-          "id": "ne_04",
+          "id": "ne_p3",
           "dir": 1,
           "text": "Interesting possibilities lift my mood quickly; I like brainstorming with people.",
           "examples": [
-            "A new idea can make me feel hopeful again even if I was tired.",
-            "I enjoy bouncing ideas back and forth to develop them.",
-            "I feel alive when discussing future possibilities."
+            "A new opportunity can instantly pull me out of a low mood.",
+            "I enjoy bouncing ideas back and forth to create something better.",
+            "I naturally brainstorm out loud with others.",
+            "Conversations feel best when they explore options, not only facts.",
+            "I often play devil’s advocate to open new angles.",
+            "I get excited when someone adds a surprising new idea.",
+            "I can talk about ideas for a long time without needing closure.",
+            "I feel drained by conversations that shut down possibilities quickly."
           ]
         },
         {
-          "id": "ne_05",
+          "id": "ne_p4",
           "dir": 1,
-          "text": "Feeling stuck (little possibility for change) feels especially bad to me.",
+          "text": "Feeling stuck (no room to change) feels especially bad to me.",
           "examples": [
-            "I feel trapped if the future looks fixed and repetitive.",
-            "I start searching for new directions when life becomes too predictable.",
-            "I’m sensitive to environments that restrict options."
+            "If life becomes repetitive, I feel restless or trapped.",
+            "I need some sense of future options to feel okay.",
+            "I’m uncomfortable when plans become too fixed too early.",
+            "I often look for exits or alternatives when a path feels like a dead end.",
+            "I dislike roles that keep me in the same routine for too long.",
+            "I feel heavy when there’s 'nothing new to look forward to.'",
+            "I can tolerate uncertainty better than feeling stuck.",
+            "I prefer keeping multiple doors open."
           ]
         },
         {
-          "id": "ne_06",
+          "id": "ne_p5",
           "dir": 1,
-          "text": "I often dislike people who are closed-minded, rigid, overly literal, or pessimistic about ideas.",
+          "text": "I strongly dislike people who are closed-minded, overly rigid, or pessimistic 'wet blankets'.",
           "examples": [
-            "“We always do it this way” annoys me if no one considers alternatives.",
-            "I dislike when people criticize an idea before exploring it.",
-            "A consistently negative ‘wet blanket’ attitude drains me."
+            "I get frustrated with 'we always do it this way.'",
+            "I dislike when people reject ideas before exploring them.",
+            "I get annoyed by overly literal thinking that misses alternative meanings.",
+            "I feel limited around rigid rule-following for its own sake.",
+            "I avoid environments that punish experimentation.",
+            "I dislike pessimism that kills momentum.",
+            "I dislike nitpicking that stops exploration.",
+            "I prefer people who can entertain possibilities without fear."
+          ]
+        },
+        {
+          "id": "ne_p6",
+          "dir": 1,
+          "text": "I have received feedback like: scattered, impractical, inconsistent, unreliable, or unpredictable.",
+          "examples": [
+            "People say I start many things but don’t always finish.",
+            "Others think I change direction too quickly.",
+            "People say I’m strong at ideas but weak at logistics.",
+            "I sometimes ignore details because I'm focused on new options.",
+            "My priorities can shift when a more interesting possibility appears.",
+            "Others think I’m unpredictable because I keep multiple routes open.",
+            "I can feel guilty about being inconsistent over time.",
+            "People say I need structure more than I admit."
           ]
         },
 
         {
-          "id": "ne_07",
-          "dir": 1,
-          "text": "I’ve received feedback like: scattered, impractical, inconsistent, unpredictable, or unreliable.",
-          "examples": [
-            "People say I jump between interests or start more than I finish.",
-            "Others think I ignore practical details until late.",
-            "I get accused of changing my mind often."
-          ]
-        },
-
-        {
-          "id": "ne_08",
+          "id": "ne_x1",
           "dir": -1,
-          "text": "I rarely have new ideas and usually refuse to entertain new possibilities.",
+          "text": "I rarely have new ideas and I usually refuse to entertain new possibilities.",
           "examples": [
-            "Brainstorming feels pointless and I prefer to stay with one known approach.",
-            "I strongly resist alternatives even when the situation changes.",
-            "I dislike exploring options and prefer decisions to stay fixed."
+            "Brainstorming feels pointless or annoying most of the time.",
+            "I prefer one proven answer, not multiple options.",
+            "I dislike discussing hypothetical possibilities.",
+            "I avoid exploring alternatives unless forced.",
+            "New approaches usually feel unnecessary.",
+            "I quickly shut down ideas that are unfamiliar.",
+            "I prefer following established methods.",
+            "I feel stressed by too many options."
           ]
         },
         {
-          "id": "ne_09",
+          "id": "ne_x2",
           "dir": -1,
           "text": "I genuinely enjoy routine, repetitive practice, and logistical planning (as a preference).",
           "examples": [
-            "Repeating the same system is satisfying and I prefer it over novelty.",
-            "I like maintaining stable routines more than exploring new directions.",
-            "I feel happiest when life is predictable and well-scheduled."
+            "Repeating a stable routine feels satisfying, not boring.",
+            "I prefer maintenance and consistency over exploration.",
+            "I feel calmer when my day is predictable.",
+            "I enjoy step-by-step planning more than brainstorming.",
+            "I value reliability and procedure as the main goal.",
+            "I dislike changing plans once set.",
+            "I feel better doing what already works.",
+            "I prefer long-term consistency over experimenting."
           ]
         },
         {
-          "id": "ne_10",
+          "id": "ne_x3",
           "dir": -1,
-          "text": "Before I act, I must think through every contingency; improvising feels unsafe.",
+          "text": "I must think through every contingency before acting.",
           "examples": [
-            "I delay action until I feel fully prepared and certain.",
-            "I avoid changing plans on the fly.",
-            "Uncertainty makes me stop rather than explore."
+            "I delay until I feel fully prepared.",
+            "I avoid improvising because it feels unsafe.",
+            "I need certainty before moving forward.",
+            "I prefer to eliminate uncertainty early.",
+            "I often overplan to avoid surprises.",
+            "I dislike acting without a detailed plan.",
+            "I feel uncomfortable with open-ended choices.",
+            "I prefer predictable steps over exploring options."
+          ]
+        },
+        {
+          "id": "ne_x4",
+          "dir": -1,
+          "text": "I do not relate to big-picture possibility thinking; I don’t dream big.",
+          "examples": [
+            "I mostly focus on immediate practical goals.",
+            "Speculating about the future feels unrealistic.",
+            "I avoid ambitious visions; I prefer concrete tasks.",
+            "I rarely think about long-range possibilities.",
+            "I prefer what’s certain and measurable.",
+            "Dreaming about 'what could be' feels unnecessary.",
+            "I don’t enjoy abstract possibility discussions.",
+            "I focus on present reality more than future options."
           ]
         }
       ]
