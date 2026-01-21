@@ -1,0 +1,110 @@
+{
+  "scale": { "labels": ["Never", "Rarely", "Sometimes", "Often", "Almost always"], "values": [0, 1, 2, 3, 4] },
+  "cases": [
+    {
+      "id": "people_pleasing",
+      "title": "People-pleasing / Hard to say no",
+      "oneLiner": "You often agree to avoid conflict, then feel stressed or resentful.",
+      "signals": [
+        "You say yes quickly, then regret it.",
+        "You avoid asking for what you need.",
+        "You worry others will be disappointed."
+      ],
+      "questions": [
+        { "id": "pp_q1", "text": "I agree to requests even when I don't have time.", "weight": 1.0 },
+        { "id": "pp_q2", "text": "I feel anxious when I might disappoint someone.", "weight": 1.0 },
+        { "id": "pp_q3", "text": "After saying yes, I feel resentful or exhausted.", "weight": 1.2 },
+        { "id": "pp_q4", "text": "I avoid giving honest feedback to keep the peace.", "weight": 0.9 }
+      ],
+      "exampleTemplates": [
+        {
+          "title": "Work/School boundary",
+          "text": "When [person] asks you to take on [task] last-minute, say: “I can’t do it today. I can do [smaller part] by [time], or we can schedule it for [date].”"
+        },
+        {
+          "title": "Family request",
+          "text": "If [family member] wants you to do [favor], reply: “I can help for [30 minutes] on [day]. If you need more, let’s plan together.”"
+        },
+        {
+          "title": "Friend invitation",
+          "text": "When a friend invites you to [event] but you’re tired, say: “I’m going to rest tonight. Can we do [shorter option] on [other day]?”"
+        }
+      ],
+      "howToPullFromLife": [
+        "List 3 situations this month where you said “yes” too fast.",
+        "For each, write: who asked, what they asked, your real capacity (time/energy).",
+        "Pick one situation and rewrite a 1-sentence boundary using the templates."
+      ]
+    },
+    {
+      "id": "perfectionism",
+      "title": "Perfectionism / Over-polishing",
+      "oneLiner": "You delay finishing because it must be “perfect”, which costs time and energy.",
+      "signals": [
+        "You redo work many times.",
+        "You fear being judged for mistakes.",
+        "You procrastinate on important tasks."
+      ],
+      "questions": [
+        { "id": "pf_q1", "text": "I spend too long polishing details that others barely notice.", "weight": 1.0 },
+        { "id": "pf_q2", "text": "I hesitate to start because I’m not sure I can do it perfectly.", "weight": 1.1 },
+        { "id": "pf_q3", "text": "I feel bad when my work is 'good' but not 'excellent'.", "weight": 1.0 },
+        { "id": "pf_q4", "text": "I avoid sharing drafts because they aren’t ready.", "weight": 1.2 }
+      ],
+      "exampleTemplates": [
+        {
+          "title": "Define 'good enough'",
+          "text": "Before starting [task], define a 70% version: “Success means [3 bullet criteria]. Anything beyond that is optional.”"
+        },
+        {
+          "title": "Timebox polishing",
+          "text": "Set a timer for [25 minutes] to polish [section]. When it ends, ship it or ask for feedback."
+        },
+        {
+          "title": "Draft-first communication",
+          "text": "Send a draft to [person] with a label: “Rough draft — I want feedback on [2 questions], not grammar.”"
+        }
+      ],
+      "howToPullFromLife": [
+        "Choose one task you keep delaying.",
+        "Write what 'failure' looks like in your head; then write what is actually acceptable.",
+        "Pick a timebox (15–45 min) and decide what you will deliver at the end."
+      ]
+    },
+    {
+      "id": "avoidance",
+      "title": "Avoidance / Hard conversations",
+      "oneLiner": "You postpone uncomfortable conversations, so small issues grow bigger.",
+      "signals": [
+        "You 'wait for the right time' that never comes.",
+        "You replay conversations in your head.",
+        "You feel relief when you avoid it, then more anxiety later."
+      ],
+      "questions": [
+        { "id": "av_q1", "text": "I delay addressing issues because I fear conflict.", "weight": 1.1 },
+        { "id": "av_q2", "text": "I hope problems resolve on their own instead of talking.", "weight": 1.0 },
+        { "id": "av_q3", "text": "I overthink what to say and never start.", "weight": 1.1 },
+        { "id": "av_q4", "text": "After avoiding, the issue becomes harder to handle.", "weight": 1.2 }
+      ],
+      "exampleTemplates": [
+        {
+          "title": "2-minute opener",
+          "text": "Open with: “Can we talk for 5 minutes about [topic]? My goal is [goal], not blaming.”"
+        },
+        {
+          "title": "Observation → Impact → Request",
+          "text": "Say: “When [specific behavior], I feel [emotion] because [impact]. Can we try [request]?”"
+        },
+        {
+          "title": "Schedule it instead of forcing now",
+          "text": "If timing is bad: “I want to discuss [topic]. When is a good time today or tomorrow?”"
+        }
+      ],
+      "howToPullFromLife": [
+        "Write the 1-sentence issue: “We need to talk about ____.”",
+        "Write your goal (what you want after the talk).",
+        "Pick one template and fill in blanks with names and one concrete example."
+      ]
+    }
+  ]
+}
