@@ -1,418 +1,348 @@
-(function () {
-  const PAGE_ID = "ne_dom";
+(function(){
+  const PAGE_ID = 'ne_dom';
 
-  // =========================
-  // Option B: 5-point scale
-  // + "Don't remember"
-  // Values: 1..5, and -1 for "Don't remember"
-  // =========================
+  // 1..5 bubbles (Option B)
   const SCALE = [
-    { v: 1, label: "Never" },
-    { v: 2, label: "Rarely" },
-    { v: 3, label: "Sometimes" },
-    { v: 4, label: "Often" },
-    { v: 5, label: "Almost always" },
-    { v: -1, label: "Don’t remember / can’t recall" },
+    { v: 1, key: 'scale_1' },
+    { v: 2, key: 'scale_2' },
+    { v: 3, key: 'scale_3' },
+    { v: 4, key: 'scale_4' },
+    { v: 5, key: 'scale_5' }
   ];
 
-  // Top-2 highest (4-5) triggers showing examples
-  const TOP2_MIN = 4;
+  function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }
+  function isStrong(v){ return v === 4 || v === 5; }
 
-  // =========================
-  // Ne-dominant confirmation items (NO exclusion section)
-  // Keep them clean, short, not "Part A / Part B"
-  // =========================
-  const items = [
-    {
-      id: "ne_1",
-      title:
-        "My mind naturally generates many different possibilities or paths (\"what-if\" branches).",
-      examples: [
-        "You quickly see multiple ways something could go.",
-        "You naturally jump to alternative interpretations or options.",
-        "You often ask “What else could we do?” before committing.",
-      ],
-    },
-    {
-      id: "ne_2",
-      title:
-        "I feel energized by new ideas, new angles, or new options—even if I don’t act on them yet.",
-      examples: [
-        "New possibilities lift your mood or motivation quickly.",
-        "You get a “spark” when a new angle appears.",
-        "You feel more alive when there are options to explore.",
-      ],
-    },
-    {
-      id: "ne_3",
-      title:
-        "I enjoy brainstorming (alone or with others) more than following a fixed plan.",
-      examples: [
-        "You like bouncing ideas back and forth to expand them.",
-        "You prefer exploring alternatives before locking in.",
-        "You can generate variants quickly, even under time pressure.",
-      ],
-    },
-    {
-      id: "ne_4",
-      title:
-        "Feeling stuck (few options, repetitive life, little possibility to change) feels especially unbearable to me.",
-      examples: [
-        "When life becomes repetitive, you urgently search for new options.",
-        "A “dead-end” feeling makes you restless or low.",
-        "You feel better once you can see a new path forward.",
-      ],
-    },
-    {
-      id: "ne_5",
-      title:
-        "I strongly value open-mindedness and exploring alternatives; rigid thinking annoys me.",
-      examples: [
-        "You dislike “we always do it this way” without trying alternatives.",
-        "You get frustrated when people shut down ideas too early.",
-        "You prefer “let’s explore” over “just follow the rule.”",
-      ],
-    },
-    {
-      id: "ne_6",
-      title:
-        "I’ve been told I can be scattered, inconsistent, or impractical because I chase possibilities.",
-      examples: [
-        "You start more ideas than you finish.",
-        "You switch interests when something more interesting appears.",
-        "You may forget practical details while exploring concepts.",
-      ],
-    },
-  ];
+  // Convert 1..5 to centered points: (-2,-1,0,+1,+2)
+  function centeredPoints(v){ return v - 3; }
 
-  // =========================
-  // DOM helpers
-  // =========================
-  function el(tag, attrs = {}, children = []) {
-    const node = document.createElement(tag);
-    for (const [k, v] of Object.entries(attrs)) {
-      if (k === "class") node.className = v;
-      else if (k === "text") node.textContent = v;
-      else node.setAttribute(k, v);
-    }
-    for (const ch of children) node.appendChild(ch);
-    return node;
-  }
-
-  function clamp(n, lo, hi) {
-    return Math.max(lo, Math.min(hi, n));
-  }
-
-  // =========================
-  // Scoring (prototype)
-  // - Primary score: sum of 1..5 responses
-  // - "Don't remember" penalizes confidence heavily
-  // =========================
-  function computeScores(answers) {
+  // Scoring rules (prototype but matches what you asked):
+  // - Base score from Likert (centeredPoints * dir)
+  // - If user picked 4–5 and ticks >=1 example => bonus points in same direction (dir)
+  // - "Can't recall" exists INSIDE examples and makes the answer "null"
+  //   -> contributes 0 score AND reduces accuracy.
+  function computeScore(items, answers, examples){
     let sum = 0;
     let answered = 0;
-    let dontRememberCount = 0;
+    let cantRecall = 0;
 
-    for (const it of items) {
+    for(const it of items){
       const v = answers[it.id];
-      if (typeof v !== "number") continue;
 
-      if (v === -1) {
-        dontRememberCount += 1;
+      if(v === null){
+        cantRecall += 1;
         continue;
       }
 
-      answered += 1;
-      sum += v; // 1..5
+      if(typeof v === 'number'){
+        answered += 1;
+        const base = centeredPoints(v) * (it.dir || 1);
+        sum += base;
+
+        // Example bonus only when strong (4–5)
+        if(isStrong(v) && it.examples && it.examples.length){
+          // if any example checked (excluding cant)
+          let anyChecked = false;
+          for(let i=0;i<it.examples.length;i++){
+            const exId = `${it.id}__ex${i}`;
+            if(examples[exId]) { anyChecked = true; break; }
+          }
+          if(anyChecked){
+            sum += 1 * (it.dir || 1); // small confirm bonus
+          }
+        }
+      }
     }
 
-    // Normalize-ish presence strength (0..1)
-    // If answered==0 -> 0
-    const maxPossible = answered * 5;
-    const strength = maxPossible > 0 ? sum / maxPossible : 0;
+    // Accuracy penalty for cant-recall answers
+    const recallPenaltyEach = 12; // stronger penalty since it's explicit "can't recall"
+    const accuracy = clamp(100 - cantRecall * recallPenaltyEach, 30, 100);
 
-    // Confidence: starts from coverage + strength, then reduced by don't-remember
-    const coverage = items.length > 0 ? answered / items.length : 0;
-    let conf = 0.45 * coverage + 0.55 * strength;
+    const abs = Math.abs(sum);
+    let confidence = 'low';
+    if(accuracy >= 85 && abs >= 8) confidence = 'high';
+    else if(accuracy >= 70 && abs >= 5) confidence = 'medium';
 
-    // big penalty per "don't remember"
-    conf -= dontRememberCount * 0.18;
+    return { score: sum, answered, cantRecall, total: items.length, accuracy, confidence };
+  }
 
-    conf = clamp(conf, 0, 1);
+  function el(tag, attrs={}, children=[]){
+    return window.App.el(tag, attrs, children);
+  }
 
-    let confidenceLabel = "Low";
-    if (conf >= 0.72) confidenceLabel = "High";
-    else if (conf >= 0.5) confidenceLabel = "Medium";
+  function renderLikert(qid, currentValue, onPick){
+    const row = el('div', { class: 'likert-row' });
 
+    const left = el('div', { class: 'likert-label disagree', text: window.App.t('scale_left', 'Disagree') });
+    const right = el('div', { class: 'likert-label agree', text: window.App.t('scale_right', 'Agree') });
+
+    const bubbles = el('div', {
+      class: 'bubbles',
+      role: 'radiogroup',
+      'aria-label': window.App.t('likert_aria', 'Answer scale')
+    });
+
+    SCALE.forEach(s => {
+      const cls =
+        s.v === 1 ? 'bubble l1' :
+        s.v === 2 ? 'bubble l2' :
+        s.v === 3 ? 'bubble l3' :
+        s.v === 4 ? 'bubble l4' : 'bubble l5';
+
+      const selected = (currentValue === s.v);
+
+      const btn = el('button', {
+        type: 'button',
+        class: cls + (selected ? ' selected' : ''),
+        role: 'radio',
+        'aria-checked': selected ? 'true' : 'false',
+        'aria-label': window.App.t(s.key, String(s.v))
+      });
+
+      btn.addEventListener('click', () => onPick(s.v));
+      bubbles.appendChild(btn);
+    });
+
+    row.appendChild(left);
+    row.appendChild(bubbles);
+    row.appendChild(right);
+
+    return row;
+  }
+
+  function renderExamples(item, state, onUpdate){
+    const v = state.answers[item.id];
+    if(v === null) return null;
+    if(!isStrong(v)) return null;
+    if(!item.examples || item.examples.length === 0) return null;
+
+    const box = el('div', { class: 'followup' });
+
+    const title = el('div', {
+      class: 'followup-title',
+      text: window.App.t('followup_title', 'If you answered strong (4–5): which examples fit your real life?')
+    });
+
+    const note = el('div', {
+      class: 'small-muted',
+      text: window.App.t('followup_note', 'Pick any that match. Skip if you don’t want to.')
+    });
+
+    const list = el('ul', { class: 'ex-list' });
+
+    // Normal example checkboxes
+    item.examples.forEach((txt, idx) => {
+      const exId = `${item.id}__ex${idx}`;
+      const checked = !!state.examples[exId];
+
+      const input = el('input', { type: 'checkbox', id: exId });
+      input.checked = checked;
+
+      input.addEventListener('change', () => {
+        const cantId = `${item.id}__cant`;
+        // If they check any example, uncheck cant-recall if it was set
+        if(input.checked){
+          if(state.examples[cantId]) delete state.examples[cantId];
+        }
+
+        if(input.checked) state.examples[exId] = true;
+        else delete state.examples[exId];
+
+        onUpdate();
+      });
+
+      const label = el('label', { for: exId });
+      label.appendChild(el('span', { text: txt }));
+
+      list.appendChild(el('li', { class: 'ex-item' }, [input, label]));
+    });
+
+    // "Can't recall" checkbox INSIDE examples
+    const cantId = `${item.id}__cant`;
+    const cantChecked = !!state.examples[cantId];
+
+    const cantInput = el('input', { type: 'checkbox', id: cantId });
+    cantInput.checked = cantChecked;
+
+    cantInput.addEventListener('change', () => {
+      if(cantInput.checked){
+        // Mark cant recall and clear normal examples
+        state.examples[cantId] = true;
+        for(let i=0;i<item.examples.length;i++){
+          delete state.examples[`${item.id}__ex${i}`];
+        }
+        // Convert answer to null so it reduces accuracy / contributes 0
+        state.answers[item.id] = null;
+      }else{
+        delete state.examples[cantId];
+        // Restore to last strong value if we have it, else 4
+        state.answers[item.id] = state.lastStrong[item.id] || 4;
+      }
+      onUpdate(true); // re-render question block
+    });
+
+    const cantLabel = el('label', { for: cantId });
+    cantLabel.appendChild(el('span', { text: window.App.t('cant_recall', "Can't recall / not sure") }));
+
+    list.appendChild(el('li', { class: 'ex-item' }, [cantInput, cantLabel]));
+
+    box.appendChild(title);
+    box.appendChild(note);
+    box.appendChild(list);
+
+    return box;
+  }
+
+  function renderQuestion(item, state, onUpdate){
+    const block = el('div', { class: 'q-block' });
+
+    const qText = el('div', { class: 'q-text', text: item.text });
+    block.appendChild(qText);
+
+    const current = (state.answers[item.id] === null) ? null : state.answers[item.id];
+
+    const likert = renderLikert(item.id, current, (picked) => {
+      // If previously null, allow re-answer
+      state.answers[item.id] = picked;
+
+      // track last strong value for restoring after cant-recall
+      if(isStrong(picked)){
+        state.lastStrong[item.id] = picked;
+      }
+
+      // If user picked any value, clear cant-recall example flag for this question
+      const cantId = `${item.id}__cant`;
+      if(state.examples[cantId]) delete state.examples[cantId];
+
+      onUpdate(true);
+    });
+
+    block.appendChild(likert);
+
+    // Follow-up examples
+    const exBox = renderExamples(item, state, onUpdate);
+    if(exBox) block.appendChild(exBox);
+
+    return block;
+  }
+
+  function updateScoreUI(items, state){
+    const s = computeScore(items, state.answers, state.examples);
+
+    document.getElementById('scoreValue').textContent = String(s.score);
+    document.getElementById('accuracyValue').textContent = `${s.accuracy}%`;
+
+    const confText =
+      s.confidence === 'high' ? window.App.t('conf_high', 'High') :
+      s.confidence === 'medium' ? window.App.t('conf_med', 'Medium') :
+      window.App.t('conf_low', 'Low');
+
+    document.getElementById('confidenceValue').textContent = confText;
+
+    const bar = document.getElementById('accuracyBar');
+    bar.style.width = `${s.accuracy}%`;
+
+    state._computed = s;
+  }
+
+  function loadPathsForPage(){
     return {
-      presence: sum, // reuse existing UI box "Ne presence"
-      exclusion: dontRememberCount, // reuse existing UI box "Ne exclusion" (now shows don't-remember count)
-      net: Math.round(conf * 100), // reuse "Net" box as Confidence %
-      confidence: confidenceLabel,
-      meta: {
-        answered,
-        dontRememberCount,
-        strength: Number(strength.toFixed(3)),
-        coverage: Number(coverage.toFixed(3)),
-        confidence01: Number(conf.toFixed(3)),
-      },
+      cases: { en: '../data/cases_en.json', vi: '../data/cases_vi.json' },
+      ui: { en: '../data/ui_en.json', vi: '../data/ui_vi.json' }
     };
   }
 
-  // =========================
-  // Render one question with:
-  // - big bubble radio scale (like your image)
-  // - examples only appear when value is 4 or 5
-  // - includes "Don't remember"
-  // =========================
-  function renderQuestion(it, savedAnswers) {
-    const defaultVal =
-      savedAnswers && typeof savedAnswers[it.id] === "number"
-        ? savedAnswers[it.id]
-        : null;
+  async function main(){
+    const paths = loadPathsForPage();
 
-    const qTitle = el("div", { class: "qtitle", text: it.title });
+    await window.App.init({ ui: paths.ui });
+    window.App.applyI18n(document);
 
-    // Big choices row
-    const choicesRow = el("div", { class: "likert-row" });
+    // --- Language toggle (fix: no custom reload logic, just set + reload) ---
+    const langBtn = document.getElementById('langToggleBtn');
+    const langPill = document.getElementById('langPill');
 
-    // We'll create a radio group per question
-    const name = `q_${it.id}`;
-
-    SCALE.forEach((opt) => {
-      const inputId = `${name}_${opt.v}`;
-
-      // wrapper
-      const wrap = el("label", {
-        class:
-          opt.v === -1 ? "likert-choice dont-remember" : "likert-choice",
-        for: inputId,
-      });
-
-      const input = el("input", {
-        type: "radio",
-        id: inputId,
-        name,
-        value: String(opt.v),
-        "data-qid": it.id,
-      });
-
-      if (defaultVal !== null && opt.v === defaultVal) input.checked = true;
-
-      const bubble = el("span", { class: "bubble", "aria-hidden": "true" });
-      const label = el("span", { class: "choice-label", text: opt.label });
-
-      wrap.appendChild(input);
-      wrap.appendChild(bubble);
-      wrap.appendChild(label);
-
-      choicesRow.appendChild(wrap);
-    });
-
-    // Examples box (hidden by default; shown only when 4 or 5)
-    const exTitle = el("div", {
-      class: "examples-title",
-      text: "Examples (only shown when you choose Often / Almost always)",
-    });
-
-    const exList = el("ul", { class: "examples-list" });
-    (it.examples || []).forEach((t) => {
-      exList.appendChild(el("li", { text: t }));
-    });
-
-    const examplesBox = el("div", { class: "examples-box hidden" }, [
-      exTitle,
-      exList,
-    ]);
-
-    // Whole card
-    const card = el("div", { class: "qcard big" }, [
-      qTitle,
-      choicesRow,
-      examplesBox,
-    ]);
-
-    // Set initial examples visibility
-    if (defaultVal !== null && defaultVal >= TOP2_MIN) {
-      examplesBox.classList.remove("hidden");
+    function refreshLangUI(){
+      langPill.textContent = window.App.getLang().toUpperCase();
     }
+    refreshLangUI();
 
-    return { card, examplesBox };
-  }
-
-  // =========================
-  // Inject minimal CSS (so you don’t have to edit CSS yet)
-  // This makes it "like the image": big text, big bubbles, clean.
-  // =========================
-  function injectStyleOnce() {
-    if (document.getElementById("ne_dom_inline_style")) return;
-
-    const css = `
-      /* Big readable page */
-      .qcard.big{ padding: 22px; border: 1px solid rgba(0,0,0,0.08); border-radius: 16px; }
-      .qtitle{ font-size: 28px; line-height: 1.25; font-weight: 600; margin-bottom: 18px; }
-      .likert-row{ display:flex; flex-wrap: wrap; gap: 16px; align-items: center; }
-
-      .likert-choice{
-        display:flex; align-items:center; gap:10px;
-        cursor:pointer; user-select:none;
-        padding: 10px 12px; border-radius: 12px;
-      }
-      .likert-choice:hover{ background: rgba(0,0,0,0.03); }
-
-      .likert-choice input{ position:absolute; opacity:0; pointer-events:none; }
-      .bubble{
-        width: 44px; height: 44px; border-radius: 999px;
-        border: 4px solid rgba(0,0,0,0.25);
-        display:inline-block;
-      }
-      .choice-label{ font-size: 20px; line-height: 1.1; }
-
-      /* Checked states */
-      .likert-choice input:checked + .bubble{
-        border-color: rgba(0,0,0,0.75);
-      }
-
-      /* "Don't remember" more obvious */
-      .likert-choice.dont-remember .bubble{
-        border-style: dashed;
-      }
-
-      .examples-box{
-        margin-top: 16px;
-        background: rgba(0,0,0,0.03);
-        border-radius: 14px;
-        padding: 14px 16px;
-      }
-      .examples-box.hidden{ display:none; }
-      .examples-title{ font-size: 16px; opacity: 0.75; margin-bottom: 10px; }
-      .examples-list{ margin: 0; padding-left: 18px; }
-      .examples-list li{ font-size: 18px; line-height: 1.35; margin: 6px 0; }
-
-      /* Reduce “letters stuck together” */
-      .stack{ display:flex; flex-direction:column; gap: 18px; }
-    `;
-
-    const style = document.createElement("style");
-    style.id = "ne_dom_inline_style";
-    style.textContent = css;
-    document.head.appendChild(style);
-  }
-
-  // =========================
-  // Main
-  // =========================
-  function main() {
-    injectStyleOnce();
-
-    // Render into presenceList if exists, else exclusionList, else main container
-    const mount =
-      document.getElementById("presenceList") ||
-      document.getElementById("exclusionList") ||
-      document.querySelector("main") ||
-      document.body;
-
-    // Clear existing content if any
-    if (mount) mount.innerHTML = "";
-
-    const saved = window.AppStorage?.loadPage(PAGE_ID) || {};
-    const savedAnswers = saved.answers || {};
-
-    const answers = {};
-
-    // Build UI
-    const exampleBoxesById = {};
-
-    items.forEach((it) => {
-      const { card, examplesBox } = renderQuestion(it, savedAnswers);
-      mount.appendChild(card);
-
-      const v =
-        typeof savedAnswers[it.id] === "number" ? savedAnswers[it.id] : null;
-      if (v !== null) answers[it.id] = v;
-
-      exampleBoxesById[it.id] = examplesBox;
+    langBtn.addEventListener('click', async () => {
+      const next = window.App.getLang() === 'en' ? 'vi' : 'en';
+      await window.App.setLang(next);
+      // hard reload to re-fetch correct json for page + UI
+      window.location.reload();
     });
 
-    // Score elements (reuse existing ids from your HTML)
-    const presenceScoreEl = document.getElementById("presenceScore");
-    const exclusionScoreEl = document.getElementById("exclusionScore");
-    const netScoreEl = document.getElementById("netScore");
-    const confidenceEl = document.getElementById("confidence");
+    const casesPath = paths.cases[window.App.getLang()];
+    const cases = await window.App.loadJSON(casesPath);
 
-    function refreshScores() {
-      const s = computeScores(answers);
+    const page = cases.pages && cases.pages.ne_dom;
+    if(!page) throw new Error('Missing pages.ne_dom in cases JSON.');
 
-      // If score widgets are present, update them; otherwise do nothing
-      if (presenceScoreEl) presenceScoreEl.textContent = String(s.presence);
-      if (exclusionScoreEl) exclusionScoreEl.textContent = String(s.exclusion); // now shows "don't remember count"
-      if (netScoreEl) netScoreEl.textContent = String(s.net); // now shows confidence %
-      if (confidenceEl) confidenceEl.textContent = s.confidence;
+    document.getElementById('pageTitle').textContent = page.title;
+    document.getElementById('pageIntro').textContent = page.intro;
 
-      return s;
-    }
+    // Load saved state
+    const saved = window.AppStorage.loadPage(PAGE_ID) || {};
+    const state = {
+      answers: saved.answers || {},
+      examples: saved.examples || {},
+      lastStrong: saved.lastStrong || {},
+      _computed: null
+    };
 
-    // Handle clicks/changes (radio inputs)
-    document.addEventListener("change", (e) => {
-      const t = e.target;
-      if (!(t instanceof HTMLInputElement)) return;
-      if (t.type !== "radio") return;
+    const items = page.items || [];
+    const list = document.getElementById('questionList');
 
-      const qid = t.getAttribute("data-qid");
-      if (!qid) return;
-
-      const val = parseInt(t.value, 10);
-      if (Number.isNaN(val)) return;
-
-      answers[qid] = val;
-
-      // Show examples only when 4 or 5
-      const exBox = exampleBoxesById[qid];
-      if (exBox) {
-        if (val >= TOP2_MIN) exBox.classList.remove("hidden");
-        else exBox.classList.add("hidden");
-      }
-
-      refreshScores();
-    });
-
-    // Initial refresh
-    const initialScores = refreshScores();
-
-    // Save / Reset buttons (reuse your existing HTML buttons)
-    const saveBtn = document.getElementById("saveBtn");
-    const saveStatus = document.getElementById("saveStatus");
-
-    if (saveBtn) {
-      saveBtn.addEventListener("click", () => {
-        const scores = refreshScores();
-        window.AppStorage.savePage(PAGE_ID, {
-          answers: { ...answers },
-          scores,
-          updated_at: new Date().toISOString(),
-        });
-        if (saveStatus) {
-          saveStatus.textContent = `Saved ✓ (${new Date().toLocaleString()})`;
+    function renderAll(){
+      list.innerHTML = '';
+      items.forEach(it => {
+        // default neutral if missing
+        if(!Object.prototype.hasOwnProperty.call(state.answers, it.id)){
+          state.answers[it.id] = 3;
         }
+        const node = renderQuestion(it, state, (rerender=true) => {
+          if(rerender) renderAll();
+          updateScoreUI(items, state);
+        });
+        list.appendChild(node);
       });
+
+      updateScoreUI(items, state);
     }
 
-    const resetPageBtn = document.getElementById("resetPageBtn");
-    if (resetPageBtn) {
-      resetPageBtn.addEventListener("click", () => {
-        if (!confirm("Reset answers for this page?")) return;
-        window.AppStorage.resetPage(PAGE_ID);
-        location.reload();
-      });
-    }
+    renderAll();
 
-    // If nothing was answered but saved had scores, don't care; prototype.
-    // (We compute live anyway.)
+    // Save/reset
+    const saveBtn = document.getElementById('saveBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const status = document.getElementById('saveStatus');
+
+    saveBtn.addEventListener('click', () => {
+      updateScoreUI(items, state);
+      window.AppStorage.savePage(PAGE_ID, {
+        answers: state.answers,
+        examples: state.examples,
+        lastStrong: state.lastStrong,
+        scores: state._computed,
+        updated_at: new Date().toISOString()
+      });
+      status.textContent = window.App.t('saved_ok', 'Saved.');
+      setTimeout(() => (status.textContent = ''), 1400);
+    });
+
+    resetBtn.addEventListener('click', () => {
+      const msg = window.App.t('reset_confirm', 'Reset this page?');
+      if(!confirm(msg)) return;
+      window.AppStorage.resetPage(PAGE_ID);
+      window.location.reload();
+    });
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", main);
-  } else {
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', main);
+  }else{
     main();
   }
 })();
