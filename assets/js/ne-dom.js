@@ -21,10 +21,16 @@
    * - Display "score" as 0..100 likelihood = (normScore+1)/2 * 100
    * - Examples bonus still applies only when strong (4-5) and at least 1 example checked
    * - Can't recall does NOT null Likert; it only reduces Accuracy and disables example bonus for that item
+   * - NEW: if strong (4–5) but no example selected (and not can't recall), reduce Accuracy slightly
+   *
+   * Tuned for ~10 questions:
+   * - Can't recall: -10% each (heavy but not instantly kills the result)
+   * - Strong but no example: -3% each (light “evidence missing” penalty)
    */
   function computeScore(items, answers, examples, cantRecall){
     let raw = 0;
     let cant = 0;
+    let unconfirmedStrong = 0; // strong (4–5) but no examples checked and not cantRecall
 
     // For normalization
     // Each item core contributes up to 2*abs(dir) (since centeredPoints in [-2,+2])
@@ -42,30 +48,43 @@
       const v = answers[it.id];
       if(typeof v !== 'number') continue;
 
+      // core contribution
       raw += centeredPoints(v) * dir;
 
       const cantOn = !!cantRecall[it.id];
       if(cantOn){
         cant += 1;
-        continue; // no example bonus when can't recall examples
+        continue; // no example bonus; also do not count as "unconfirmed"
       }
 
+      // bonus/penalty on strong answers
       if(isStrong(v) && it.examples && it.examples.length){
         let anyChecked = false;
         for(let i=0;i<it.examples.length;i++){
           const exId = `${it.id}__ex${i}`;
           if(examples[exId]) { anyChecked = true; break; }
         }
+
         if(anyChecked){
           raw += 1 * dir; // small confirm bonus
+        }else{
+          // Strong claim, but no supporting example chosen
+          unconfirmedStrong += 1;
         }
       }
     }
 
-    // Accuracy penalty: each "can't recall" reduces accuracy
-    // Keep it heavy, but don't wreck everything too fast.
-    const penaltyEach = 12; // was 15 (slightly less brutal)
-    const accuracy = clamp(100 - cant * penaltyEach, 25, 100);
+    // Accuracy penalty:
+    // - can't recall is heavy
+    // - strong but no example is light
+    // tuned for ~10 questions
+    const penaltyEach = 10;     // was 12; slightly less brutal
+    const noExamplePenalty = 3; // new light penalty per “strong but no example”
+    const accuracy = clamp(
+      100 - cant * penaltyEach - unconfirmedStrong * noExamplePenalty,
+      25,
+      100
+    );
 
     // Normalize raw score into [-1, +1]
     const maxPossible = Math.max(1, (maxCore + maxBonus)); // guard
@@ -80,13 +99,12 @@
     if(accuracy >= 85 && sep >= 0.35) confidence = 'high';
     else if(accuracy >= 70 && sep >= 0.22) confidence = 'medium';
 
-    // Verdict: harder to be inconclusive
+    // Verdict:
     // - If accuracy is too low, always inconclusive
     // - Otherwise decide by normScore threshold
     const MIN_ACC_FOR_VERDICT = 55;
 
-    // These thresholds decide how quickly we give likely/unlikely
-    // (Make inconclusive narrower around the center)
+    // Narrower “inconclusive band”
     const TH = 0.18; // ~ 59/41 on the 0..100 scale
 
     let verdict = 'inconclusive';
@@ -100,7 +118,7 @@
       verdict = 'inconclusive';
     }
 
-    // Optional: a numeric "verdict confidence %" for display text
+    // Numeric "verdict confidence %" for display text
     // Mix accuracy and separation.
     const verdictPct = clamp(
       Math.round(0.6 * accuracy + 0.4 * (sep * 100)),
@@ -116,7 +134,8 @@
       confidence,
       verdict,
       verdictPct,
-      cantRecallCount: cant
+      cantRecallCount: cant,
+      unconfirmedStrongCount: unconfirmedStrong
     };
   }
 
@@ -297,8 +316,6 @@
     // Verdict text (only updates if element exists)
     const verdictEl = document.getElementById('verdictValue');
     if(verdictEl){
-      // Include a % to make it feel like a real conclusion.
-      // Uses verdictPct which already blends accuracy + separation.
       verdictEl.textContent =
         s.verdict === 'likely'
           ? window.App.t('verdict_likely', 'Likely Ne-dominant') + ` (${s.verdictPct}%)`
