@@ -1,110 +1,112 @@
 {
-  "scale": { "labels": ["Không bao giờ", "Hiếm khi", "Thỉnh thoảng", "Thường", "Gần như luôn"], "values": [0, 1, 2, 3, 4] },
-  "cases": [
-    {
-      "id": "people_pleasing",
-      "title": "Chiều lòng người khác / Khó từ chối",
-      "oneLiner": "Bạn hay đồng ý để tránh căng thẳng, rồi lại stress hoặc bực bội.",
-      "signals": [
-        "Bạn nói “được” rất nhanh rồi hối hận.",
-        "Bạn ngại đòi hỏi nhu cầu của mình.",
-        "Bạn sợ người khác thất vọng."
-      ],
-      "questions": [
-        { "id": "pp_q1", "text": "Tôi nhận lời giúp dù biết mình không đủ thời gian.", "weight": 1.0 },
-        { "id": "pp_q2", "text": "Tôi lo lắng khi có khả năng làm ai đó thất vọng.", "weight": 1.0 },
-        { "id": "pp_q3", "text": "Sau khi nói “đồng ý”, tôi thấy bực bội hoặc kiệt sức.", "weight": 1.2 },
-        { "id": "pp_q4", "text": "Tôi tránh góp ý thẳng vì muốn yên ổn.", "weight": 0.9 }
-      ],
-      "exampleTemplates": [
+  "pages": {
+    "ne_dom": {
+      "title": "Xác nhận / Loại trừ: Ne trội",
+      "intro": "Với mỗi câu, chọn mức độ đồng ý theo kiểu sống ‘thường ngày’ của bạn. Nếu bạn chọn mạnh (4–5), phần ví dụ sẽ hiện ra để kiểm tra xem bạn có hiểu đúng ý không.",
+      "items": [
         {
-          "title": "Ranh giới ở công việc/học tập",
-          "text": "Khi [người] nhờ bạn làm [việc] gấp, nói: “Hôm nay mình không kịp. Mình có thể làm [phần nhỏ] trước [giờ], hoặc mình hẹn [ngày] để xử lý.”"
+          "id": "ne_01",
+          "dir": 1,
+          "text": "Trong đầu tôi tự nhiên bật ra rất nhiều khả năng / hướng đi khác nhau.",
+          "examples": [
+            "Gặp tình huống mới, tôi thấy ngay nhiều cách để làm được.",
+            "Ai đưa kế hoạch, tôi nghĩ ra phiên bản khác hoặc cách cải tiến rất nhanh.",
+            "Tôi hay có nhiều ý tưởng hơn thời gian, khó chọn một cái để theo."
+          ]
         },
         {
-          "title": "Nhờ vả trong gia đình",
-          "text": "Nếu [người thân] nhờ bạn [việc], trả lời: “Mình giúp được [30 phút] vào [ngày]. Nếu cần thêm, mình cùng lên kế hoạch nhé.”"
+          "id": "ne_02",
+          "dir": 1,
+          "text": "Tôi dễ bực hoặc hụt hẫng khi ý tưởng bị gạt đi hoặc không được thử.",
+          "examples": [
+            "Tôi tụt năng lượng khi người khác ‘dập’ ý tưởng quá sớm.",
+            "Tôi bứt rứt khi buộc phải theo một kế hoạch cứng, không có lựa chọn khác.",
+            "Tôi thấy ‘kẹt’ nếu không có không gian để thử hướng mới."
+          ]
         },
         {
-          "title": "Bạn bè rủ đi chơi",
-          "text": "Khi bạn rủ đi [sự kiện] nhưng bạn mệt, nói: “Tối nay mình nghỉ. Mình đi [phiên bản ngắn hơn] vào [ngày khác] được không?”"
+          "id": "ne_03",
+          "dir": 1,
+          "text": "Với tôi, cởi mở và linh hoạt (tìm cách mới để giải quyết) là rất quan trọng.",
+          "examples": [
+            "Tôi thích mở lựa chọn thay vì chốt sớm.",
+            "Tôi thích thử cách làm, công cụ, phương pháp khác nhau.",
+            "Tôi tự nhiên hay hỏi: “Còn cách nào khác không?”"
+          ]
+        },
+        {
+          "id": "ne_04",
+          "dir": 1,
+          "text": "Một khả năng thú vị có thể kéo mood tôi lên nhanh; tôi thích brainstorm với người khác.",
+          "examples": [
+            "Một ý tưởng mới làm tôi thấy hy vọng lại dù trước đó mệt.",
+            "Tôi thích nảy ý qua lại để phát triển ý tưởng.",
+            "Tôi thấy ‘sống’ hơn khi nói về khả năng tương lai."
+          ]
+        },
+        {
+          "id": "ne_05",
+          "dir": 1,
+          "text": "Cảm giác bị ‘kẹt’ (ít khả năng thay đổi) làm tôi khó chịu đặc biệt mạnh.",
+          "examples": [
+            "Tôi thấy ngộp nếu tương lai có vẻ cố định và lặp lại.",
+            "Khi đời quá đoán trước được, tôi tự tìm hướng mới.",
+            "Tôi nhạy với môi trường bóp nghẹt lựa chọn."
+          ]
+        },
+        {
+          "id": "ne_06",
+          "dir": 1,
+          "text": "Tôi thường không thích người quá đóng, cứng nhắc, quá chữ nghĩa, hoặc bi quan về ý tưởng.",
+          "examples": [
+            "Câu “xưa giờ làm vậy” làm tôi khó chịu nếu không ai xem lựa chọn khác.",
+            "Tôi ghét kiểu chê ý tưởng trước khi chịu tìm hiểu.",
+            "Thái độ ‘dội gáo nước lạnh’ liên tục làm tôi mệt."
+          ]
+        },
+
+        {
+          "id": "ne_07",
+          "dir": 1,
+          "text": "Tôi từng bị góp ý kiểu: lan man, thiếu thực tế, thiếu ổn định, khó đoán, không đáng tin.",
+          "examples": [
+            "Người khác nói tôi nhảy giữa nhiều sở thích hoặc khởi đầu nhiều hơn kết thúc.",
+            "Người khác thấy tôi bỏ qua chi tiết thực tế tới phút chót.",
+            "Tôi hay bị nói là đổi ý nhanh."
+          ]
+        },
+
+        {
+          "id": "ne_08",
+          "dir": -1,
+          "text": "Tôi hiếm khi có ý tưởng mới và thường từ chối xem xét khả năng mới.",
+          "examples": [
+            "Brainstorm làm tôi thấy vô ích; tôi chỉ muốn bám một cách quen.",
+            "Tôi phản đối lựa chọn khác ngay cả khi tình huống thay đổi.",
+            "Tôi không thích khám phá phương án; tôi muốn mọi thứ giữ nguyên."
+          ]
+        },
+        {
+          "id": "ne_09",
+          "dir": -1,
+          "text": "Tôi thật sự thích đời sống routine, luyện tập lặp lại, và lập kế hoạch logistics (như một sở thích).",
+          "examples": [
+            "Lặp lại cùng một hệ thống làm tôi thấy đã và tôi thích hơn novelty.",
+            "Tôi thích duy trì routine ổn định hơn là đổi hướng liên tục.",
+            "Tôi hạnh phúc nhất khi đời đoán trước được và có lịch rõ."
+          ]
+        },
+        {
+          "id": "ne_10",
+          "dir": -1,
+          "text": "Trước khi làm, tôi phải nghĩ hết mọi tình huống; ứng biến làm tôi thấy không an toàn.",
+          "examples": [
+            "Tôi trì hoãn cho đến khi chắc chắn và chuẩn bị đủ.",
+            "Tôi tránh đổi kế hoạch giữa chừng.",
+            "Không chắc chắn làm tôi dừng lại thay vì thử mở khả năng."
+          ]
         }
-      ],
-      "howToPullFromLife": [
-        "Ghi lại 3 tình huống trong tháng này bạn đã “đồng ý” quá nhanh.",
-        "Với mỗi tình huống, viết: ai nhờ, nhờ việc gì, năng lượng/thời gian thật của bạn.",
-        "Chọn 1 tình huống và viết lại 1 câu 'từ chối mềm' theo template."
-      ]
-    },
-    {
-      "id": "perfectionism",
-      "title": "Cầu toàn / Mài giũa quá mức",
-      "oneLiner": "Bạn khó hoàn thành vì muốn “hoàn hảo”, tốn nhiều thời gian và sức lực.",
-      "signals": [
-        "Bạn sửa đi sửa lại nhiều lần.",
-        "Bạn sợ bị đánh giá nếu sai.",
-        "Bạn trì hoãn việc quan trọng."
-      ],
-      "questions": [
-        { "id": "pf_q1", "text": "Tôi mất quá nhiều thời gian cho chi tiết mà người khác ít để ý.", "weight": 1.0 },
-        { "id": "pf_q2", "text": "Tôi ngại bắt đầu vì sợ không làm được thật hoàn hảo.", "weight": 1.1 },
-        { "id": "pf_q3", "text": "Tôi thấy khó chịu khi kết quả 'ổn' nhưng chưa 'xuất sắc'.", "weight": 1.0 },
-        { "id": "pf_q4", "text": "Tôi ngại đưa bản nháp vì thấy chưa đủ tốt.", "weight": 1.2 }
-      ],
-      "exampleTemplates": [
-        {
-          "title": "Định nghĩa 'đủ tốt'",
-          "text": "Trước khi làm [việc], đặt mục tiêu 70%: “Xong nghĩa là đạt [3 tiêu chí]. Phần còn lại là tùy chọn.”"
-        },
-        {
-          "title": "Giới hạn thời gian mài giũa",
-          "text": "Đặt hẹn giờ [25 phút] để chỉnh [phần]. Hết giờ thì nộp/đẩy đi hoặc xin feedback."
-        },
-        {
-          "title": "Gửi bản nháp trước",
-          "text": "Gửi bản nháp cho [người] kèm nhãn: “Bản nháp — mình cần góp ý về [2 câu hỏi], không cần soi lỗi chính tả.”"
-        }
-      ],
-      "howToPullFromLife": [
-        "Chọn 1 việc bạn đang trì hoãn.",
-        "Viết 'thất bại' trong đầu bạn là gì; rồi viết mức chấp nhận được thực tế là gì.",
-        "Chọn một timebox (15–45 phút) và quyết định bạn sẽ bàn giao gì khi hết giờ."
-      ]
-    },
-    {
-      "id": "avoidance",
-      "title": "Né tránh / Ngại nói chuyện khó",
-      "oneLiner": "Bạn trì hoãn nói chuyện khó, làm vấn đề nhỏ thành lớn.",
-      "signals": [
-        "Bạn cứ chờ 'đúng thời điểm' nhưng không bao giờ đến.",
-        "Bạn suy đi nghĩ lại trong đầu.",
-        "Tránh thì nhẹ người lúc đó, nhưng sau lại lo hơn."
-      ],
-      "questions": [
-        { "id": "av_q1", "text": "Tôi trì hoãn nói thẳng vì sợ xung đột.", "weight": 1.1 },
-        { "id": "av_q2", "text": "Tôi hy vọng vấn đề tự hết thay vì nói chuyện.", "weight": 1.0 },
-        { "id": "av_q3", "text": "Tôi nghĩ quá nhiều về cách nói nên mãi không bắt đầu.", "weight": 1.1 },
-        { "id": "av_q4", "text": "Tránh xong thì vấn đề càng khó xử hơn.", "weight": 1.2 }
-      ],
-      "exampleTemplates": [
-        {
-          "title": "Mở đầu 2 phút",
-          "text": "Mở đầu: “Mình nói 5 phút về [chủ đề] được không? Mục tiêu của mình là [mục tiêu], không phải đổ lỗi.”"
-        },
-        {
-          "title": "Quan sát → Tác động → Đề nghị",
-          "text": "Nói: “Khi [hành vi cụ thể], mình thấy [cảm xúc] vì [tác động]. Mình muốn thử [đề nghị] được không?”"
-        },
-        {
-          "title": "Hẹn lịch thay vì ép nói ngay",
-          "text": "Nếu chưa tiện: “Mình muốn nói về [chủ đề]. Khi nào hôm nay hoặc ngày mai bạn rảnh?”"
-        }
-      ],
-      "howToPullFromLife": [
-        "Viết 1 câu vấn đề: “Mình cần nói về ____.”",
-        "Viết mục tiêu sau cuộc nói chuyện (bạn muốn điều gì).",
-        "Chọn 1 template và điền tên người + 1 ví dụ cụ thể."
       ]
     }
-  ]
+  }
 }
