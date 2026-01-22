@@ -23,48 +23,695 @@
   </header>
 
   <main class="container">
-    <section class="hero">
-      <h1 class="hero-title" data-i18n="home_title">Check dominant function (prototype)</h1>
-      <p class="hero-sub" data-i18n="home_subtitle">
-        Start with one page (Ne dominant confirmation). Big text, simple clicks. No dark theme.
-      </p>
 
-      <div class="hero-cta">
-        <a class="btn primary" href="./pages/ne-dom.html" data-i18n="home_start_ne">
-          Start: Ne dominant confirmation
-        </a>
+    <!-- Screening -->
+    <section class="page-card">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title" id="screenTitle">Screening (Exclusion) — Which dominant types are unlikely?</h1>
+          <p class="page-sub" id="screenIntro">
+            High score = you are LESS likely to be that dominant group. This does not block anything; it only suggests what to skip first.
+          </p>
+        </div>
       </div>
 
-      <div class="hero-note" data-i18n="home_note">
-        Your answers are saved locally in your browser.
+      <div class="notice" id="scaleNote">
+        <div class="muted" style="line-height:1.5">
+          <div><strong>Scale</strong>:
+            <span id="scaleText">0 = Never/False, 1 = Rarely, 2 = Sometimes, 3 = Often, 4 = Almost always. N/A = Not applicable / Can’t judge</span>
+          </div>
+        </div>
       </div>
     </section>
+
+    <section class="page-card">
+      <div class="q-list" id="screeningList"></div>
+    </section>
+
+    <section class="page-card">
+      <div class="score-row">
+        <div class="score-box">
+          <div class="score-label" id="overallLabel">Overall completion</div>
+          <div class="score-value" id="overallValue">—</div>
+          <div class="progress" aria-label="Completion bar">
+            <div id="overallBar"></div>
+          </div>
+        </div>
+
+        <div class="score-box">
+          <div class="score-label" id="saveLabel">Status</div>
+          <div class="score-value" id="saveValue">—</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="btn primary" id="screenSaveBtn" type="button">Save</button>
+        <button class="btn" id="screenResetBtn" type="button">Reset screening</button>
+        <span class="muted" id="screenStatus"></span>
+      </div>
+    </section>
+
+    <!-- Dom pages -->
+    <section class="page-card">
+      <div class="page-head">
+        <div>
+          <h2 class="page-title" style="font-size:28px" id="domTitle">Dominant confirmation pages</h2>
+          <p class="page-sub" style="font-size:16px" id="domIntro">
+            Pick any page. “Unlikely score” comes from screening (higher = more unlikely). “Dom score” comes from the dom page itself.
+          </p>
+        </div>
+      </div>
+
+      <div id="domLinks"></div>
+    </section>
+
   </main>
 
   <script src="./assets/js/app.js"></script>
+
   <script>
     (function(){
-      window.App.init({
-        ui: { en: './data/ui_en.json', vi: './data/ui_vi.json' }
-      }).then(() => {
+      const SCREENING_PAGE_ID = "screening_excl_v1";
+
+      // Map 0..4 -> bubble visual classes l1..l5
+      function bubbleClass(v){
+        return v === 0 ? "bubble l1" :
+               v === 1 ? "bubble l2" :
+               v === 2 ? "bubble l3" :
+               v === 3 ? "bubble l4" : "bubble l5";
+      }
+
+      function clamp(n,a,b){ return Math.max(a, Math.min(b,n)); }
+
+      // ===== Data (EN + VI) embedded to avoid adding extra files for now =====
+      // Each function has 3 questions. Score is mean(answers)/4 * 100 (ignores N/A).
+      const SCREENING = {
+        en: {
+          title: "Screening (Exclusion) — Which dominant types are unlikely?",
+          intro: "High score = you are LESS likely to be that dominant group. This does not block anything; it only suggests what to skip first.",
+          scale: "0 = Never/False, 1 = Rarely, 2 = Sometimes, 3 = Often, 4 = Almost always. N/A = Not applicable / Can’t judge",
+          na: "N/A",
+          save: "Save",
+          reset: "Reset screening",
+          saved: "Saved.",
+          resetConfirm: "Reset screening answers?",
+          statusAuto: "Auto-saved locally.",
+          overallLabel: "Overall completion",
+          statusLabel: "Status",
+          domTitle: "Dominant confirmation pages",
+          domIntro: "Pick any page. “Unlikely score” comes from screening (higher = more unlikely). “Dom score” comes from the dom page itself.",
+          domScore: "Dom score",
+          domVerdict: "Dom verdict",
+          unlikely: "Unlikely score",
+          notTaken: "Not taken yet",
+          skipSuggested: "Skip suggested",
+          doAnyway: "Do anyway",
+          scaleLabels: ["Never", "Rarely", "Sometimes", "Often", "Almost always"],
+          blocks: [
+            {
+              key: "si_dom",
+              name: "Si-Dominant Exclusion (ISTJ / ISFJ)",
+              items: [
+                {
+                  id: "si_1",
+                  text: "You often skip small procedural steps even when others see them as important.",
+                  hints: "Hints: at home you get reminded for missing steps; at school/work you dislike long checklists."
+                },
+                {
+                  id: "si_2",
+                  text: "You often prefer your own method over the “standard template” you were taught.",
+                  hints: "Hints: you look for shortcuts; you redesign the process rather than follow it."
+                },
+                {
+                  id: "si_3",
+                  text: "When you have freedom, you choose novelty over relaxing in familiar routines.",
+                  hints: "Hints: you quickly want a new experience; repeating the same comfort activity feels dull."
+                }
+              ]
+            },
+            {
+              key: "ni_dom",
+              name: "Ni-Dominant Exclusion (INTJ / INFJ)",
+              items: [
+                {
+                  id: "ni_1",
+                  text: "You rarely care about long-term direction; far-future planning bores you.",
+                  hints: "Hints: 5–10 year talk makes you zone out; you focus on what’s immediate."
+                },
+                {
+                  id: "ni_2",
+                  text: "You rarely think in symbolism/meaning; you prefer concrete reality.",
+                  hints: "Hints: abstract talk feels pointless; you prefer measurable, practical things."
+                },
+                {
+                  id: "ni_3",
+                  text: "On a fully free day, you follow your mood rather than work toward a future goal you set yourself.",
+                  hints: "Hints: entertainment first; you don’t naturally “aim at a long horizon.”"
+                }
+              ]
+            },
+            {
+              key: "se_dom",
+              name: "Se-Dominant Exclusion (ESTP / ESFP)",
+              items: [
+                { id: "se_1", text: "Loud, crowded environments physically drain you; you often need quiet to recover.", hints: "" },
+                { id: "se_2", text: "You often act as the “brake” when friends want to do something risky or rule-breaking.", hints: "" },
+                { id: "se_3", text: "You often read hidden meanings rather than taking words at face value.", hints: "" }
+              ]
+            },
+            {
+              key: "ne_dom",
+              name: "Ne-Dominant Exclusion (ENTP / ENFP)",
+              items: [
+                { id: "ne_1", text: "Open-ended tasks make you feel blank; you’d rather have a specific assignment.", hints: "" },
+                { id: "ne_2", text: "You feel safer when your schedule is fully planned; too many options stress you.", hints: "" },
+                { id: "ne_3", text: "When facing something new, you focus on risks more than curiosity.", hints: "" }
+              ]
+            },
+            {
+              key: "ti_dom",
+              name: "Ti-Dominant Exclusion (INTP / ISTP)",
+              items: [
+                { id: "ti_1", text: "You often comply with illogical rules just to avoid the hassle of arguing.", hints: "" },
+                { id: "ti_2", text: "You struggle to understand complex theory without someone giving you a structure first.", hints: "" },
+                { id: "ti_3", text: "In arguments, you often side with whoever feels nicer rather than whoever is logically correct.", hints: "" }
+              ]
+            },
+            {
+              key: "fi_dom",
+              name: "Fi-Dominant Exclusion (INFP / ISFP)",
+              items: [
+                { id: "fi_1", text: "You can accept doing something you dislike fairly easily as long as life stays stable.", hints: "" },
+                { id: "fi_2", text: "You often say “anything is fine” because you don’t have strong preferences.", hints: "" },
+                { id: "fi_3", text: "You often view strong emotions as irrational and try to shut them down instead of listening to them.", hints: "" }
+              ]
+            },
+            {
+              key: "te_dom",
+              name: "Te-Dominant Exclusion (ENTJ / ESTJ)",
+              items: [
+                { id: "te_1", text: "In groups, you rarely take charge; you wait for someone else to lead.", hints: "" },
+                { id: "te_2", text: "You get stuck trying to be perfect, which delays decisions and finishing tasks.", hints: "" },
+                { id: "te_3", text: "You often stay quiet about mistakes because you don’t want to upset people.", hints: "" }
+              ]
+            },
+            {
+              key: "fe_dom",
+              name: "Fe-Dominant Exclusion (ENFJ / ESFJ)",
+              items: [
+                { id: "fe_1", text: "You’ve been called rude/insensitive because you miss social-emotional cues.", hints: "" },
+                { id: "fe_2", text: "When you have a problem, your first instinct is to handle it alone rather than seek emotional support.", hints: "" },
+                { id: "fe_3", text: "You’ve refused to help because it felt like a waste of time even if it disappointed others.", hints: "" }
+              ]
+            }
+          ]
+        },
+        vi: {
+          title: "Sàng lọc (Loại trừ) — Nhóm dominant nào có vẻ KHÔNG phải bạn?",
+          intro: "Điểm cao = bạn ÍT có khả năng thuộc nhóm dominant đó. Không chặn gì cả; chỉ gợi ý bạn nên bỏ qua cái nào trước.",
+          scale: "0 = Chưa bao giờ / Sai, 1 = Hiếm khi, 2 = Thỉnh thoảng, 3 = Thường, 4 = Gần như luôn. N/A = Không áp dụng / Không đủ thông tin",
+          na: "N/A",
+          save: "Lưu",
+          reset: "Reset sàng lọc",
+          saved: "Đã lưu.",
+          resetConfirm: "Reset câu trả lời sàng lọc?",
+          statusAuto: "Tự lưu trong trình duyệt.",
+          overallLabel: "Mức độ hoàn thành",
+          statusLabel: "Trạng thái",
+          domTitle: "Trang xác nhận dominant",
+          domIntro: "Bạn chọn trang nào cũng được. “Điểm không giống” lấy từ sàng lọc (càng cao càng không giống). “Điểm dom” lấy từ trang dom.",
+          domScore: "Điểm dom",
+          domVerdict: "Kết luận dom",
+          unlikely: "Điểm không giống",
+          notTaken: "Chưa làm",
+          skipSuggested: "Gợi ý bỏ qua",
+          doAnyway: "Vẫn làm",
+          scaleLabels: ["Never", "Rarely", "Sometimes", "Often", "Almost always"], // keep simple (you can localize later)
+          blocks: [
+            {
+              key: "si_dom",
+              name: "Loại trừ Si-Dominant (ISTJ / ISFJ)",
+              items: [
+                {
+                  id: "si_1",
+                  text: "Bạn thường bỏ qua các bước nhỏ trong quy trình chi tiết, dù người khác nghĩ là “quan trọng”.",
+                  hints: "Gợi ý: ở nhà bị nhắc vì làm thiếu bước; ở trường/việc ghét checklist dài; hay làm kiểu “đại khái đúng là được”."
+                },
+                {
+                  id: "si_2",
+                  text: "Bạn hay tự tìm cách làm riêng thay vì làm đúng “bài mẫu / cách chuẩn” được dạy.",
+                  hints: "Gợi ý: bài tập ưu tiên lối tắt; công việc thích cải tiến quy trình hơn là làm y nguyên."
+                },
+                {
+                  id: "si_3",
+                  text: "Khi được tự do, bạn ưu tiên trải nghiệm mới hơn là bám thói quen quen thuộc để thư giãn.",
+                  hints: "Gợi ý: rảnh là muốn đổi không khí / thử cái mới; ít khi “sướng” với việc lặp lại một sở thích y hệt."
+                }
+              ]
+            },
+            {
+              key: "ni_dom",
+              name: "Loại trừ Ni-Dominant (INTJ / INFJ)",
+              items: [
+                { id: "ni_1", text: "Bạn hiếm khi quan tâm đến định hướng dài hạn; nói về tương lai xa khiến bạn chán hoặc “không vào”.", hints: "Gợi ý: người khác nói kế hoạch 5–10 năm bạn “tắt não”; bạn chỉ quan tâm cái ngay trước mắt." },
+                { id: "ni_2", text: "Bạn ít khi nghĩ về “ý nghĩa / biểu tượng / ẩn dụ”; bạn thích thực tế cụ thể hơn.", hints: "Gợi ý: không thích nói chuyện trừu tượng; thích việc đo được, làm được ngay." },
+                { id: "ni_3", text: "Khi hoàn toàn tự do, bạn làm theo hứng và trải nghiệm trước, thay vì tự đặt một mục tiêu dài hạn để theo.", hints: "Gợi ý: ngày rảnh đi chơi/giải trí theo mood; ít khi tự ngồi xuống để “định hướng đời mình”." }
+              ]
+            },
+            {
+              key: "se_dom",
+              name: "Loại trừ Se-Dominant (ESTP / ESFP)",
+              items: [
+                { id: "se_1", text: "Môi trường ồn ào, đông người làm bạn mệt nhanh về thể chất; bạn hay tìm chỗ yên để hồi lại.", hints: "Gợi ý: tiệc đông người muốn trốn một lúc; nhiều kích thích nhanh “quá tải”." },
+                { id: "se_2", text: "Bạn thường là người “hãm phanh” khi nhóm muốn làm gì đó liều / phá luật.", hints: "Gợi ý: hay nói “đừng làm, rắc rối lắm”; ưu tiên an toàn / đúng luật." },
+                { id: "se_3", text: "Bạn hay suy diễn ẩn ý sau lời nói hơn là hiểu theo nghĩa trực tiếp.", hints: "Gợi ý: nghe câu nói -> nghĩ “họ muốn ám chỉ gì?”; dễ tự lo vì hiểu sâu quá mức." }
+              ]
+            },
+            {
+              key: "ne_dom",
+              name: "Loại trừ Ne-Dominant (ENTP / ENFP)",
+              items: [
+                { id: "ne_1", text: "Khi được giao bài hoàn toàn mở, bạn hay bị “trống” và muốn có đề cụ thể để làm cho nhanh.", hints: "Gợi ý: không thích brainstorm; thích có khung rõ." },
+                { id: "ne_2", text: "Bạn thấy yên tâm khi lịch trình được lên sẵn; bạn không thích “mở nhiều lựa chọn”.", hints: "Gợi ý: thích người khác quyết giúp; thay đổi bất ngờ làm bạn khó chịu." },
+                { id: "ne_3", text: "Trước việc mới, bạn thường tập trung vào rủi ro xấu có thể xảy ra hơn là thấy hứng thú khám phá.", hints: "Gợi ý: hay lo xa; nghĩ đến tình huống xui nhiều hơn cơ hội." }
+              ]
+            },
+            {
+              key: "ti_dom",
+              name: "Loại trừ Ti-Dominant (INTP / ISTP)",
+              items: [
+                { id: "ti_1", text: "Bạn thường làm theo “cho xong chuyện” dù thấy quy định vô lý, vì tranh luận mệt.", hints: "Gợi ý: “thôi kệ, làm cho qua”; ít khi muốn bóc logic để cãi." },
+                { id: "ti_2", text: "Bạn khó tự hiểu lý thuyết phức tạp nếu không có người hướng dẫn khung trước.", hints: "Gợi ý: cần “sườn” trước mới học tiếp được; tự nghiên cứu dễ nản." },
+                { id: "ti_3", text: "Trong tranh cãi, bạn dễ đứng về phía người dễ thương hơn là phía “đúng logic”.", hints: "Gợi ý: ưu tiên hòa khí; ít khi muốn phân tích lập luận." }
+              ]
+            },
+            {
+              key: "fi_dom",
+              name: "Loại trừ Fi-Dominant (INFP / ISFP)",
+              items: [
+                { id: "fi_1", text: "Bạn có thể chấp nhận làm điều mình không thích khá dễ, miễn là “ổn” và không gây rắc rối.", hints: "Gợi ý: bị ép học/việc bạn chịu được; không thấy “phản kháng từ bên trong” mạnh." },
+                { id: "fi_2", text: "Bạn thường “sao cũng được” vì bạn không có sở thích/ghét bỏ mạnh mẽ.", hints: "Gợi ý: chọn ăn gì/đi đâu dễ theo số đông; ít khi thấy “mình phải chọn cái này”." },
+                { id: "fi_3", text: "Bạn hay nghĩ cảm xúc mạnh là thiếu lý trí; bạn cố dẹp cảm xúc thay vì lắng nghe nó.", hints: "Gợi ý: “buồn/giận vô ích”; coi cảm xúc là thiên kiến." }
+              ]
+            },
+            {
+              key: "te_dom",
+              name: "Loại trừ Te-Dominant (ENTJ / ESTJ)",
+              items: [
+                { id: "te_1", text: "Trong nhóm, bạn hiếm khi tự đứng ra điều phối; bạn chờ người khác dẫn.", hints: "Gợi ý: không thích phân việc/đặt deadline; thích “được giao thì làm”." },
+                { id: "te_2", text: "Bạn dễ bị kẹt vì muốn hoàn hảo, khiến chậm chốt quyết định / chậm hoàn thành.", hints: "Gợi ý: nộp muộn vì sửa mãi; khó “ra quyết định cuối”." },
+                { id: "te_3", text: "Bạn hay im lặng dù thấy kế hoạch sai, vì sợ làm người khác khó chịu.", hints: "Gợi ý: ngại va chạm; ưu tiên cảm xúc tập thể hơn hiệu quả." }
+              ]
+            },
+            {
+              key: "fe_dom",
+              name: "Loại trừ Fe-Dominant (ENFJ / ESFJ)",
+              items: [
+                { id: "fe_1", text: "Bạn từng bị nói là “vô ý / vô duyên” vì không để ý cảm xúc/xã giao, dù bạn thấy bình thường.", hints: "Gợi ý: không giỏi đọc sắc mặt; hay nói thẳng quá." },
+                { id: "fe_2", text: "Khi có vấn đề, bạn có xu hướng tự xử một mình, ít muốn chia sẻ để được an ủi.", hints: "Gợi ý: không thích “tâm sự”; tự gánh là chính." },
+                { id: "fe_3", text: "Bạn từng từ chối giúp người khác vì thấy không đáng thời gian, dù họ sẽ buồn.", hints: "Gợi ý: tính toán lợi ích/chi phí; không thấy nghĩa vụ phải “nice”." }
+              ]
+            }
+          ]
+        }
+      };
+
+      // ===== DOM pages you already have =====
+      const DOM_PAGES = [
+        { key: "ne_dom", name: "Ne (Dom) confirmation", href: "./pages/ne-dom.html", storeId: "ne_dom", screeningKey: "ne_dom" },
+        { key: "fi_dom", name: "Fi (Dom) confirmation", href: "./pages/fi-dom.html", storeId: "fi_dom", screeningKey: "fi_dom" }
+      ];
+
+      function getLang(){
+        return window.App && window.App.getLang ? window.App.getLang() : "en";
+      }
+
+      function textFor(lang){
+        return (lang === "vi") ? SCREENING.vi : SCREENING.en;
+      }
+
+      function computeBlockScore(block, state){
+        // mean of answered items (0..4), skip N/A; return 0..100 or null if no answers
+        let sum = 0;
+        let cnt = 0;
+        for(const q of block.items){
+          const v = state.answers[q.id];
+          const na = !!state.na[q.id];
+          if(na) continue;
+          if(typeof v !== "number") continue;
+          sum += v;
+          cnt += 1;
+        }
+        if(cnt === 0) return null;
+        return Math.round((sum / cnt) / 4 * 100);
+      }
+
+      function computeOverallCompletion(allQuestions, state){
+        // completion = answered or N/A
+        let done = 0;
+        const total = allQuestions.length;
+        for(const q of allQuestions){
+          if(state.na[q.id]) done++;
+          else if(typeof state.answers[q.id] === "number") done++;
+        }
+        const pct = total === 0 ? 0 : Math.round(done / total * 100);
+        return { done, total, pct };
+      }
+
+      function el(tag, attrs={}, children=[]){
+        return window.App.el(tag, attrs, children);
+      }
+
+      function renderLikert0to4(langText, currentValue, onPick){
+        const row = el("div", { class: "likert-row" });
+
+        const left = el("div", { class: "likert-label disagree", text: "0" });
+        const right = el("div", { class: "likert-label agree", text: "4" });
+
+        const bubbles = el("div", {
+          class: "bubbles",
+          role: "radiogroup",
+          "aria-label": "Screening scale"
+        });
+
+        for(let v=0; v<=4; v++){
+          const selected = (currentValue === v);
+
+          const btn = el("button", {
+            type: "button",
+            class: bubbleClass(v) + (selected ? " selected" : ""),
+            role: "radio",
+            "aria-checked": selected ? "true" : "false",
+            "aria-label": (langText.scaleLabels && langText.scaleLabels[v]) ? langText.scaleLabels[v] : String(v)
+          });
+
+          btn.addEventListener("click", () => onPick(v));
+          bubbles.appendChild(btn);
+        }
+
+        row.appendChild(left);
+        row.appendChild(bubbles);
+        row.appendChild(right);
+        return row;
+      }
+
+      function renderQuestion(langText, q, state, onUpdate){
+        const block = el("div", { class: "q-block" });
+
+        // question text
+        block.appendChild(el("div", { class: "q-text", text: q.text }));
+
+        // hints
+        if(q.hints){
+          block.appendChild(el("div", {
+            class: "muted",
+            text: q.hints,
+            style: "margin-top:-8px;margin-bottom:14px;font-size:15px;line-height:1.45"
+          }));
+        }
+
+        // likert
+        const current = state.na[q.id] ? null : state.answers[q.id];
+        block.appendChild(renderLikert0to4(langText, (typeof current === "number" ? current : null), (picked) => {
+          state.answers[q.id] = picked;
+          state.na[q.id] = false;
+          onUpdate();
+        }));
+
+        // N/A
+        const meta = el("div", { class: "q-meta-row" });
+        const naBtn = el("button", {
+          type: "button",
+          class: "pill-btn" + (state.na[q.id] ? " active" : ""),
+          text: langText.na
+        });
+
+        naBtn.addEventListener("click", () => {
+          const next = !state.na[q.id];
+          state.na[q.id] = next;
+          if(next) delete state.answers[q.id];
+          onUpdate();
+        });
+
+        meta.appendChild(naBtn);
+        block.appendChild(meta);
+
+        return block;
+      }
+
+      function renderAll(langText, state){
+        const list = document.getElementById("screeningList");
+        if(!list) return;
+
+        list.innerHTML = "";
+
+        // Build a flat list for completion
+        const allQs = [];
+        langText.blocks.forEach(b => b.items.forEach(q => allQs.push(q)));
+
+        // Render blocks
+        langText.blocks.forEach(block => {
+          // Block header + score
+          const score = computeBlockScore(block, state);
+
+          const head = el("div", { class: "q-block" });
+          head.style.paddingTop = "18px";
+          head.style.paddingBottom = "18px";
+
+          const titleRow = el("div", {
+            style: "display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap"
+          });
+
+          const h = el("div", {
+            class: "q-text",
+            text: block.name
+          });
+          h.style.fontSize = "22px";
+          h.style.marginBottom = "6px";
+          h.style.fontWeight = "850";
+
+          const badge = el("div", {
+            class: "pill-btn" + (score !== null && score >= 70 ? " active" : ""),
+            text: (score === null)
+              ? "—"
+              : `${langText.unlikely}: ${score}` + (score >= 70 ? ` • ${langText.skipSuggested}` : "")
+          });
+          badge.style.cursor = "default";
+          badge.style.userSelect = "none";
+
+          titleRow.appendChild(h);
+          titleRow.appendChild(badge);
+          head.appendChild(titleRow);
+
+          list.appendChild(head);
+
+          // questions
+          block.items.forEach(q => {
+            list.appendChild(renderQuestion(langText, q, state, () => {
+              autoSave(state);
+              renderFooter(langText, state, allQs);
+              renderDomLinks(langText, state);
+              // re-render only N/A visual state within this question block is annoying without full rerender;
+              // simplest is full rerender.
+              renderAll(langText, state);
+            }));
+          });
+        });
+
+        renderFooter(langText, state, allQs);
+        renderDomLinks(langText, state);
+      }
+
+      function renderFooter(langText, state, allQs){
+        const completion = computeOverallCompletion(allQs, state);
+
+        const overallLabel = document.getElementById("overallLabel");
+        const overallValue = document.getElementById("overallValue");
+        const overallBar = document.getElementById("overallBar");
+        const saveLabel = document.getElementById("saveLabel");
+        const saveValue = document.getElementById("saveValue");
+
+        if(overallLabel) overallLabel.textContent = langText.overallLabel;
+        if(saveLabel) saveLabel.textContent = langText.statusLabel;
+
+        if(overallValue) overallValue.textContent = `${completion.pct}% (${completion.done}/${completion.total})`;
+        if(overallBar) overallBar.style.width = `${completion.pct}%`;
+
+        if(saveValue) saveValue.textContent = langText.statusAuto;
+      }
+
+      function renderDomLinks(langText, state){
+        const box = document.getElementById("domLinks");
+        if(!box) return;
+
+        box.innerHTML = "";
+
+        // compute screening scores by key, so we can show for Ne / Fi quickly
+        const screeningByKey = {};
+        for(const b of langText.blocks){
+          screeningByKey[b.key] = computeBlockScore(b, state); // 0..100 or null
+        }
+
+        DOM_PAGES.forEach(p => {
+          const row = el("div", { class: "score-box" });
+          row.style.marginTop = "12px";
+
+          const top = el("div", { style: "display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap" });
+
+          const left = el("div", {});
+          const link = el("a", { class: "btn", href: p.href, text: p.name });
+          link.style.textDecoration = "none";
+          link.style.fontWeight = "800";
+          link.style.padding = "10px 12px";
+          left.appendChild(link);
+
+          // screening score
+          const un = screeningByKey[p.screeningKey];
+          const unText = (un === null || typeof un !== "number") ? "—" : String(un);
+          const unBadge = el("div", {
+            class: "pill-btn" + (typeof un === "number" && un >= 70 ? " active" : ""),
+            text: `${langText.unlikely}: ${unText}` + (typeof un === "number" && un >= 70 ? ` • ${langText.skipSuggested}` : "")
+          });
+          unBadge.style.cursor = "default";
+          unBadge.style.userSelect = "none";
+
+          top.appendChild(left);
+          top.appendChild(unBadge);
+          row.appendChild(top);
+
+          // read dom saved
+          const domSaved = window.AppStorage.loadPage(p.storeId);
+          let domScore = null;
+          let domVerdict = null;
+
+          if(domSaved && domSaved.scores){
+            // your dom pages save: scores: { score100, verdict, ... }
+            if(typeof domSaved.scores.score100 === "number") domScore = domSaved.scores.score100;
+            if(domSaved.scores.verdict) domVerdict = domSaved.scores.verdict;
+            // if verdict text already localized in the dom page, we don't have it here; keep simple
+          }
+
+          const meta = el("div", { class: "muted" });
+          meta.style.marginTop = "10px";
+          meta.style.lineHeight = "1.6";
+          meta.style.fontSize = "15px";
+
+          meta.textContent =
+            `${langText.domScore}: ${domScore === null ? langText.notTaken : domScore} • ` +
+            `${langText.domVerdict}: ${domVerdict === null ? langText.notTaken : domVerdict}`;
+
+          row.appendChild(meta);
+
+          box.appendChild(row);
+        });
+      }
+
+      function autoSave(state){
+        // save quietly
+        window.AppStorage.savePage(SCREENING_PAGE_ID, {
+          answers: state.answers,
+          na: state.na,
+          updated_at: new Date().toISOString()
+        });
+      }
+
+      function loadState(){
+        const saved = window.AppStorage.loadPage(SCREENING_PAGE_ID) || {};
+        return {
+          answers: saved.answers || {},
+          na: saved.na || {}
+        };
+      }
+
+      function resetState(){
+        window.AppStorage.resetPage(SCREENING_PAGE_ID);
+      }
+
+      async function main(){
+        await window.App.init({
+          ui: { en: "./data/ui_en.json", vi: "./data/ui_vi.json" }
+        });
         window.App.applyI18n(document);
-        const btn = document.getElementById('langToggleBtn');
-        const pill = document.getElementById('langPill');
+
+        const langBtn = document.getElementById("langToggleBtn");
+        const pill = document.getElementById("langPill");
 
         function refreshLangUI(){
-          const lang = window.App.getLang();
-          pill.textContent = lang.toUpperCase();
+          pill.textContent = getLang().toUpperCase();
         }
 
         refreshLangUI();
-        btn.addEventListener('click', async () => {
-          const next = window.App.getLang() === 'en' ? 'vi' : 'en';
-          await window.App.setLang(next);
-          await window.App.reloadUI();
-          window.App.applyI18n(document);
-          refreshLangUI();
-        });
-      });
+
+        if(langBtn){
+          langBtn.addEventListener("click", async () => {
+            const next = getLang() === "en" ? "vi" : "en";
+            await window.App.setLang(next);
+            await window.App.reloadUI();
+            window.App.applyI18n(document);
+            refreshLangUI();
+
+            const langText = textFor(getLang());
+            applyLangText(langText);
+            renderAll(langText, loadState());
+          });
+        }
+
+        const langText = textFor(getLang());
+        applyLangText(langText);
+
+        const state = loadState();
+        renderAll(langText, state);
+
+        // Save / reset buttons
+        const saveBtn = document.getElementById("screenSaveBtn");
+        const resetBtn = document.getElementById("screenResetBtn");
+        const status = document.getElementById("screenStatus");
+
+        if(saveBtn){
+          saveBtn.textContent = langText.save;
+          saveBtn.addEventListener("click", () => {
+            autoSave(state);
+            if(status){
+              status.textContent = langText.saved;
+              setTimeout(() => (status.textContent = ""), 1400);
+            }
+          });
+        }
+
+        if(resetBtn){
+          resetBtn.textContent = langText.reset;
+          resetBtn.addEventListener("click", () => {
+            if(!confirm(langText.resetConfirm)) return;
+            resetState();
+            renderAll(langText, loadState());
+          });
+        }
+      }
+
+      function applyLangText(langText){
+        const t = document.getElementById("screenTitle");
+        const i = document.getElementById("screenIntro");
+        const s = document.getElementById("scaleText");
+        const domT = document.getElementById("domTitle");
+        const domI = document.getElementById("domIntro");
+
+        if(t) t.textContent = langText.title;
+        if(i) i.textContent = langText.intro;
+        if(s) s.textContent = langText.scale;
+        if(domT) domT.textContent = langText.domTitle;
+        if(domI) domI.textContent = langText.domIntro;
+
+        const saveBtn = document.getElementById("screenSaveBtn");
+        const resetBtn = document.getElementById("screenResetBtn");
+        if(saveBtn) saveBtn.textContent = langText.save;
+        if(resetBtn) resetBtn.textContent = langText.reset;
+      }
+
+      if(document.readyState === "loading"){
+        document.addEventListener("DOMContentLoaded", main);
+      }else{
+        main();
+      }
     })();
   </script>
 </body>
