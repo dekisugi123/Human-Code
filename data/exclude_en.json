@@ -1,0 +1,274 @@
+{
+  "title": "Screening (low-bias)",
+  "intro": "Rate how often each statement fits your real life. Higher scores mean you can deprioritize the related dominant function check. Use Skip if you truly can’t judge.",
+  "scale": {
+    "labels": ["Never/False", "Rarely", "Sometimes", "Often", "Almost always"],
+    "skip": "Skip / Can’t judge"
+  },
+  "groups": [
+    {
+      "id": "si",
+      "groupTitle": "Group A",
+      "items": [
+        {
+          "id": "si_1",
+          "text": "I often miss small steps in detailed procedures even when others think they matter.",
+          "examples": [
+            "I get reminded for forgetting minor steps (closing, labeling, cleaning, formatting).",
+            "I prefer “good enough” over following a long checklist perfectly.",
+            "I only do the full procedure when someone is watching or it’s strictly required."
+          ]
+        },
+        {
+          "id": "si_2",
+          "text": "I frequently ignore the standard method and do it my own way instead.",
+          "examples": [
+            "I dislike copying a template exactly; I change it to fit my style.",
+            "I try shortcuts even if they’re not the official method.",
+            "I get bored doing the same proven method repeatedly."
+          ]
+        },
+        {
+          "id": "si_3",
+          "text": "When I’m free, I chase something new rather than repeating a familiar comfort routine.",
+          "examples": [
+            "On a free day, I want a new place/food/activity, not the same safe choice.",
+            "Repeating the same hobby feels dull quickly.",
+            "I feel restless if life becomes repetitive for too long."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ni",
+      "groupTitle": "Group B",
+      "items": [
+        {
+          "id": "ni_1",
+          "text": "Long-term direction talk (5–10 years) usually feels boring or hard to care about.",
+          "examples": [
+            "When people discuss far-future plans, I mentally check out.",
+            "I focus on what’s next week/month rather than a long narrative.",
+            "I feel fine without a “life mission” or clear calling."
+          ]
+        },
+        {
+          "id": "ni_2",
+          "text": "I rarely think in symbolism/hidden meaning; I prefer literal, concrete talk.",
+          "examples": [
+            "I dislike reading ‘between the lines’; I prefer direct statements.",
+            "Abstract meaning-talk feels vague or unhelpful.",
+            "I’d rather discuss practical details than big metaphors."
+          ]
+        },
+        {
+          "id": "ni_3",
+          "text": "If I have full freedom, I follow my mood instead of setting a future goal for the day.",
+          "examples": [
+            "A free day becomes entertainment/relaxing first, goal-setting later (or never).",
+            "I don’t naturally structure my day around a long-horizon objective.",
+            "I prefer flexible wandering over a single planned purpose."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "se",
+      "groupTitle": "Group C",
+      "items": [
+        {
+          "id": "se_1",
+          "text": "Loud, crowded, high-stimulation environments physically drain me quickly.",
+          "examples": [
+            "I need quiet breaks at parties/events to recover.",
+            "Too much noise/light/activity makes me feel overloaded.",
+            "I prefer calm spaces over high-energy environments."
+          ]
+        },
+        {
+          "id": "se_2",
+          "text": "I’m usually the one who slows people down when they want to do risky rule-breaking.",
+          "examples": [
+            "I often say “don’t do that, it’ll cause trouble.”",
+            "I avoid risky stunts even if others find it fun.",
+            "I feel uncomfortable when plans depend on bold impulsive action."
+          ]
+        },
+        {
+          "id": "se_3",
+          "text": "I often overthink implications and hidden meaning instead of taking things at face value.",
+          "examples": [
+            "I ask myself “what did they really mean?” a lot.",
+            "I replay conversations to interpret motives.",
+            "I worry about consequences more than enjoying the moment."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ne",
+      "groupTitle": "Group D",
+      "items": [
+        {
+          "id": "ne_1",
+          "text": "Open-ended tasks make me feel blank; I prefer a clear topic and instructions.",
+          "examples": [
+            "Too much freedom feels stressful rather than exciting.",
+            "I work faster when I’m given a specific target.",
+            "Brainstorming feels tiring unless someone else leads it."
+          ]
+        },
+        {
+          "id": "ne_2",
+          "text": "I feel safest when my schedule is planned; too many options stress me out.",
+          "examples": [
+            "I prefer someone deciding the plan so I can follow it.",
+            "Sudden changes throw me off more than they energize me.",
+            "I like routine because it reduces uncertainty."
+          ]
+        },
+        {
+          "id": "ne_3",
+          "text": "When facing something new, I focus on risks more than curiosity.",
+          "examples": [
+            "My first thought is often “what could go wrong?”",
+            "I avoid new environments until I feel fully prepared.",
+            "I prefer proven paths over experimenting."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ti",
+      "groupTitle": "Group E",
+      "items": [
+        {
+          "id": "ti_1",
+          "text": "I often comply with illogical rules just to avoid the hassle of arguing.",
+          "examples": [
+            "I think “whatever, I’ll just do it” even if it makes no sense.",
+            "I rarely challenge contradictions unless it directly hurts me.",
+            "I dislike debates and would rather keep peace."
+          ]
+        },
+        {
+          "id": "ti_2",
+          "text": "I struggle to learn complex theory without someone giving me a structure first.",
+          "examples": [
+            "I need a guide/outline before I can understand.",
+            "Self-study feels confusing without step-by-step help.",
+            "I rely on teachers/tutorials to organize the logic."
+          ]
+        },
+        {
+          "id": "ti_3",
+          "text": "In arguments, I side with whoever feels nicer rather than who is technically correct.",
+          "examples": [
+            "I care more about harmony than logical precision.",
+            "I avoid criticizing flawed reasoning if it may upset someone.",
+            "I choose the socially safe side when I’m unsure."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fi",
+      "groupTitle": "Group F",
+      "items": [
+        {
+          "id": "fi_1",
+          "text": "I can accept doing things I dislike fairly easily as long as life stays stable.",
+          "examples": [
+            "I can tolerate an unwanted path if it avoids conflict.",
+            "I rarely feel intense inner resistance like “I can’t betray myself.”",
+            "I prioritize stability over personal preference."
+          ]
+        },
+        {
+          "id": "fi_2",
+          "text": "I often say “anything is fine” because I don’t have strong preferences.",
+          "examples": [
+            "Choosing food/activities is easy because I don’t care much.",
+            "I follow the group without feeling bothered.",
+            "I rarely feel “I MUST choose this because it fits me.”"
+          ]
+        },
+        {
+          "id": "fi_3",
+          "text": "I treat strong emotions as unreliable and try to shut them down quickly.",
+          "examples": [
+            "I tell myself “stop being emotional, it’s useless.”",
+            "I justify feelings logically before accepting them.",
+            "I don’t trust emotions to guide decisions."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "te",
+      "groupTitle": "Group G",
+      "items": [
+        {
+          "id": "te_1",
+          "text": "In groups, I rarely take charge; I wait for someone else to lead.",
+          "examples": [
+            "I prefer being assigned tasks rather than assigning others.",
+            "Leading feels stressful or unnecessary to me.",
+            "I avoid setting deadlines or pushing people."
+          ]
+        },
+        {
+          "id": "te_2",
+          "text": "I delay decisions because I overthink the perfect answer.",
+          "examples": [
+            "I rewrite/revise too much and finish late.",
+            "I second-guess myself and struggle to conclude.",
+            "I’d rather keep options open than commit."
+          ]
+        },
+        {
+          "id": "te_3",
+          "text": "I stay quiet about problems to avoid upsetting people, even if it hurts results.",
+          "examples": [
+            "I avoid blunt feedback even when it’s necessary.",
+            "I let inefficient plans continue to keep peace.",
+            "I soften facts so others won’t feel bad."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fe",
+      "groupTitle": "Group H",
+      "items": [
+        {
+          "id": "fe_1",
+          "text": "People have called me rude/insensitive because I miss social-emotional cues.",
+          "examples": [
+            "I say things bluntly and regret it later.",
+            "I don’t notice mood shifts until someone tells me.",
+            "I’m confused why certain words “hurt” people."
+          ]
+        },
+        {
+          "id": "fe_2",
+          "text": "When I have a problem, I handle it alone rather than seeking emotional support.",
+          "examples": [
+            "I don’t like sharing feelings; I solve it privately.",
+            "I avoid asking for comfort even when stressed.",
+            "I feel awkward opening up."
+          ]
+        },
+        {
+          "id": "fe_3",
+          "text": "I sometimes refuse to help if it feels like a waste of my time, even if it disappoints others.",
+          "examples": [
+            "I weigh cost/benefit before doing favors.",
+            "I don’t feel obligated to be ‘nice’ if it’s inefficient.",
+            "I prioritize my needs without much guilt."
+          ]
+        }
+      ]
+    }
+  ]
+}
