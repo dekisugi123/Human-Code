@@ -35,4 +35,32 @@
   "save": "Lưu",
   "saved_ok": "Đã lưu.",
   "reset_confirm": "Đặt lại trang này?"
+
+    "screening_title": "Sàng lọc (Loại trừ)",
+  "screening_subtitle": "Trả lời nhanh theo hành vi đời thực. Điểm càng cao = ưu tiên kiểm tra nhóm đó sau (không phải chẩn đoán).",
+  "screening_questions_title": "Câu hỏi",
+  "screening_bias_note": "Mẹo: Các nhóm không ghi nhãn để giảm thiên kiến. Chỉ trả lời cái đúng.",
+  "screening_results_title": "Kết quả",
+  "screening_results_note": "Điểm thấp = nên kiểm tra sớm. Điểm cao = để sau (không phải chẩn đoán).",
+  "screening_links_title": "Trang kiểm tra Dominant (sắp xếp theo sàng lọc)",
+
+  "screen_scale_left": "0",
+  "screen_scale_right": "4",
+  "screen_scale_0": "0",
+  "screen_scale_1": "1",
+  "screen_scale_2": "2",
+  "screen_scale_3": "3",
+  "screen_scale_4": "4",
+  "screening_likert_aria": "Thang trả lời",
+  "screening_skip": "Bỏ qua / Không rõ",
+
+  "screening_hints_title": "Gợi ý (ví dụ đời thật)",
+  "screening_group_note": "Trả lời theo pattern xuyên suốt cuộc đời.",
+  "screening_tag_check": "Nên kiểm tra",
+  "screening_tag_consider": "Cân nhắc sau",
+  "screening_tag_deprioritize": "Ưu tiên sau",
+  "screening_tag_unknown": "Chưa đủ dữ liệu",
+  "screening_not_enough": "—",
+  "screening_need_answers": "Trả lời ít nhất 1 câu (hoặc bỏ Bỏ qua) để tính.",
+  "screening_meaning": "Điểm cao = ưu tiên sau."
 }
