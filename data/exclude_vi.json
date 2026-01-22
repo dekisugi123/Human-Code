@@ -1,0 +1,274 @@
+{
+  "title": "Sàng lọc (ít thiên kiến)",
+  "intro": "Chấm theo mức độ đúng với đời sống thật của bạn. Điểm càng cao = bạn có thể ưu tiên kiểm tra nhóm đó sau. Dùng “Bỏ qua” nếu bạn thật sự không đủ thông tin để đánh giá.",
+  "scale": {
+    "labels": ["Chưa bao giờ / Sai", "Hiếm khi", "Thỉnh thoảng", "Thường", "Gần như luôn"],
+    "skip": "Bỏ qua / Không rõ"
+  },
+  "groups": [
+    {
+      "id": "si",
+      "groupTitle": "Nhóm A",
+      "items": [
+        {
+          "id": "si_1",
+          "text": "Tôi hay bỏ sót các bước nhỏ trong quy trình chi tiết dù người khác nghĩ là quan trọng.",
+          "examples": [
+            "Ở nhà: hay bị nhắc vì quên bước nhỏ (dọn nốt, tắt nốt, ghi nốt, làm thiếu chi tiết).",
+            "Ở trường/việc: ghét checklist dài; thích “đại khái đúng là được”.",
+            "Tôi chỉ làm đủ bước khi bị kiểm tra hoặc bị ép chặt."
+          ]
+        },
+        {
+          "id": "si_2",
+          "text": "Tôi hay làm theo cách riêng thay vì làm y hệt “bài mẫu / cách chuẩn”.",
+          "examples": [
+            "Tôi không thích copy y nguyên; tôi sửa cho hợp ý mình.",
+            "Tôi ưu tiên lối tắt/cách khác dù không ‘đúng quy trình’.",
+            "Lặp lại cách cũ lâu ngày làm tôi chán."
+          ]
+        },
+        {
+          "id": "si_3",
+          "text": "Khi được tự do, tôi muốn trải nghiệm mới hơn là lặp lại thói quen quen thuộc để thư giãn.",
+          "examples": [
+            "Ngày rảnh: thích đổi chỗ/đổi món/đổi hoạt động hơn là ‘y như mọi lần’.",
+            "Lặp lại một sở thích y hệt nhanh làm tôi thấy nhạt.",
+            "Tôi dễ bứt rứt khi cuộc sống lặp quá lâu."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ni",
+      "groupTitle": "Nhóm B",
+      "items": [
+        {
+          "id": "ni_1",
+          "text": "Nói về định hướng 5–10 năm thường làm tôi chán hoặc khó quan tâm thật sự.",
+          "examples": [
+            "Nghe người khác nói kế hoạch xa, tôi hay ‘tắt não’.",
+            "Tôi chú ý cái tuần/tháng này hơn là một câu chuyện dài hạn.",
+            "Tôi vẫn sống ổn dù không có ‘sứ mệnh đời mình’ rõ ràng."
+          ]
+        },
+        {
+          "id": "ni_2",
+          "text": "Tôi ít quan tâm ẩn dụ/biểu tượng; tôi thích nói chuyện rõ ràng, cụ thể.",
+          "examples": [
+            "Tôi không thích ‘đọc giữa dòng’; thích nói thẳng.",
+            "Nói chuyện trừu tượng làm tôi thấy mơ hồ/khó chịu.",
+            "Tôi thích bàn chi tiết thực tế hơn là ý nghĩa lớn."
+          ]
+        },
+        {
+          "id": "ni_3",
+          "text": "Khi hoàn toàn tự do, tôi làm theo hứng hơn là tự đặt mục tiêu dài hạn cho ngày đó.",
+          "examples": [
+            "Ngày rảnh: ưu tiên giải trí/nghỉ trước, mục tiêu tính sau (hoặc không).",
+            "Tôi không tự nhiên sắp ngày quanh một mục tiêu ‘đường dài’.",
+            "Tôi thích linh hoạt hơn là ép mình theo một hướng cố định."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "se",
+      "groupTitle": "Nhóm C",
+      "items": [
+        {
+          "id": "se_1",
+          "text": "Nơi ồn ào, đông người, nhiều kích thích làm tôi mệt nhanh về thể chất.",
+          "examples": [
+            "Đi tiệc/sự kiện đông: tôi cần trốn ra chỗ yên để hồi lại.",
+            "Âm thanh/ánh sáng/nhiều thứ cùng lúc làm tôi ‘quá tải’.",
+            "Tôi hợp không gian yên và ít kích thích hơn."
+          ]
+        },
+        {
+          "id": "se_2",
+          "text": "Tôi thường là người ‘hãm phanh’ khi nhóm muốn làm gì đó liều hoặc phá luật.",
+          "examples": [
+            "Tôi hay nói “đừng làm, phiền/rắc rối lắm”.",
+            "Tôi né trò mạo hiểm dù người khác thấy vui.",
+            "Tôi khó chịu khi kế hoạch phụ thuộc vào hành động bốc đồng."
+          ]
+        },
+        {
+          "id": "se_3",
+          "text": "Tôi hay nghĩ xa/hệ quả/ẩn ý thay vì hiểu đơn giản theo nghĩa trực tiếp.",
+          "examples": [
+            "Tôi hay tự hỏi “họ nói vậy là muốn gì?”.",
+            "Tôi hay tua lại cuộc nói chuyện để đoán động cơ.",
+            "Tôi lo hậu quả nhiều hơn là tận hưởng hiện tại."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ne",
+      "groupTitle": "Nhóm D",
+      "items": [
+        {
+          "id": "ne_1",
+          "text": "Bài/việc quá mở làm tôi bị ‘trống’; tôi thích đề rõ ràng và hướng dẫn cụ thể.",
+          "examples": [
+            "Tự do quá nhiều làm tôi stress hơn là hứng thú.",
+            "Có mục tiêu rõ giúp tôi làm nhanh hơn.",
+            "Brainstorm làm tôi mệt nếu không có người dẫn."
+          ]
+        },
+        {
+          "id": "ne_2",
+          "text": "Tôi thấy yên tâm khi lịch trình được lên sẵn; nhiều lựa chọn làm tôi căng thẳng.",
+          "examples": [
+            "Tôi thích có người quyết giúp để mình làm theo.",
+            "Thay đổi bất ngờ làm tôi khó chịu hơn là có năng lượng.",
+            "Routine làm tôi dễ chịu vì giảm mơ hồ."
+          ]
+        },
+        {
+          "id": "ne_3",
+          "text": "Khi gặp việc mới, tôi nghĩ rủi ro trước hơn là thấy tò mò khám phá.",
+          "examples": [
+            "Ý đầu tiên thường là “lỡ xui thì sao?”.",
+            "Tôi né chỗ mới đến khi cảm giác chuẩn bị đủ.",
+            "Tôi thích đường an toàn hơn là thử nghiệm."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ti",
+      "groupTitle": "Nhóm E",
+      "items": [
+        {
+          "id": "ti_1",
+          "text": "Tôi hay làm theo cho xong chuyện dù thấy vô lý, vì tranh luận mệt.",
+          "examples": [
+            "Tôi nghĩ “thôi kệ, làm cho qua” dù không hợp lý.",
+            "Tôi ít muốn bóc lỗi logic nếu nó không ảnh hưởng trực tiếp.",
+            "Tôi ngại tranh luận và thích yên ổn."
+          ]
+        },
+        {
+          "id": "ti_2",
+          "text": "Tôi khó tự hiểu lý thuyết khó nếu không có người cho khung/sườn trước.",
+          "examples": [
+            "Tôi cần outline/sơ đồ trước mới hiểu được.",
+            "Tự học dễ rối nếu không có bước-bước rõ.",
+            "Tôi phụ thuộc giáo viên/tutorial để ‘xếp logic’ giúp."
+          ]
+        },
+        {
+          "id": "ti_3",
+          "text": "Trong tranh cãi, tôi dễ nghiêng về người dễ thương hơn là người đúng lý.",
+          "examples": [
+            "Tôi ưu tiên hòa khí hơn là đúng-sai logic.",
+            "Tôi tránh chỉ ra lỗi lập luận nếu sợ làm người ta khó chịu.",
+            "Khi không chắc, tôi chọn phía ‘an toàn xã hội’."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fi",
+      "groupTitle": "Nhóm F",
+      "items": [
+        {
+          "id": "fi_1",
+          "text": "Tôi có thể chịu làm điều mình không thích khá dễ, miễn cuộc sống ổn định và ít rắc rối.",
+          "examples": [
+            "Tôi chịu theo hướng mình không thích để tránh xung đột.",
+            "Tôi hiếm khi thấy phản kháng mạnh kiểu “không thể phản bội chính mình”.",
+            "Tôi ưu tiên ổn định hơn là ‘đúng gu’."
+          ]
+        },
+        {
+          "id": "fi_2",
+          "text": "Tôi hay nói “sao cũng được” vì tôi không có sở thích/ghét bỏ quá mạnh.",
+          "examples": [
+            "Chọn ăn gì/đi đâu dễ vì tôi không quan trọng lắm.",
+            "Theo số đông khá thoải mái, ít khi bực.",
+            "Tôi hiếm khi có cảm giác “mình PHẢI chọn cái này vì nó là mình”."
+          ]
+        },
+        {
+          "id": "fi_3",
+          "text": "Tôi xem cảm xúc mạnh là thiếu đáng tin và hay cố dẹp nó nhanh.",
+          "examples": [
+            "Tôi tự nhủ “đừng cảm xúc nữa, vô ích”.",
+            "Tôi cần ‘lý do hợp lý’ rồi mới chấp nhận cảm xúc.",
+            "Tôi không tin cảm xúc nên dẫn quyết định."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "te",
+      "groupTitle": "Nhóm G",
+      "items": [
+        {
+          "id": "te_1",
+          "text": "Trong nhóm, tôi hiếm khi tự đứng ra điều phối; tôi chờ người khác dẫn.",
+          "examples": [
+            "Tôi thích được giao việc hơn là giao việc.",
+            "Làm leader làm tôi mệt hoặc thấy không cần.",
+            "Tôi né việc đặt deadline/đốc thúc người khác."
+          ]
+        },
+        {
+          "id": "te_2",
+          "text": "Tôi hay chậm chốt vì muốn ‘đúng hoàn hảo’, nên chậm hoàn thành.",
+          "examples": [
+            "Tôi sửa đi sửa lại quá nhiều nên hay trễ.",
+            "Tôi hay tự nghi ngờ và khó kết luận.",
+            "Tôi thích giữ lựa chọn mở hơn là commit."
+          ]
+        },
+        {
+          "id": "te_3",
+          "text": "Tôi hay im lặng về vấn đề để tránh làm người khác khó chịu, dù ảnh hưởng kết quả.",
+          "examples": [
+            "Tôi ngại góp ý thẳng dù cần thiết.",
+            "Tôi để kế hoạch kém hiệu quả chạy tiếp để ‘êm’.",
+            "Tôi nói giảm nói tránh để người khác đỡ buồn."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fe",
+      "groupTitle": "Nhóm H",
+      "items": [
+        {
+          "id": "fe_1",
+          "text": "Tôi từng bị nói vô duyên/vô ý vì không để ý tín hiệu cảm xúc-xã giao.",
+          "examples": [
+            "Tôi nói thẳng và sau đó mới thấy ‘lỡ lời’.",
+            "Tôi không nhận ra không khí căng cho tới khi ai đó nhắc.",
+            "Tôi khó hiểu vì sao câu nói lại làm người ta tổn thương."
+          ]
+        },
+        {
+          "id": "fe_2",
+          "text": "Khi có vấn đề, tôi có xu hướng tự xử một mình hơn là tìm sự an ủi tinh thần.",
+          "examples": [
+            "Tôi không thích tâm sự; tôi tự giải quyết.",
+            "Tôi ít xin được dỗ dành dù stress.",
+            "Tôi thấy ngại khi mở lòng."
+          ]
+        },
+        {
+          "id": "fe_3",
+          "text": "Tôi có thể từ chối giúp nếu thấy không đáng thời gian, dù người khác buồn.",
+          "examples": [
+            "Tôi hay cân chi phí/lợi ích trước khi giúp.",
+            "Tôi không thấy nghĩa vụ phải ‘nice’ nếu vô ích.",
+            "Tôi ưu tiên nhu cầu mình mà ít thấy áy náy."
+          ]
+        }
+      ]
+    }
+  ]
+}
