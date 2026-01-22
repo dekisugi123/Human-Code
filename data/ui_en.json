@@ -35,4 +35,31 @@
   "save": "Save",
   "saved_ok": "Saved.",
   "reset_confirm": "Reset this page?"
+  "screening_title": "Screening (Exclude)",
+  "screening_subtitle": "Answer quickly based on real-life patterns. Higher screening score means “deprioritize this dominant check”.",
+  "screening_questions_title": "Questions",
+  "screening_bias_note": "Tip: These groups are unlabeled to reduce bias. Just answer what’s true.",
+  "screening_results_title": "Results",
+  "screening_results_note": "Lower score = worth checking sooner. Higher score = deprioritize (not a diagnosis).",
+  "screening_links_title": "Dominant checks (sorted by screening)",
+
+  "screen_scale_left": "0",
+  "screen_scale_right": "4",
+  "screen_scale_0": "0",
+  "screen_scale_1": "1",
+  "screen_scale_2": "2",
+  "screen_scale_3": "3",
+  "screen_scale_4": "4",
+  "screening_likert_aria": "Answer scale",
+  "screening_skip": "Skip / Can’t judge",
+
+  "screening_hints_title": "Hints (grounded examples)",
+  "screening_group_note": "Answer based on patterns across your life.",
+  "screening_tag_check": "Worth checking",
+  "screening_tag_consider": "Consider later",
+  "screening_tag_deprioritize": "Deprioritize",
+  "screening_tag_unknown": "Not enough info",
+  "screening_not_enough": "—",
+  "screening_need_answers": "Answer at least 1 item (or un-skip) to compute.",
+  "screening_meaning": "Higher = deprioritize."
 }
