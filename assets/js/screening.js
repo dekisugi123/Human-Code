@@ -31,6 +31,16 @@
     return window.App.el(tag, attrs, children);
   }
 
+  // Map 0..4 -> existing l1..l5 bubble styles
+  function bubbleClassForValue(v){
+    return (
+      v === 0 ? 'bubble l1' :
+      v === 1 ? 'bubble l2' :
+      v === 2 ? 'bubble l3' :
+      v === 3 ? 'bubble l4' : 'bubble l5'
+    );
+  }
+
   function renderLikert(itemId, currentValue, isSkipped, onPick, onSkip){
     const row = el('div', { class: 'likert-row screening-likert' });
 
@@ -50,14 +60,56 @@
       'aria-label': window.App.t('screening_likert_aria', 'Answer scale')
     });
 
-    SCALE.forEach(s => {
-      // Reuse existing l1..l5 styles by mapping 0..4 -> l1..l5
-      const cls =
-        s.v === 0 ? 'bubble l1' :
-        s.v === 1 ? 'bubble l2' :
-        s.v === 2 ? 'bubble l3' :
-        s.v === 3 ? 'bubble l4' : 'bubble l5';
+    // Skip button (needs to be in scope for click handlers)
+    const skipBtn = el('button', {
+      type: 'button',
+      class: 'pill-btn screening-skip' + (isSkipped ? ' active' : ''),
+      'aria-pressed': isSkipped ? 'true' : 'false',
+      text: window.App.t('screening_skip', 'Skip / Can’t judge')
+    });
 
+    const btns = []; // keep references so we can toggle selected classes in-place
+
+    function setSelectedUI(value){
+      // Clear all first
+      btns.forEach(b => {
+        b.classList.remove('selected');
+        b.setAttribute('aria-checked', 'false');
+      });
+
+      // If skipped, keep all unselected
+      if(isSkipped) return;
+
+      // Mark the matching one selected
+      const idx = SCALE.findIndex(s => s.v === value);
+      if(idx >= 0){
+        const b = btns[idx];
+        b.classList.add('selected');
+        b.setAttribute('aria-checked', 'true');
+      }
+    }
+
+    function setSkippedUI(skippedOn){
+      isSkipped = skippedOn;
+
+      skipBtn.classList.toggle('active', skippedOn);
+      skipBtn.setAttribute('aria-pressed', skippedOn ? 'true' : 'false');
+
+      if(skippedOn){
+        // Clear bubble UI when skipped
+        btns.forEach(b => {
+          b.classList.remove('selected');
+          b.setAttribute('aria-checked', 'false');
+        });
+      }else{
+        // Restore selection UI
+        setSelectedUI(currentValue);
+      }
+    }
+
+    // Build bubbles
+    SCALE.forEach(s => {
+      const cls = bubbleClassForValue(s.v);
       const selected = (!isSkipped && currentValue === s.v);
 
       const btn = el('button', {
@@ -68,17 +120,37 @@
         'aria-label': window.App.t(s.key, String(s.v))
       });
 
-      btn.addEventListener('click', () => onPick(s.v));
+      btn.addEventListener('click', () => {
+        // Immediately update UI (so user sees it)
+        currentValue = s.v;
+        setSkippedUI(false);      // un-skip if needed
+        setSelectedUI(currentValue);
+
+        // Then update state + results
+        onPick(s.v);
+      });
+
+      btns.push(btn);
       bubbles.appendChild(btn);
     });
 
-    const skipBtn = el('button', {
-      type: 'button',
-      class: 'pill-btn screening-skip' + (isSkipped ? ' active' : ''),
-      'aria-pressed': isSkipped ? 'true' : 'false',
-      text: window.App.t('screening_skip', 'Skip / Can’t judge')
+    skipBtn.addEventListener('click', () => {
+      const next = !isSkipped;
+
+      // Update UI instantly
+      setSkippedUI(next);
+
+      // Update state + results
+      onSkip(next);
+
+      // If un-skipping and state chooses default 2, show it
+      if(!next){
+        // after onSkip(false), your handler sets answer=2 if missing
+        // we reflect that visually here:
+        currentValue = 2;
+        setSelectedUI(currentValue);
+      }
     });
-    skipBtn.addEventListener('click', () => onSkip(!isSkipped));
 
     const meta = el('div', { class: 'q-meta-row screening-meta' }, [skipBtn]);
 
@@ -214,7 +286,6 @@
         box.appendChild(top);
         box.appendChild(el('div', { class: 'result-value', text: valueText }));
 
-        // small explanation
         const explain = (pct == null)
           ? window.App.t('screening_need_answers', 'Answer at least 1 item (or un-skip) to compute.')
           : window.App.t('screening_meaning', 'Higher = deprioritize.');
@@ -248,14 +319,12 @@
     const pages = (cases && cases.pages) ? cases.pages : {};
     const keys = Object.keys(pages);
 
-    // Build entries: infer html name from key: ne_dom -> pages/ne-dom.html
     const entries = [];
     for(const k of keys){
       const jsonRel = pages[k];
       const href = './pages/' + k.replaceAll('_','-') + '.html';
       const groupId = k.split('_')[0]; // ne_dom -> ne
 
-      // Load title from dom json if possible
       let title = k;
       if(typeof jsonRel === 'string'){
         try{
@@ -273,7 +342,6 @@
       entries.push({ key: k, href, title, groupId, pct });
     }
 
-    // Sort: lower screening pct = check sooner; unknown at bottom
     entries.sort((a,b) => {
       const av = (a.pct == null) ? 999 : a.pct;
       const bv = (b.pct == null) ? 999 : b.pct;
@@ -303,11 +371,7 @@
 
   function updateUI(data, state){
     const groupScores = updateResults(data, state);
-
-    // Persist computed preview in-memory
     state._scores = groupScores;
-
-    // Update dom links ranking (async)
     renderDomLinks(state, groupScores);
   }
 
@@ -342,10 +406,8 @@
 
     const lang = window.App.getLang();
     const excludePath = paths.exclude[lang];
-
     const data = await window.App.loadJSON(excludePath);
 
-    // Scale line
     const scaleLine = document.getElementById('scaleLine');
     if(scaleLine && data.scale && data.scale.labels){
       const labels = data.scale.labels;
@@ -353,7 +415,6 @@
       scaleLine.textContent = `${labels[0]} → ${labels[4]} · ${skip}`;
     }
 
-    // Load saved
     const saved = window.AppStorage.loadPage(PAGE_ID) || {};
     const state = {
       answers: saved.answers || {},
@@ -361,13 +422,9 @@
       _scores: saved.scores || {}
     };
 
-    // defaults: if neither answer nor skipped, leave empty until user clicks
-    // (but if they un-skip, we set neutral 2 in handler)
-
     renderAll(data, state);
     updateUI(data, state);
 
-    // Save/reset
     const saveBtn = document.getElementById('saveBtn');
     const resetBtn = document.getElementById('resetBtn');
     const status = document.getElementById('saveStatus');
