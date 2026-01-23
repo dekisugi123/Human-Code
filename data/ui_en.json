@@ -34,7 +34,7 @@
 
   "save": "Save",
   "saved_ok": "Saved.",
-  "reset_confirm": "Reset this page?"
+  "reset_confirm": "Reset this page?",
   "screening_title": "Screening (Exclude)",
   "screening_subtitle": "Answer quickly based on real-life patterns. Higher screening score means “deprioritize this dominant check”.",
   "screening_questions_title": "Questions",
