@@ -163,26 +163,30 @@
   }
 
   function computeGroupPct(group, state){
-    const values = [];
+  // Penalize middle answers: treat 2 ("Sometimes") as low-information
+    function evidence(v){
+      // v is 0..4
+      if(v === 0) return 0.0;
+      if(v === 1) return 0.25;
+      if(v === 2) return 0.0;   // key change: "middle" gives no push toward 50%
+      if(v === 3) return 0.75;
+      if(v === 4) return 1.0;
+      return 0.0;
+    }
+  
+    const ev = [];
     group.items.forEach(it => {
-      const skipped = !!state.skipped[it.id];
-      if(skipped) return;
+      if(!!state.skipped[it.id]) return;
       const v = state.answers[it.id];
-      if(typeof v === 'number') values.push(v);
+      if(typeof v === 'number') ev.push(evidence(v));
     });
-    if(values.length === 0) return null;
-    const avg = values.reduce((a,b)=>a+b,0) / values.length; // 0..4
-    return clamp(Math.round((avg / 4) * 100), 0, 100);
+  
+    if(ev.length === 0) return null;
+  
+    const avg = ev.reduce((a,b)=>a+b,0) / ev.length; // 0..1
+    return clamp(Math.round(avg * 100), 0, 100);
   }
 
-  function computeAll(data, state){
-    const groups = data.groups || [];
-    const out = {};
-    groups.forEach(g => {
-      out[g.id] = computeGroupPct(g, state);
-    });
-    return out;
-  }
 
   function renderQuestion(groupId, item, state, onUpdate){
     const block = el('div', { class: 'q-block screening-qblock' });
