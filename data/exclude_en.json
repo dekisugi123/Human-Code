@@ -1,9 +1,9 @@
 {
   "title": "Screening (low-bias)",
-  "intro": "Rate how often each statement fits your real life. Higher scores mean you can deprioritize the related dominant function check. Use Skip if you truly can’t judge.",
+  "intro": "Rate how often each statement fits your real life across many situations. Higher scores mean you can deprioritize the related dominant function check. Use Skip only if you truly don’t have enough experience to judge.",
   "scale": {
     "labels": ["Never/False", "Rarely", "Sometimes", "Often", "Almost always"],
-    "skip": "Skip / Can’t judge"
+    "skip": "Skip / Not enough experience to judge"
   },
   "groups": [
     {
@@ -12,29 +12,35 @@
       "items": [
         {
           "id": "si_1",
-          "text": "I often miss small steps in detailed procedures even when others think they matter.",
+          "text": "I tend to ignore small procedural steps because they feel unnecessary or too slow, even if others say they matter.",
           "examples": [
-            "I get reminded for forgetting minor steps (closing, labeling, cleaning, formatting).",
-            "I prefer “good enough” over following a long checklist perfectly.",
-            "I only do the full procedure when someone is watching or it’s strictly required."
+            "I get reminded for missing minor steps (labels, naming files, cleaning details, formatting).",
+            "I think “the result is fine, so the extra steps feel pointless.”",
+            "I do the full checklist mainly when there’s strict enforcement or a clear penalty.",
+            "I simplify instructions in my head and then realize I skipped something.",
+            "I feel impatient with procedures that don’t change the outcome much."
           ]
         },
         {
           "id": "si_2",
-          "text": "I frequently ignore the standard method and do it my own way instead.",
+          "text": "I often prefer my own approach because copying the standard method feels restrictive, even if it’s proven to work.",
           "examples": [
-            "I dislike copying a template exactly; I change it to fit my style.",
-            "I try shortcuts even if they’re not the official method.",
-            "I get bored doing the same proven method repeatedly."
+            "I modify templates or rules quickly because I want them to fit me, not because I’m trying to rebel.",
+            "I try shortcuts or alternatives because “there must be a better way.”",
+            "I feel mentally drained doing things the exact same way repeatedly.",
+            "I only follow the standard method when I can see a strong reason (safety, grading, risk).",
+            "If someone says “do it exactly like this,” my first instinct is to adapt it."
           ]
         },
         {
           "id": "si_3",
-          "text": "When I’m free, I chase something new rather than repeating a familiar comfort routine.",
+          "text": "When I’m free, I usually seek novelty because repeating familiar routines doesn’t feel fulfilling for long.",
           "examples": [
-            "On a free day, I want a new place/food/activity, not the same safe choice.",
-            "Repeating the same hobby feels dull quickly.",
-            "I feel restless if life becomes repetitive for too long."
+            "Given a free choice, I’d rather try a new place/activity than repeat the same comfort option.",
+            "Even hobbies I like can feel stale if they become too repetitive.",
+            "I feel restless if my life becomes predictable for too long.",
+            "I choose ‘new experiences’ as my default reward rather than ‘same comfort.’",
+            "I don’t get much satisfaction from doing the same routine just because it worked before."
           ]
         }
       ]
@@ -45,29 +51,35 @@
       "items": [
         {
           "id": "ni_1",
-          "text": "Long-term direction talk (5–10 years) usually feels boring or hard to care about.",
+          "text": "Long-term direction talk (5–10 years) feels hard to care about because I don’t naturally live through one future narrative.",
           "examples": [
-            "When people discuss far-future plans, I mentally check out.",
-            "I focus on what’s next week/month rather than a long narrative.",
-            "I feel fine without a “life mission” or clear calling."
+            "When people discuss a far-future plan, I zone out or feel it’s too abstract to matter now.",
+            "I prefer dealing with what’s actionable soon rather than building a life storyline.",
+            "I don’t feel anxious without a clear calling; I can function fine without it.",
+            "I rarely think “this is my destiny/path”; I think more in short steps.",
+            "Future planning feels like guesswork rather than something meaningful."
           ]
         },
         {
           "id": "ni_2",
-          "text": "I rarely think in symbolism/hidden meaning; I prefer literal, concrete talk.",
+          "text": "I prefer direct, concrete talk because interpreting symbolism or hidden meaning often feels speculative or ungrounded.",
           "examples": [
-            "I dislike reading ‘between the lines’; I prefer direct statements.",
-            "Abstract meaning-talk feels vague or unhelpful.",
-            "I’d rather discuss practical details than big metaphors."
+            "I’d rather someone say what they mean instead of hinting.",
+            "I usually take words at face value unless there’s strong evidence otherwise.",
+            "Abstract ‘meaning talk’ can feel vague rather than insightful to me.",
+            "I feel more comfortable discussing practical details than big interpretations.",
+            "When someone analyzes symbolism, my reaction is often “maybe… but how do we know?”"
           ]
         },
         {
           "id": "ni_3",
-          "text": "If I have full freedom, I follow my mood instead of setting a future goal for the day.",
+          "text": "On a fully free day, I follow what feels good now because I don’t naturally organize my day around a long-horizon goal.",
           "examples": [
-            "A free day becomes entertainment/relaxing first, goal-setting later (or never).",
-            "I don’t naturally structure my day around a long-horizon objective.",
-            "I prefer flexible wandering over a single planned purpose."
+            "I choose based on mood/energy rather than a planned purpose.",
+            "I dislike locking into one ‘mission’ for the day unless I must.",
+            "I feel fine spending a day exploring/relaxing without it ‘adding up’ to a future plan.",
+            "I plan when needed, but it doesn’t feel like my default mode.",
+            "If I set goals, they are usually short and concrete rather than visionary."
           ]
         }
       ]
@@ -78,29 +90,35 @@
       "items": [
         {
           "id": "se_1",
-          "text": "Loud, crowded, high-stimulation environments physically drain me quickly.",
+          "text": "High stimulation drains me because my body gets overloaded faster than I can enjoy it.",
           "examples": [
-            "I need quiet breaks at parties/events to recover.",
-            "Too much noise/light/activity makes me feel overloaded.",
-            "I prefer calm spaces over high-energy environments."
+            "I need quiet breaks at loud events to feel normal again.",
+            "Too much noise/light/activity makes me tense, tired, or irritated.",
+            "I prefer calmer spaces even if others find them ‘boring.’",
+            "I notice physical discomfort quickly (headache, fatigue, sensory irritation).",
+            "After busy environments, I need recovery time."
           ]
         },
         {
           "id": "se_2",
-          "text": "I’m usually the one who slows people down when they want to do risky rule-breaking.",
+          "text": "I avoid risky or impulsive actions mainly because consequences feel not worth it (trouble, conflict, safety, reputation).",
           "examples": [
-            "I often say “don’t do that, it’ll cause trouble.”",
-            "I avoid risky stunts even if others find it fun.",
-            "I feel uncomfortable when plans depend on bold impulsive action."
+            "When others want to do something risky, my first thought is “this can backfire.”",
+            "I rarely enjoy ‘thrill for thrill’s sake’ unless it’s controlled/safe.",
+            "I prefer predictable outcomes over exciting uncertainty.",
+            "I think about rules and consequences even when others don’t.",
+            "I’d rather miss out than deal with avoidable chaos."
           ]
         },
         {
           "id": "se_3",
-          "text": "I often overthink implications and hidden meaning instead of taking things at face value.",
+          "text": "I often focus on implications (what it could mean / lead to) because I feel uneasy taking things at face value.",
           "examples": [
-            "I ask myself “what did they really mean?” a lot.",
-            "I replay conversations to interpret motives.",
-            "I worry about consequences more than enjoying the moment."
+            "I replay conversations to figure out intention or consequences.",
+            "I ask “what does this lead to?” more than “what is happening right now?”",
+            "I often suspect there’s more context behind what people say.",
+            "I feel safer when I understand hidden risks and subtext.",
+            "I can struggle to stay purely present when my mind is forecasting."
           ]
         }
       ]
@@ -111,29 +129,35 @@
       "items": [
         {
           "id": "ne_1",
-          "text": "Open-ended tasks make me feel blank; I prefer a clear topic and instructions.",
+          "text": "Open-ended tasks make me feel blank because I prefer clear constraints before I can act confidently.",
           "examples": [
-            "Too much freedom feels stressful rather than exciting.",
-            "I work faster when I’m given a specific target.",
-            "Brainstorming feels tiring unless someone else leads it."
+            "Too much freedom feels like ‘no direction’ rather than possibility.",
+            "I work faster when I’m given a specific target or rubric.",
+            "I prefer examples or a template before I start.",
+            "Brainstorming is tiring unless someone else structures it.",
+            "I feel relief when someone narrows choices for me."
           ]
         },
         {
           "id": "ne_2",
-          "text": "I feel safest when my schedule is planned; too many options stress me out.",
+          "text": "I feel safest with a planned schedule because uncertainty and too many options create stress, not excitement.",
           "examples": [
             "I prefer someone deciding the plan so I can follow it.",
             "Sudden changes throw me off more than they energize me.",
-            "I like routine because it reduces uncertainty."
+            "I like routine mainly because it reduces decision fatigue and unpredictability.",
+            "I worry about choosing wrong when there are too many paths.",
+            "I feel calmer when the next steps are already settled."
           ]
         },
         {
           "id": "ne_3",
-          "text": "When facing something new, I focus on risks more than curiosity.",
+          "text": "When facing something new, my attention goes to what could go wrong because I need security before exploring.",
           "examples": [
-            "My first thought is often “what could go wrong?”",
-            "I avoid new environments until I feel fully prepared.",
-            "I prefer proven paths over experimenting."
+            "My first instinct is to scan risks rather than imagine opportunities.",
+            "I avoid new environments until I feel prepared or informed.",
+            "I prefer proven paths because uncertainty feels costly.",
+            "I ask many ‘what if it fails?’ questions before starting.",
+            "I enjoy novelty only when it feels controlled/safe."
           ]
         }
       ]
@@ -144,29 +168,35 @@
       "items": [
         {
           "id": "ti_1",
-          "text": "I often comply with illogical rules just to avoid the hassle of arguing.",
+          "text": "I usually don’t feel driven to correct flawed logic; I’d rather move on unless it directly affects me.",
           "examples": [
-            "I think “whatever, I’ll just do it” even if it makes no sense.",
-            "I rarely challenge contradictions unless it directly hurts me.",
-            "I dislike debates and would rather keep peace."
+            "If something is inconsistent, I notice it but often think “not worth arguing.”",
+            "I prefer peace/efficiency over proving a point.",
+            "I rarely enjoy debates as a way to refine truth.",
+            "I can accept explanations that are ‘good enough’ even if not fully consistent.",
+            "I avoid getting stuck analyzing contradictions."
           ]
         },
         {
           "id": "ti_2",
-          "text": "I struggle to learn complex theory without someone giving me a structure first.",
+          "text": "I struggle to build my own mental framework for complex ideas; I prefer receiving a structure first.",
           "examples": [
-            "I need a guide/outline before I can understand.",
-            "Self-study feels confusing without step-by-step help.",
-            "I rely on teachers/tutorials to organize the logic."
+            "I learn best when someone gives an outline before details.",
+            "Self-study feels confusing without a guided path.",
+            "I want clear definitions and steps provided externally.",
+            "I get lost when I must organize the logic from scratch.",
+            "I depend on teachers/tutorials to ‘set the map’ for me."
           ]
         },
         {
           "id": "ti_3",
-          "text": "In arguments, I side with whoever feels nicer rather than who is technically correct.",
+          "text": "When ideas conflict, I lean on familiarity or social comfort rather than analyzing which reasoning is most internally consistent.",
           "examples": [
-            "I care more about harmony than logical precision.",
-            "I avoid criticizing flawed reasoning if it may upset someone.",
-            "I choose the socially safe side when I’m unsure."
+            "If two explanations compete, I pick the one that feels simpler or more familiar.",
+            "I avoid challenging someone’s reasoning if it risks tension.",
+            "I often decide based on ‘what seems reasonable enough’ rather than proving it rigorously.",
+            "I prefer practical consensus over deep analysis.",
+            "I rarely feel motivated to chase exact logical precision."
           ]
         }
       ]
@@ -177,29 +207,35 @@
       "items": [
         {
           "id": "fi_1",
-          "text": "I can accept doing things I dislike fairly easily as long as life stays stable.",
+          "text": "I can tolerate choices I dislike because inner ‘value conflict’ usually isn’t intense enough to force resistance.",
           "examples": [
-            "I can tolerate an unwanted path if it avoids conflict.",
-            "I rarely feel intense inner resistance like “I can’t betray myself.”",
-            "I prioritize stability over personal preference."
+            "I can accept an unwanted path if it avoids conflict or instability.",
+            "I rarely feel a strong “I can’t betray myself” reaction.",
+            "I adapt to what’s expected without feeling like I’m losing myself.",
+            "I prioritize smooth functioning over personal alignment.",
+            "Even when unhappy, I can keep going without needing to change the situation immediately."
           ]
         },
         {
           "id": "fi_2",
-          "text": "I often say “anything is fine” because I don’t have strong preferences.",
+          "text": "I don’t often feel strong personal preferences because my sense of ‘this is me’ feels flexible or not central.",
           "examples": [
-            "Choosing food/activities is easy because I don’t care much.",
-            "I follow the group without feeling bothered.",
-            "I rarely feel “I MUST choose this because it fits me.”"
+            "Choosing food/activities is easy because many options feel fine.",
+            "I follow the group without feeling internally bothered.",
+            "I rarely feel “I MUST choose this because it fits my identity.”",
+            "I can enjoy many styles without feeling attached to one.",
+            "My likes/dislikes usually aren’t deeply personal."
           ]
         },
         {
           "id": "fi_3",
-          "text": "I treat strong emotions as unreliable and try to shut them down quickly.",
+          "text": "I distrust strong emotions as decision signals and prefer to reduce them before deciding.",
           "examples": [
-            "I tell myself “stop being emotional, it’s useless.”",
-            "I justify feelings logically before accepting them.",
-            "I don’t trust emotions to guide decisions."
+            "I tell myself “calm down first; emotions distort judgment.”",
+            "I try to explain feelings logically before taking them seriously.",
+            "I prefer decisions that still make sense even if my mood changes.",
+            "I feel uneasy when someone makes a big choice based mainly on emotion.",
+            "I often delay decisions until emotions settle."
           ]
         }
       ]
@@ -210,29 +246,35 @@
       "items": [
         {
           "id": "te_1",
-          "text": "In groups, I rarely take charge; I wait for someone else to lead.",
+          "text": "I avoid directing people because I don’t like imposing structure or responsibility on others.",
           "examples": [
             "I prefer being assigned tasks rather than assigning others.",
-            "Leading feels stressful or unnecessary to me.",
-            "I avoid setting deadlines or pushing people."
+            "I feel uncomfortable pushing people for results.",
+            "If someone else leads, I feel relief rather than frustration.",
+            "I hesitate to set deadlines because I don’t want conflict.",
+            "I’d rather contribute quietly than coordinate."
           ]
         },
         {
           "id": "te_2",
-          "text": "I delay decisions because I overthink the perfect answer.",
+          "text": "I delay conclusions because I want to keep options open and fear locking into the wrong call.",
           "examples": [
-            "I rewrite/revise too much and finish late.",
-            "I second-guess myself and struggle to conclude.",
-            "I’d rather keep options open than commit."
+            "I second-guess decisions even after choosing.",
+            "I keep revising because I imagine better alternatives later.",
+            "I struggle to say “this is done” unless forced.",
+            "I worry about consequences of committing too early.",
+            "I feel safer with flexibility than decisive closure."
           ]
         },
         {
           "id": "te_3",
-          "text": "I stay quiet about problems to avoid upsetting people, even if it hurts results.",
+          "text": "I soften or hide problems because social friction feels more costly than efficiency.",
           "examples": [
-            "I avoid blunt feedback even when it’s necessary.",
+            "I avoid blunt feedback even when it would improve outcomes.",
             "I let inefficient plans continue to keep peace.",
-            "I soften facts so others won’t feel bad."
+            "I phrase facts gently so others won’t feel attacked.",
+            "I hesitate to correct mistakes publicly.",
+            "Harmony often wins over directness."
           ]
         }
       ]
@@ -243,29 +285,35 @@
       "items": [
         {
           "id": "fe_1",
-          "text": "People have called me rude/insensitive because I miss social-emotional cues.",
+          "text": "I miss social-emotional cues because I focus more on content/task than on how people feel in the moment.",
           "examples": [
-            "I say things bluntly and regret it later.",
-            "I don’t notice mood shifts until someone tells me.",
-            "I’m confused why certain words “hurt” people."
+            "I realize someone was upset only after they tell me.",
+            "I say things too directly and later learn it landed badly.",
+            "I don’t naturally track ‘the room mood’ while talking.",
+            "I’m confused why certain phrasing feels hurtful to others.",
+            "I prioritize truth/efficiency over emotional tone without meaning harm."
           ]
         },
         {
           "id": "fe_2",
-          "text": "When I have a problem, I handle it alone rather than seeking emotional support.",
+          "text": "When I struggle, my instinct is self-reliance; seeking emotional support feels awkward or unnecessary.",
           "examples": [
-            "I don’t like sharing feelings; I solve it privately.",
-            "I avoid asking for comfort even when stressed.",
-            "I feel awkward opening up."
+            "I handle problems privately instead of venting.",
+            "I feel uneasy asking for comfort even when stressed.",
+            "I prefer solutions over sympathy.",
+            "Sharing feelings feels exposing or inefficient.",
+            "I often disappear to process alone."
           ]
         },
         {
           "id": "fe_3",
-          "text": "I sometimes refuse to help if it feels like a waste of my time, even if it disappoints others.",
+          "text": "I evaluate helping through cost/benefit first; social obligation alone rarely motivates me.",
           "examples": [
-            "I weigh cost/benefit before doing favors.",
-            "I don’t feel obligated to be ‘nice’ if it’s inefficient.",
-            "I prioritize my needs without much guilt."
+            "I say no to favors if they disrupt my priorities.",
+            "I don’t automatically feel guilty for prioritizing my needs.",
+            "I help when I choose to, not because I ‘should.’",
+            "If a request feels inefficient, I resist it.",
+            "I prefer clear boundaries over being seen as ‘nice.’"
           ]
         }
       ]
