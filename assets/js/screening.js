@@ -187,6 +187,13 @@
     return clamp(Math.round(avg * 100), 0, 100);
   }
 
+  function computeAll(data, state){
+    const out = {};
+    (data.groups || []).forEach(g => {
+      out[g.id] = computeGroupPct(g, state);
+    });
+    return out;
+  }
 
   function renderQuestion(groupId, item, state, onUpdate){
     const block = el('div', { class: 'q-block screening-qblock' });
