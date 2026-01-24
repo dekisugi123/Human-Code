@@ -1,0 +1,127 @@
+{
+  "title": "Xác nhận Ni (Dominant)",
+  "intro": "Trả lời theo kiểu khuynh hướng lâu dài trong đời sống của bạn. Chỉ chọn 4–5 khi điều đó đúng ổn định qua nhiều giai đoạn. Nếu chọn 4–5, bạn có thể tick ví dụ đời thật để tự kiểm chứng (không bắt buộc).",
+  "items": [
+    {
+      "id": "ni_p1",
+      "dir": 1,
+      "text": "Tôi thấy mình tốt nhất khi có hướng đi/mục đích rõ; thiếu hướng đi làm tôi bất an hoặc lạc lõng.",
+      "examples": [
+        "Không biết mình đang hướng tới gì thì động lực của tôi tụt rất mạnh.",
+        "Tôi thường cần một ‘đích’ trước khi đầu tư thời gian/công sức.",
+        "Mục tiêu có ý nghĩa quan trọng hơn thoải mái ngắn hạn.",
+        "Tương lai mơ hồ làm tôi lo hoặc trở nên nghiêm trọng quá mức.",
+        "Tôi hay hỏi ‘cái này sẽ dẫn tới đâu?’ về học/việc/mối quan hệ."
+      ]
+    },
+    {
+      "id": "ni_p2",
+      "dir": 1,
+      "text": "Tôi tự nhiên tổng hợp thông tin thành một ý chính/‘bản chất’/hàm ý tổng quát.",
+      "examples": [
+        "Tôi thích một lời giải thích thống nhất hơn là nhiều mảnh rời rạc.",
+        "Tôi thường nắm ‘big picture’ trước rồi mới nhìn chi tiết qua lăng kính đó.",
+        "Tôi hay để ý điều gì ‘thật sự đang xảy ra’ hoặc xu hướng sẽ đi về đâu.",
+        "Tôi không thích nói chuyện chỉ quanh chi tiết bề mặt.",
+        "Tôi hay rút ra một nguyên lý đơn giản từ nhiều dữ kiện lộn xộn."
+      ]
+    },
+    {
+      "id": "ni_p3",
+      "dir": 1,
+      "text": "Tôi hay có ‘cảm giác chắc’ về diễn biến tương lai dù chưa giải thích được vì sao.",
+      "examples": [
+        "Tôi cảm nhận ‘chắc sẽ xảy ra thế này’ từ các dấu hiệu nhỏ.",
+        "Tôi khó giải thích logic, nhưng dự đoán của tôi thường đúng.",
+        "Tôi tin vào nhận diện mô thức nhiều hơn kiểm từng bước trong nhiều tình huống.",
+        "Tôi khó chịu khi bị ép hành động mà không có ‘định hướng’ trong đầu.",
+        "Tôi chú ý quỹ đạo (đang đi về đâu) hơn là ảnh chụp hiện tại."
+      ]
+    },
+    {
+      "id": "ni_p4",
+      "dir": 1,
+      "text": "Tôi bị hút bởi một ‘tầm nhìn lý tưởng’; tôi có thể chịu khổ/nhịn trước để theo nó và đôi khi cầu toàn.",
+      "examples": [
+        "Tôi chấp nhận hi sinh tiện lợi ngắn hạn để tiến bộ dài hạn.",
+        "Tôi khó hài lòng nếu kết quả thấp hơn chuẩn nội tâm.",
+        "Tôi có thể trở nên kiểm soát về chất lượng vì ‘lý tưởng’ quan trọng.",
+        "Tôi bực khi người khác dễ dàng ‘an phận’ quá sớm.",
+        "Tôi để ý các mốc tiến độ mang tính biểu tượng (milestone, level, dấu hiệu ‘lên trình’)."
+      ]
+    },
+    {
+      "id": "ni_p5",
+      "dir": 1,
+      "text": "Khi xuống tinh thần, tôi dễ thấy đời ‘nông/nhạt/vô nghĩa’ và khổ khi tương lai mịt mờ hoặc tệ hơn kỳ vọng.",
+      "examples": [
+        "Tôi trở nên bi quan khi không thấy ý nghĩa/hướng đi.",
+        "Tương lai mơ hồ làm tôi nặng nề hoặc bị kẹt.",
+        "Tôi có thể trở nên intense hoặc thu mình khi ‘tầm nhìn’ bị vỡ.",
+        "Tôi khó tận hưởng hiện tại nếu đường dài cảm giác sai.",
+        "Tôi ổn lại khi khôi phục được một ‘lý do/why’ rõ ràng."
+      ]
+    },
+    {
+      "id": "ni_p6",
+      "dir": 1,
+      "text": "Tôi thường khó chịu với người nông, ngắn hạn, hẹp ý, hoặc không chịu nghĩ xa.",
+      "examples": [
+        "Tôi bực kiểu ‘sống hôm nay thôi’ mà không có hướng lớn.",
+        "Tôi không thích hành vi bốc đồng bỏ qua hậu quả tương lai.",
+        "Tôi thấy bị giới hạn quanh người không bàn được hàm ý sâu hơn.",
+        "Tôi khó chịu với sự ‘đổi xoành xoạch’ không có định hướng.",
+        "Tôi mệt với cuộc nói chuyện không kết nối được với ý nghĩa."
+      ]
+    },
+
+    {
+      "id": "ni_x1",
+      "dir": -1,
+      "text": "Tôi hiếm khi nghĩ về mục đích hay tương lai; tôi thấy ổn khi sống chủ yếu theo hiện tại.",
+      "examples": [
+        "Tôi không quan trọng ‘sứ mệnh’ hay hướng lớn.",
+        "Tôi sống ổn dù không có kế hoạch dài hạn.",
+        "Tôi tập trung việc trước mắt và hưởng thụ.",
+        "Nói chuyện tầm nhìn xa làm tôi thấy không cần.",
+        "Tôi ít lo khi tương lai không chắc."
+      ]
+    },
+    {
+      "id": "ni_x2",
+      "dir": -1,
+      "text": "Tôi thích nói chuyện cụ thể, rõ ràng; các kiểu ‘ý nghĩa/biểu tượng’ làm tôi thấy mơ hồ hoặc vô ích.",
+      "examples": [
+        "Tôi thích bàn bước làm thực tế hơn là chủ đề trừu tượng.",
+        "Tôi không hứng thú giải nghĩa sâu của chuyện/đời.",
+        "Tôi thích ‘chuyện gì xảy ra’ hơn ‘nó tượng trưng cho gì’.",
+        "Kiểu nói chuyện triết lý làm tôi mệt.",
+        "Tôi tin vào dữ kiện rõ hơn là diễn giải."
+      ]
+    },
+    {
+      "id": "ni_x3",
+      "dir": -1,
+      "text": "Tôi không cần một ‘khung dẫn đường’ duy nhất; tôi thích giữ lựa chọn mở và đổi hướng thường xuyên.",
+      "examples": [
+        "Tôi không thích commit vào một tầm nhìn dài hạn.",
+        "Tôi ưu tiên linh hoạt hơn tập trung.",
+        "Tôi đổi sở thích dễ mà không cần một ‘chủ đề trung tâm’.",
+        "Tôi không stress vì ‘chưa có hướng’.",
+        "Tôi thấy bị bó khi phải gắn vào cam kết đường dài."
+      ]
+    },
+    {
+      "id": "ni_x4",
+      "dir": -1,
+      "text": "Người khác hiếm khi thấy tôi ‘intense, mơ hồ, viển vông, khó đoán’; tôi thường rõ ràng và thực tế.",
+      "examples": [
+        "Tôi thường được nhìn là thực dụng và bám hiện tại.",
+        "Tôi ít bị nói ‘bí hiểm’ hay ‘nghiêm trọng quá’.",
+        "Cách nghĩ của tôi thường dễ theo dõi từng bước.",
+        "Tôi ít sa vào viễn cảnh tương lai trừu tượng.",
+        "Tôi ít overthink ý nghĩa/hàm ý."
+      ]
+    }
+  ]
+}
