@@ -1,0 +1,117 @@
+{
+  "title": "Confirm Te (Dominant)",
+  "intro": "Answer based on long-term patterns across years and contexts. Use 4–5 only if it’s consistently true. Te-dominant is self-determination through the objective world: making decisions by external evidence, building workable systems, and pushing reality to run better (results, coordination, execution).",
+  "items": [
+    {
+      "id": "te_p1",
+      "dir": 1,
+      "text": "When something doesn’t work, I feel an urge to fix it in the real world (process, plan, responsibilities), not just analyze it endlessly.",
+      "examples": [
+        "I naturally ask: “What’s the bottleneck and what’s the next action?”",
+        "I get impatient when a problem stays unresolved because no one decides.",
+        "I prefer moving a plan forward over perfect conceptual clarity.",
+        "I’ll take a workable solution now over a beautiful idea later."
+      ]
+    },
+    {
+      "id": "te_p2",
+      "dir": 1,
+      "text": "I evaluate ideas by outcomes and evidence. If results contradict the story, I adjust the story.",
+      "examples": [
+        "I care about what can be measured, verified, or observed.",
+        "I’m willing to change my view quickly when data shows it.",
+        "I dislike decisions based purely on vibes or personal preference.",
+        "I ask: “What’s the proof this works?”"
+      ]
+    },
+    {
+      "id": "te_p3",
+      "dir": 1,
+      "text": "I naturally organize people/resources/time to make things run smoothly. It feels normal to assign, schedule, and coordinate.",
+      "examples": [
+        "I create structure (priorities, deadlines, roles) without being asked.",
+        "When others are vague, I try to make it concrete and actionable.",
+        "I often end up being the ‘driver’ just because I want progress.",
+        "I notice inefficiencies and want to streamline them."
+      ]
+    },
+    {
+      "id": "te_p4",
+      "dir": 1,
+      "text": "I prefer clear decisions and closure. Keeping options open for too long feels like wasted time or risk.",
+      "examples": [
+        "I’d rather choose and adjust than stay indecisive.",
+        "I like checklists, milestones, or ‘done’ states.",
+        "I get annoyed when discussion loops without a decision.",
+        "I feel calmer when there is a plan and ownership."
+      ]
+    },
+    {
+      "id": "te_p5",
+      "dir": 1,
+      "text": "I can be direct about problems, priorities, or performance. I see it as responsibility, not personal attack.",
+      "examples": [
+        "I state what needs to happen even if it’s uncomfortable.",
+        "I’m okay with setting standards and holding people to them.",
+        "I dislike sugarcoating that hides the real issue.",
+        "I focus on the task even when emotions are present."
+      ]
+    },
+    {
+      "id": "te_p6",
+      "dir": 1,
+      "text": "People sometimes label me as blunt, controlling, or ‘too results-focused,’ especially when I’m trying to prevent chaos or failure.",
+      "examples": [
+        "Others say I push too hard for efficiency.",
+        "I’m sensitive to being seen as bossy when I’m just trying to get clarity.",
+        "I’ve been told I ‘don’t relax’ until things are handled.",
+        "I’ve been criticized for prioritizing outcomes over feelings."
+      ]
+    },
+
+    {
+      "id": "te_x1",
+      "dir": -1,
+      "text": "I rarely take initiative to organize or lead; I prefer waiting, exploring, or staying flexible without plans.",
+      "examples": [
+        "I dislike scheduling/coordination and avoid it when possible.",
+        "I don’t care much about closure or deadlines.",
+        "I prefer talking/imagining over executing.",
+        "I’m fine when nobody is ‘in charge’ for long periods."
+      ]
+    },
+    {
+      "id": "te_x2",
+      "dir": -1,
+      "text": "I feel stuck or anxious when I must decide quickly; I prefer to keep thinking and refining rather than committing.",
+      "examples": [
+        "I delay decisions because I fear choosing wrong.",
+        "I get lost in nuance and struggle to conclude.",
+        "I avoid setting firm priorities because it feels restrictive.",
+        "I’d rather keep options open than lock a plan."
+      ]
+    },
+    {
+      "id": "te_x3",
+      "dir": -1,
+      "text": "I often soften facts to avoid hurting people; interpersonal impact is a higher priority than efficiency or results.",
+      "examples": [
+        "I hesitate to give clear feedback if it might upset someone.",
+        "I prefer harmony over pushing for higher performance.",
+        "I avoid enforcing standards because it feels harsh.",
+        "I’d rather be kind than be bluntly accurate."
+      ]
+    },
+    {
+      "id": "te_x4",
+      "dir": -1,
+      "text": "I trust my internal logic more than external systems, metrics, or ‘best practices’; I resist being judged by objective criteria.",
+      "examples": [
+        "I dislike KPI-style thinking and feel it misses what matters.",
+        "I prefer perfect reasoning over practical usefulness.",
+        "I reject methods that work if they feel conceptually ugly.",
+        "I argue based on internal consistency more than outcomes."
+      ]
+    }
+  ]
+}
