@@ -2,5 +2,6 @@
   "pages": {
     "ne_dom": "dom/ne_dom_en.json",
     "fi_dom": "dom/fi_dom_en.json"
+    "ni_dom": "dom/ni_dom_en.json"
   }
 }
