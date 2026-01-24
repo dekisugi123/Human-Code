@@ -326,7 +326,7 @@
     const entries = [];
     for(const k of keys){
       const jsonRel = pages[k];
-      const href = './pages/' + k.replaceAll('_','-') + '.html';
+      const href = './pages/dom.html?page=' + encodeURIComponent(k);
       const groupId = k.split('_')[0]; // ne_dom -> ne
 
       let title = k;
