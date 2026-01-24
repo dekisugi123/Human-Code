@@ -1,0 +1,117 @@
+{
+  "title": "Confirm Ti (Dominant)",
+  "intro": "Answer based on long-term patterns across years and contexts. Use 4–5 only if it’s consistently true. Ti-dominant is self-determination through internal understanding: refining your own mental model, spotting contradictions, and becoming self-sufficient by mastering how things work.",
+  "items": [
+    {
+      "id": "ti_p1",
+      "dir": 1,
+      "text": "I feel compelled to make things internally consistent. If something doesn’t make sense, I can’t fully accept it until I resolve the contradiction.",
+      "examples": [
+        "I notice logical gaps/fallacies even when others don’t care.",
+        "I often pause and ask: “What exactly does that mean?”",
+        "I dislike conclusions that feel based on vague wording or shaky assumptions.",
+        "Once my model is clear, I become calm and decisive."
+      ]
+    },
+    {
+      "id": "ti_p2",
+      "dir": 1,
+      "text": "I naturally build my own framework for understanding a topic instead of trusting authority, tradition, or popular opinion.",
+      "examples": [
+        "I don’t adopt a rule just because “experts say so” unless it makes sense to me.",
+        "I prefer to reconstruct the logic from first principles.",
+        "I’m skeptical of methods that work but can’t be explained clearly.",
+        "I often re-derive/rewire explanations in my own words."
+      ]
+    },
+    {
+      "id": "ti_p3",
+      "dir": 1,
+      "text": "When faced with a problem, I focus on mechanism: what is actually causing it, and what lever would fix it with minimal fuss?",
+      "examples": [
+        "I troubleshoot by isolating variables and testing hypotheses.",
+        "I enjoy elegant solutions more than big emotional reassurance.",
+        "I prefer clean, simple explanations over complicated narratives.",
+        "I get energized when something becomes understandable and solvable."
+      ]
+    },
+    {
+      "id": "ti_p4",
+      "dir": 1,
+      "text": "I prefer handling problems independently. I trust my own analysis and dislike being forced to rely on others’ instructions.",
+      "examples": [
+        "I’d rather figure it out myself than ask for help immediately.",
+        "I feel restricted when people tell me to follow steps without understanding why.",
+        "I’m fine working alone for a long time if I can focus.",
+        "I feel best when I’m competent and self-sufficient."
+      ]
+    },
+    {
+      "id": "ti_p5",
+      "dir": 1,
+      "text": "In conversation, I’m drawn to precise definitions and clear reasoning. I dislike vague moralizing or pressure to ‘just agree.’",
+      "examples": [
+        "I ask for definitions because many arguments are word-confusion.",
+        "I dislike when people swap meanings mid-discussion.",
+        "I can be blunt if the logic is wrong, even if it’s socially awkward.",
+        "I’d rather be accurate than be comforting."
+      ]
+    },
+    {
+      "id": "ti_p6",
+      "dir": 1,
+      "text": "People sometimes describe me as distant, overly analytical, or hard to read—even when I feel neutral and simply focused on correctness.",
+      "examples": [
+        "Others say I’m ‘cold’ when I’m actually just not emotionally activated.",
+        "I can forget to express empathy while solving the problem.",
+        "I’m sensitive to being mislabeled as arrogant when I’m just precise.",
+        "I’ve been told I overthink or get stuck on details of logic."
+      ]
+    },
+
+    {
+      "id": "ti_x1",
+      "dir": -1,
+      "text": "I rarely notice contradictions or bad reasoning, and I don’t care much if an explanation is logically tight.",
+      "examples": [
+        "I prefer what feels good/works socially over what is technically correct.",
+        "I don’t like analyzing arguments; it feels unnecessary.",
+        "I often accept claims based on trust or consensus without needing clarity.",
+        "Logical precision feels like nitpicking to me."
+      ]
+    },
+    {
+      "id": "ti_x2",
+      "dir": -1,
+      "text": "I get easily shaken by criticism or disagreement; being challenged feels like personal invalidation more than a puzzle to solve.",
+      "examples": [
+        "I take critique personally and feel hurt/embarrassed.",
+        "I avoid debate because it feels emotionally unsafe.",
+        "I need others to validate my thinking before I trust it.",
+        "I change my stance mainly to avoid conflict."
+      ]
+    },
+    {
+      "id": "ti_x3",
+      "dir": -1,
+      "text": "To function well, I rely heavily on routine, structure, planning systems, and external organization—not internal analysis.",
+      "examples": [
+        "Without schedules/checklists, I feel lost and can’t start.",
+        "I prefer strict procedures over figuring things out.",
+        "I feel safest when everything is pre-decided and orderly.",
+        "I don’t enjoy troubleshooting; I want a known method."
+      ]
+    },
+    {
+      "id": "ti_x4",
+      "dir": -1,
+      "text": "I often feel confused because my emotions pull me in different directions; I struggle to stay impartial and detached from feelings.",
+      "examples": [
+        "My mood strongly determines what I believe or decide.",
+        "I find it hard to separate facts from how I feel about them.",
+        "I get overwhelmed by conflicted feelings and can’t think clearly.",
+        "Emotional tension is more central than logical clarity for me."
+      ]
+    }
+  ]
+}
