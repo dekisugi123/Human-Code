@@ -328,7 +328,8 @@
     }
 
     const pages = (cases && cases.pages) ? cases.pages : {};
-    const keys = Object.keys(pages);
+    // const keys = Object.keys(pages);
+    const keys = Object.keys(pages).filter(k => k.endsWith('_dom'));
 
     const entries = [];
     for(const k of keys){
