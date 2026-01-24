@@ -1,0 +1,117 @@
+{
+  "title": "Confirm Si (Dominant)",
+  "intro": "Answer based on long-term patterns across years and contexts. Use 4–5 only if it’s consistently true. Dominant Si builds confidence through familiarity: comparing present details to past experience, relying on proven procedures, and seeking stable, predictable sensory conditions. This is not the same as simply “liking routines”—it’s about orienting yourself through concrete precedent and detail consistency.",
+  "items": [
+    {
+      "id": "si_p1",
+      "dir": 1,
+      "text": "I feel most at ease when concrete details match my expectations (sensory conditions, procedures, norms). Unexpected inconsistencies can throw me off.",
+      "examples": [
+        "I notice when small details are ‘off’ (spacing, wording, timing, objects, rules).",
+        "I feel calmer when I know the correct way to do something.",
+        "Unfamiliar environments or unclear norms make me cautious at first.",
+        "Physical discomfort or chaotic sensory input affects my focus quickly."
+      ]
+    },
+    {
+      "id": "si_p2",
+      "dir": 1,
+      "text": "In new situations, I prefer to proceed carefully and follow established steps or authoritative methods rather than improvise.",
+      "examples": [
+        "I ask: “What’s the standard procedure?” before trying a new approach.",
+        "I’m skeptical of untested methods unless there’s strong proof.",
+        "I feel responsible for doing things ‘properly’ rather than ‘creatively’.",
+        "I’d rather reduce risk than chase novelty."
+      ]
+    },
+    {
+      "id": "si_p3",
+      "dir": 1,
+      "text": "I’m strongly influenced by past learning and prior experience; precedent matters in my decisions.",
+      "examples": [
+        "I trust what has worked before more than what sounds exciting.",
+        "I keep mental (or written) records of what happened and what I learned.",
+        "I compare current situations to similar past cases to decide what to do.",
+        "I feel uneasy if someone dismisses experience as irrelevant."
+      ]
+    },
+    {
+      "id": "si_p4",
+      "dir": 1,
+      "text": "Routine and predictability help me feel stable; sudden changes or forced improvisation usually feel stressful at first.",
+      "examples": [
+        "I like having a reliable daily structure.",
+        "When plans change suddenly, I need time to re-orient.",
+        "I prefer steady progress over sudden pivots.",
+        "I’m more effective when I can anticipate what’s coming."
+      ]
+    },
+    {
+      "id": "si_p5",
+      "dir": 1,
+      "text": "I’m good at handling details and spotting detail discrepancies; I often become the person others rely on for carefulness.",
+      "examples": [
+        "I catch errors others miss (numbers, formatting, steps, missing items).",
+        "I’m meticulous with checklists, documentation, and correctness.",
+        "I dislike sloppy work because it creates avoidable problems.",
+        "People describe me as thorough or dependable."
+      ]
+    },
+    {
+      "id": "si_p6",
+      "dir": 1,
+      "text": "When stressed or low, I can become more detail-focused, critical, or nostalgic—comparing the present negatively against how things ‘should’ be or how they were before.",
+      "examples": [
+        "I harp on small imperfections when I’m overwhelmed.",
+        "I feel irritated when people are vague, inconsistent, careless, or irresponsible.",
+        "I think: “This is not how it’s supposed to be done.”",
+        "I remember past experiences vividly and use them as a baseline."
+      ]
+    },
+
+    {
+      "id": "si_x1",
+      "dir": -1,
+      "text": "I’m careless with details, dislike procedures, and don’t care much about doing things the ‘proper’ way.",
+      "examples": [
+        "I often miss concrete mistakes or inconsistencies.",
+        "I avoid checklists and prefer to wing it.",
+        "I see procedures as unnecessary constraints.",
+        "I rarely feel responsible for correctness in small details."
+      ]
+    },
+    {
+      "id": "si_x2",
+      "dir": -1,
+      "text": "I easily embrace novelty, big changes, risk, or untested ideas; stability and familiarity aren’t important to me.",
+      "examples": [
+        "I enjoy sudden pivots and major change for its own sake.",
+        "I take risks quickly without needing precedent.",
+        "I get bored with routine and predictability.",
+        "I prefer possibilities over proven methods."
+      ]
+    },
+    {
+      "id": "si_x3",
+      "dir": -1,
+      "text": "Past experience and prior learning don’t influence me much; I rarely use precedent when deciding what to do.",
+      "examples": [
+        "I don’t remember details of past situations or don’t use them.",
+        "I treat every situation as new rather than comparable.",
+        "I dismiss tradition, history, or established practice easily.",
+        "I don’t feel anchored by what has worked before."
+      ]
+    },
+    {
+      "id": "si_x4",
+      "dir": -1,
+      "text": "I’m drawn to abstract speculation and impractical possibilities more than concrete reality and lived detail.",
+      "examples": [
+        "I prefer theorizing over concrete implementation.",
+        "I tolerate vagueness easily and don’t need sensory/operational clarity.",
+        "I’m comfortable making claims without grounded examples.",
+        "I often feel ‘above’ details rather than supported by them."
+      ]
+    }
+  ]
+}
