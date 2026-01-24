@@ -1,0 +1,117 @@
+{
+  "title": "Xác nhận Te (Dominant)",
+  "intro": "Trả lời theo kiểu mẫu dài hạn (nhiều năm, nhiều bối cảnh). Chỉ chọn 4–5 khi điều đó đúng ổn định. Te-dominant là tự quyết thông qua thế giới khách quan: ra quyết định theo bằng chứng bên ngoài, dựng hệ thống chạy được, và đẩy thực tế vận hành tốt hơn (kết quả, điều phối, thực thi).",
+  "items": [
+    {
+      "id": "te_p1",
+      "dir": 1,
+      "text": "Khi cái gì đó không chạy, tôi có nhu cầu sửa nó ngoài đời (quy trình, kế hoạch, trách nhiệm), không chỉ ngồi phân tích mãi.",
+      "examples": [
+        "Tôi tự nhiên hỏi: “nút thắt là gì và bước tiếp theo là gì?”",
+        "Tôi sốt ruột khi vấn đề kéo dài vì không ai chốt quyết định.",
+        "Tôi ưu tiên đẩy kế hoạch đi hơn là hiểu lý thuyết hoàn hảo.",
+        "Tôi chọn giải pháp chạy được bây giờ hơn là ý tưởng đẹp sau này."
+      ]
+    },
+    {
+      "id": "te_p2",
+      "dir": 1,
+      "text": "Tôi đánh giá ý tưởng bằng kết quả và bằng chứng. Nếu kết quả mâu thuẫn câu chuyện, tôi sửa câu chuyện.",
+      "examples": [
+        "Tôi quan trọng cái đo được, kiểm chứng được, quan sát được.",
+        "Tôi đổi quan điểm nhanh nếu dữ liệu chỉ ra khác.",
+        "Tôi không thích quyết định dựa hoàn toàn vào cảm giác/gu cá nhân.",
+        "Tôi hay hỏi: “bằng chứng nó chạy là gì?”"
+      ]
+    },
+    {
+      "id": "te_p3",
+      "dir": 1,
+      "text": "Tôi tự nhiên sắp xếp người/nguồn lực/thời gian để mọi thứ trôi. Việc giao việc, lên lịch, điều phối khá ‘tự nhiên’ với tôi.",
+      "examples": [
+        "Tôi tự tạo cấu trúc (ưu tiên, deadline, vai trò) dù không ai yêu cầu.",
+        "Người khác mơ hồ, tôi cố làm nó cụ thể và hành động được.",
+        "Tôi hay thành ‘người kéo’ vì tôi muốn tiến độ.",
+        "Tôi thấy điểm kém hiệu quả và muốn tối ưu."
+      ]
+    },
+    {
+      "id": "te_p4",
+      "dir": 1,
+      "text": "Tôi thích quyết nhanh và có kết thúc rõ. Để lựa chọn mở quá lâu làm tôi thấy tốn thời gian hoặc tăng rủi ro.",
+      "examples": [
+        "Tôi thà chọn rồi chỉnh còn hơn chần chừ.",
+        "Tôi thích checklist/mốc/‘xong’ rõ ràng.",
+        "Tôi bực khi cuộc nói chuyện cứ vòng lặp mà không chốt.",
+        "Tôi yên tâm khi có plan và có người chịu trách nhiệm."
+      ]
+    },
+    {
+      "id": "te_p5",
+      "dir": 1,
+      "text": "Tôi có thể nói thẳng về vấn đề, ưu tiên, hoặc hiệu suất. Tôi xem đó là trách nhiệm chứ không phải công kích cá nhân.",
+      "examples": [
+        "Tôi nói điều cần làm dù hơi khó nghe.",
+        "Tôi ổn với việc đặt chuẩn và nhắc người khác bám chuẩn.",
+        "Tôi không thích nói giảm nói tránh làm mất vấn đề thật.",
+        "Tôi tập trung vào việc cần làm kể cả khi cảm xúc đang có mặt."
+      ]
+    },
+    {
+      "id": "te_p6",
+      "dir": 1,
+      "text": "Tôi từng bị gán là thẳng quá, kiểm soát, hoặc ‘chỉ nhìn kết quả’, nhất là khi tôi đang cố ngăn hỗn loạn hoặc lỗi lớn.",
+      "examples": [
+        "Người khác nói tôi ép hiệu quả quá mạnh.",
+        "Tôi nhạy với việc bị coi là ‘bossy’ khi tôi chỉ muốn rõ ràng.",
+        "Tôi bị nói là khó thư giãn cho tới khi mọi thứ được xử lý.",
+        "Tôi bị phê là ưu tiên kết quả hơn cảm xúc."
+      ]
+    },
+
+    {
+      "id": "te_x1",
+      "dir": -1,
+      "text": "Tôi hiếm khi chủ động tổ chức/điều phối; tôi thích chờ, khám phá, hoặc linh hoạt không cần kế hoạch.",
+      "examples": [
+        "Tôi né việc lên lịch/điều phối nếu có thể.",
+        "Tôi không quan trọng deadline hay kết thúc rõ ràng.",
+        "Tôi thích nói/ tưởng tượng hơn là thực thi.",
+        "Tôi thấy ổn khi lâu lâu không ai ‘cầm lái’."
+      ]
+    },
+    {
+      "id": "te_x2",
+      "dir": -1,
+      "text": "Tôi bị kẹt hoặc lo khi phải chốt nhanh; tôi thích nghĩ thêm và tinh chỉnh hơn là commit.",
+      "examples": [
+        "Tôi trì hoãn vì sợ chọn sai.",
+        "Tôi kẹt trong nuance và khó kết luận.",
+        "Tôi né đặt ưu tiên cứng vì thấy bị bó.",
+        "Tôi thích giữ lựa chọn mở hơn là chốt kế hoạch."
+      ]
+    },
+    {
+      "id": "te_x3",
+      "dir": -1,
+      "text": "Tôi hay mềm hóa sự thật để tránh làm ai buồn; tác động quan hệ quan trọng hơn hiệu quả/kết quả.",
+      "examples": [
+        "Tôi ngại góp ý thẳng vì sợ người ta tổn thương.",
+        "Tôi ưu tiên hòa khí hơn là đòi hiệu suất.",
+        "Tôi né việc enforce chuẩn vì thấy ‘tàn nhẫn’.",
+        "Tôi thà tử tế hơn là chính xác kiểu thẳng thừng."
+      ]
+    },
+    {
+      "id": "te_x4",
+      "dir": -1,
+      "text": "Tôi tin logic bên trong của mình hơn hệ thống/metric/best practice; tôi không thích bị đánh giá bằng tiêu chí khách quan.",
+      "examples": [
+        "Tôi ghét kiểu KPI vì thấy nó bỏ sót điều quan trọng.",
+        "Tôi ưu tiên lập luận đúng hơn là thực dụng.",
+        "Cái gì ‘chạy’ mà concept xấu tôi vẫn không thích.",
+        "Tôi tranh luận bằng nhất quán nội tại hơn là bằng kết quả."
+      ]
+    }
+  ]
+}
