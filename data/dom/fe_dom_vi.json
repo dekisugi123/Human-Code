@@ -1,0 +1,117 @@
+{
+  "title": "Xác nhận Fe (Dominant)",
+  "intro": "Trả lời theo kiểu mẫu dài hạn (nhiều năm, nhiều bối cảnh). Chỉ chọn 4–5 khi điều đó đúng ổn định. Fe-dominant là tự quyết thông qua thế giới xã hội: bắt nhịp bầu không khí cảm xúc, điều hướng chuẩn tương tác, và tạo hợp tác bằng kết nối và tinh thần chung (không chỉ đơn giản là ‘dễ thương’).",
+  "items": [
+    {
+      "id": "fe_p1",
+      "dir": 1,
+      "text": "Tôi tự động bắt bầu không khí cảm xúc (căng, thoải mái, bị bỏ rơi) và nó ảnh hưởng cách tôi cư xử ngay lúc đó.",
+      "examples": [
+        "Tôi thấy thay đổi mood trước khi người ta nói ra.",
+        "Tôi chỉnh giọng/nhịp để giảm ngượng hoặc căng.",
+        "Tôi nhận ra ai đó đang không thuộc về/khó chịu.",
+        "Tôi có cảm giác ‘phải làm phòng ổn lại’ khi nó lệch."
+      ]
+    },
+    {
+      "id": "fe_p2",
+      "dir": 1,
+      "text": "Tôi đánh giá hành vi theo việc nó có giữ được kết nối và tôn trọng nhau không. Tôi khó chịu với môi trường lạnh, gắt, hoặc làm người khác mất mặt.",
+      "examples": [
+        "Tôi ghét kiểu tương tác làm nhục/châm chọc người khác.",
+        "Tôi quan trọng sự công bằng khi đối xử trước đám đông.",
+        "Tôi hay cố tránh để ai đó ‘mất mặt’ không cần thiết.",
+        "Thật thà kiểu tàn nhẫn không có chăm sóc làm tôi thấy sai."
+      ]
+    },
+    {
+      "id": "fe_p3",
+      "dir": 1,
+      "text": "Gặp xung đột, tôi tìm cách nói chuyện và thỏa hiệp để khôi phục hợp tác, kể cả khi tôi phải là người mở lời.",
+      "examples": [
+        "Tôi hay ‘dịch’ giữa hai người để họ hiểu nhau.",
+        "Tôi ưu tiên sửa quan hệ hơn là thắng tranh luận.",
+        "Tôi tìm phương án ai cũng chấp nhận được.",
+        "Tôi khó phớt lờ căng quan hệ quá lâu."
+      ]
+    },
+    {
+      "id": "fe_p4",
+      "dir": 1,
+      "text": "Tôi ổn định nhất khi có kết nối cảm xúc. Khi tôi tụt, tôi tự nhiên cần hỗ trợ/xác nhận—hoặc cảm nhận thiếu nó rất rõ.",
+      "examples": [
+        "Cô đơn/đứt kết nối đánh tôi khá mạnh.",
+        "Được trấn an tử tế giúp tôi hồi rất nhanh.",
+        "Tôi lo bị ghét/bị loại hơn là lo sai.",
+        "Tôi nhạy với sự lạnh nhạt hoặc bị bỏ ra ngoài."
+      ]
+    },
+    {
+      "id": "fe_p5",
+      "dir": 1,
+      "text": "Tôi chủ động kéo mọi người vào và nghĩ về nhu cầu cảm xúc của người khác ngay cả khi không ai yêu cầu.",
+      "examples": [
+        "Tôi mặc định check-in cảm xúc người khác.",
+        "Tôi nhớ chi tiết nhỏ để giữ sự ấm áp.",
+        "Tôi tạo hòa khí: giới thiệu, kết nối, hoạt động chung, morale.",
+        "Tôi hay thành ‘keo dán xã hội’ mà không cố ý."
+      ]
+    },
+    {
+      "id": "fe_p6",
+      "dir": 1,
+      "text": "Tôi từng bị nói là xen quá sâu, chiều người, hoặc ‘quản’ không khí xã hội quá nhiều—dù tôi chỉ muốn mọi thứ nhân văn.",
+      "examples": [
+        "Tôi bị nói là lo người ta nghĩ gì quá mức.",
+        "Tôi thấy tội nếu ai đó buồn quanh mình.",
+        "Tôi đôi khi đoán cảm xúc thay người khác quá nhanh.",
+        "Tôi có lúc khó đặt ranh giới khi giúp."
+      ]
+    },
+
+    {
+      "id": "fe_x1",
+      "dir": -1,
+      "text": "Tôi hiếm khi để ý tín hiệu cảm xúc hay chuẩn xã giao; tôi thấy thoải mái khi bỏ qua bầu không khí và làm theo ý mình.",
+      "examples": [
+        "Tôi hay không nhận ra căng/khó chịu/bị bỏ rơi cho tới khi bị nói thẳng.",
+        "Tôi không quan trọng việc người khác thấy ngượng quanh tôi.",
+        "Tôi ghét ‘đọc phòng’ và thấy nó thừa.",
+        "Tôi ưu tiên mục tiêu mình dù phòng khó chịu."
+      ]
+    },
+    {
+      "id": "fe_x2",
+      "dir": -1,
+      "text": "Tôi nhìn quan hệ khá giao dịch; sự hữu dụng quan trọng hơn kết nối cảm xúc hay tinh thần chung.",
+      "examples": [
+        "Tôi giữ người chủ yếu vì họ có giá trị.",
+        "Tôi không thấy trách nhiệm với cảm xúc người khác.",
+        "Tôi né việc chăm sóc cảm xúc.",
+        "Tôi hiếm khi tìm sự an ủi từ người khác."
+      ]
+    },
+    {
+      "id": "fe_x3",
+      "dir": -1,
+      "text": "Tôi ưu tiên ‘đúng gu / đúng mình’ hơn hòa khí; tôi thà thật với mình hơn là điều chỉnh vì nhóm.",
+      "examples": [
+        "Tôi không thích conform hay làm êm chuyện.",
+        "Tôi nói điều mình cảm dù làm lệch hòa khí.",
+        "Tôi chống lại kỳ vọng xã hội nếu nó trái giá trị tôi.",
+        "Tôi không cố làm ‘dễ chịu’ nếu thấy giả."
+      ]
+    },
+    {
+      "id": "fe_x4",
+      "dir": -1,
+      "text": "Khi căng thẳng, tôi lạnh và tách ra; kết nối không giúp tôi nhiều bằng việc tự giải quyết một mình.",
+      "examples": [
+        "Stress là tôi rút vào hơn là tìm người.",
+        "Tôi thích tự xử trong yên lặng hơn là nói ra.",
+        "Được dỗ dành không thay đổi nhiều; giải pháp mới thay đổi.",
+        "Tôi có thể bỏ qua căng quan hệ nếu việc quan trọng."
+      ]
+    }
+  ]
+}
