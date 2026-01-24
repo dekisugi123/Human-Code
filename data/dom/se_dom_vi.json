@@ -1,0 +1,117 @@
+{
+  "title": "Xác nhận Se (Dominant)",
+  "intro": "Trả lời theo kiểu mẫu dài hạn (nhiều năm, nhiều bối cảnh). Chỉ chọn 4–5 khi điều đó đúng một cách ổn định. Se-dominant là cách “mở với đời” bằng việc tương tác trực tiếp với thực tế đang diễn ra (hành động, trải nghiệm, phản hồi ngay), không phải chỉ vì thích tiệc tùng hay thể thao.",
+  "items": [
+    {
+      "id": "se_p1",
+      "dir": 1,
+      "text": "Tôi tin trải nghiệm thực tế và phản hồi ngay hơn là suy đoán. Tôi thích thử-làm-sửa hơn là nghĩ quá nhiều.",
+      "examples": [
+        "Khi chưa chắc, tôi muốn thử nhanh để biết, hơn là tranh luận trong đầu.",
+        "Tôi tiến bộ bằng hành động rồi chỉnh, không cần kế hoạch hoàn hảo.",
+        "Cầm/nếm/thấy/tương tác thật làm tôi đổi ý mạnh hơn lý thuyết.",
+        "Tôi thấy yên hơn khi được ‘đụng’ vào tình huống."
+      ]
+    },
+    {
+      "id": "se_p2",
+      "dir": 1,
+      "text": "Tôi có nhiều năng lượng khi đang tham gia vào môi trường (hoạt động, di chuyển, thử thách, tương tác). Ngồi yên quá lâu làm tôi bứt rứt.",
+      "examples": [
+        "Không có gì xảy ra là tôi chán và muốn ‘làm gì đó’.",
+        "Tâm trạng tôi lên khi tôi vào guồng hành động.",
+        "Tôi ghét chờ đợi lâu mà không có kích thích/feedback.",
+        "Khi tụt năng lượng, tôi tự nhiên đi tìm thứ gì đó để ‘vào việc’."
+      ]
+    },
+    {
+      "id": "se_p3",
+      "dir": 1,
+      "text": "Tôi dễ nói “được” với cơ hội mang lại trải nghiệm. Giá trị nằm ở trải nghiệm ngay, không chỉ ở lợi ích tương lai.",
+      "examples": [
+        "Nghe có vẻ vui/đáng thử là tôi muốn tham gia.",
+        "Tôi quyết nhanh khi có cơ hội rõ ràng để hành động/tương tác.",
+        "Tôi thích chớp cơ hội tốt bây giờ hơn là đợi kế hoạch hoàn hảo.",
+        "Tôi bực khi người khác chặn hành động bằng nói quá nhiều."
+      ]
+    },
+    {
+      "id": "se_p4",
+      "dir": 1,
+      "text": "Tôi ứng biến tốt. Khi điều kiện đổi, tôi phản ứng nhanh mà không cần ‘vẽ bản đồ trong đầu’ trước.",
+      "examples": [
+        "Kế hoạch hỏng, tôi vẫn xoay được và làm tiếp.",
+        "Tôi nhìn cái đang xảy ra và chỉnh ngay lập tức.",
+        "Tôi chịu mơ hồ được nếu tôi còn tương tác trực tiếp được với tình huống.",
+        "Tôi thích hành động linh hoạt hơn quy trình cứng."
+      ]
+    },
+    {
+      "id": "se_p5",
+      "dir": 1,
+      "text": "Khi bị hạn chế mạnh (bị bó buộc, bị kiểm soát), tôi thường phản ứng kiểu muốn bật lại hoặc tìm cách lách/đổi đường.",
+      "examples": [
+        "Nghe luật quá chặt là tôi nghĩ ‘chắc có cách khác’.",
+        "Tôi thấy ngộp khi không được tự do khám phá/hành động.",
+        "Tôi ghét bị micromanage cách tôi làm.",
+        "Tôi lấy lại năng lượng khi giành lại quyền chủ động."
+      ]
+    },
+    {
+      "id": "se_p6",
+      "dir": 1,
+      "text": "Tôi từng bị nhận xét là bốc đồng, mạnh, hoặc ‘quá sống trong hiện tại’, dù tôi thấy đó là đang thật sự tham gia vào đời.",
+      "examples": [
+        "Người khác nói tôi lao vào nhanh, nghĩ chưa kỹ.",
+        "Tôi bị nói là thích kích thích/hứng thú quá mức.",
+        "Tôi bị đánh giá thẳng/ trực diện vì phản ứng theo cái đang xảy ra.",
+        "Tôi hay bị gọi là ‘spontaneous’ hoặc ‘khó đoán’."
+      ]
+    },
+
+    {
+      "id": "se_x1",
+      "dir": -1,
+      "text": "Môi trường nhiều kích thích (ồn, đông, hỗn loạn) làm tôi mệt rất nhanh, và tôi thường tránh.",
+      "examples": [
+        "Ở nơi náo nhiệt, tôi cần trốn ra chỗ yên thường xuyên.",
+        "Quá nhiều hoạt động làm tôi tắt năng lượng chứ không lên năng lượng.",
+        "Tôi mặc định thích yên tĩnh, kiểm soát được.",
+        "Tôi hay bị quá tải vì môi trường."
+      ]
+    },
+    {
+      "id": "se_x2",
+      "dir": -1,
+      "text": "Tôi tự nhiên tập trung vào ẩn ý/ý nghĩa sâu/ hệ quả dài hạn hơn là cái đang diễn ra ngay trước mắt.",
+      "examples": [
+        "Tôi hay đọc giữa dòng và tìm ý nghĩa trước.",
+        "Tôi hay kẹt ở suy diễn/hệ quả thay vì hành động.",
+        "Tôi thích phân tích/diễn giải hơn tương tác trực tiếp.",
+        "Tôi hay tua lại hội thoại để đoán động cơ."
+      ]
+    },
+    {
+      "id": "se_x3",
+      "dir": -1,
+      "text": "Tôi rất cần luật lệ, sự chắc chắn và cấu trúc an toàn; tôi né rủi ro ngay cả khi trải nghiệm có vẻ hấp dẫn.",
+      "examples": [
+        "Không có quy trình/cho phép rõ là tôi khó làm.",
+        "Tôi thà bỏ lỡ còn hơn chịu mơ hồ/rủi ro.",
+        "Tôi hiếm khi hành động nếu chưa chuẩn bị đủ.",
+        "Tôi coi ổn định và dự đoán được là ưu tiên số một."
+      ]
+    },
+    {
+      "id": "se_x4",
+      "dir": -1,
+      "text": "Tôi hứng thú với ý tưởng trừu tượng và khả năng viển vông hơn là trải nghiệm cụ thể và phản hồi thực tế.",
+      "examples": [
+        "Tôi thích brainstorm hơn là tham gia thực tế.",
+        "Tôi thích nói về khả năng hơn là làm.",
+        "Tôi có thể bỏ qua bằng chứng cụ thể vì ý tưởng quá hay.",
+        "Tôi theo đuổi sự mới chủ yếu ở ‘ý tưởng’, không phải ở trải nghiệm sống."
+      ]
+    }
+  ]
+}
