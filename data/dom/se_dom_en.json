@@ -1,0 +1,117 @@
+{
+  "title": "Confirm Se (Dominant)",
+  "intro": "Answer based on your long-term patterns. Use 4–5 only if it’s consistently true across years and contexts. Se-dominant is about staying open to life through direct engagement with what’s real and happening now (action, experience, immediate feedback), not just liking parties or sports.",
+  "items": [
+    {
+      "id": "se_p1",
+      "dir": 1,
+      "text": "I trust real-time experience more than speculation. I prefer to test, try, and adjust instead of overthinking possibilities.",
+      "examples": [
+        "When unsure, I’d rather do a quick trial than keep debating in my head.",
+        "I make progress by acting and correcting, not by perfect planning.",
+        "Seeing/handling the real thing changes my view more than theory does.",
+        "I feel calmer once I can interact with the situation directly."
+      ]
+    },
+    {
+      "id": "se_p2",
+      "dir": 1,
+      "text": "I feel most alive when I’m engaged with the environment (movement, activity, challenge, interaction). Too much stillness makes me restless.",
+      "examples": [
+        "If nothing is happening, I get bored and want to ‘do something’.",
+        "My mood improves when I get into motion or into the action.",
+        "I dislike long periods of waiting with no stimulation or feedback.",
+        "I naturally seek something engaging when my energy drops."
+      ]
+    },
+    {
+      "id": "se_p3",
+      "dir": 1,
+      "text": "I say “yes” to opportunities easily when they promise experience. The value is the experience itself, not just a future payoff.",
+      "examples": [
+        "If something sounds fun/engaging, I want to jump in.",
+        "I decide fast when there’s a clear chance to participate.",
+        "I’d rather take a good opportunity now than save it for a perfect plan.",
+        "I feel annoyed when people block action with endless discussion."
+      ]
+    },
+    {
+      "id": "se_p4",
+      "dir": 1,
+      "text": "I’m good at adapting on the fly. When conditions change, I respond quickly without needing a full mental map first.",
+      "examples": [
+        "I can improvise and stay effective when plans break.",
+        "I notice what’s actually happening and adjust immediately.",
+        "I’m comfortable with uncertainty if I can interact with it directly.",
+        "I prefer flexible action over rigid structure."
+      ]
+    },
+    {
+      "id": "se_p5",
+      "dir": 1,
+      "text": "Restrictions on my movement/choices often trigger an immediate urge to push back or find a workaround.",
+      "examples": [
+        "My first reaction to heavy rules is ‘there must be a way around this.’",
+        "I feel trapped when I can’t explore, act, or engage freely.",
+        "I dislike being micromanaged in how I do things.",
+        "I regain energy when I reclaim freedom of action."
+      ]
+    },
+    {
+      "id": "se_p6",
+      "dir": 1,
+      "text": "People sometimes describe me as impulsive, intense, or “too much in the moment,” even when I see it as simply engaging with life.",
+      "examples": [
+        "Others say I jump in too fast or don’t think enough first.",
+        "I’ve been told I chase stimulation or excitement.",
+        "People call me blunt/direct because I respond to what’s happening now.",
+        "I get labeled ‘spontaneous’ or ‘hard to predict’."
+      ]
+    },
+
+    {
+      "id": "se_x1",
+      "dir": -1,
+      "text": "High stimulation (noise, crowds, chaos, sensory intensity) quickly drains me, and I avoid it most of the time.",
+      "examples": [
+        "I need frequent quiet breaks in lively places.",
+        "Too much activity makes me shut down rather than feel energized.",
+        "I prefer calm, controlled settings as my default.",
+        "I often feel overloaded by the environment."
+      ]
+    },
+    {
+      "id": "se_x2",
+      "dir": -1,
+      "text": "I naturally focus on hidden meaning, long-range implications, or what things ‘symbolize’ more than what’s happening right now.",
+      "examples": [
+        "I often read between the lines and search for deeper meaning first.",
+        "I get stuck thinking about implications instead of acting.",
+        "I prefer interpretation and theory to direct engagement.",
+        "I replay conversations to decode motives."
+      ]
+    },
+    {
+      "id": "se_x3",
+      "dir": -1,
+      "text": "I strongly prefer rules, certainty, and safe structure; I avoid risk even when the potential experience is attractive.",
+      "examples": [
+        "I feel uneasy unless I have clear procedures and permission.",
+        "I’d rather miss out than deal with uncertainty or risk.",
+        "I rarely act without having everything planned.",
+        "I value predictability more than exploration."
+      ]
+    },
+    {
+      "id": "se_x4",
+      "dir": -1,
+      "text": "I’m more excited by abstract ideas and impractical possibilities than by concrete experiences and real-world feedback.",
+      "examples": [
+        "I prefer brainstorming over hands-on participation.",
+        "I like talking about possibilities more than doing them.",
+        "I often ignore concrete evidence if the idea feels interesting.",
+        "I chase novelty mainly in concepts, not in lived experience."
+      ]
+    }
+  ]
+}
