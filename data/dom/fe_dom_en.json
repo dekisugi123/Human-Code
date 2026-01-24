@@ -1,0 +1,117 @@
+{
+  "title": "Confirm Fe (Dominant)",
+  "intro": "Answer based on long-term patterns across years and contexts. Use 4–5 only if it’s consistently true. Fe-dominant is self-determination through the social world: tracking emotional atmosphere, shaping interaction norms, and creating cooperation by maintaining connection and shared morale (not simply “being nice”).",
+  "items": [
+    {
+      "id": "fe_p1",
+      "dir": 1,
+      "text": "I automatically track the emotional atmosphere (tension, comfort, inclusion) and it affects how I act in the moment.",
+      "examples": [
+        "I notice mood shifts before people name them.",
+        "I adjust my tone to reduce awkwardness or strain.",
+        "I can sense when someone feels left out or uneasy.",
+        "I feel responsible to ‘steady’ the room when it’s off."
+      ]
+    },
+    {
+      "id": "fe_p2",
+      "dir": 1,
+      "text": "I evaluate behavior by whether it supports connection and mutual respect. I feel discomfort when interactions become cold, harsh, or humiliating.",
+      "examples": [
+        "I dislike environments where people shame or ridicule each other.",
+        "I care about fairness in how people are treated publicly.",
+        "I try to prevent someone from losing face unnecessarily.",
+        "Cruel honesty without care feels wrong to me."
+      ]
+    },
+    {
+      "id": "fe_p3",
+      "dir": 1,
+      "text": "In conflict, I look for dialogue and compromise to restore cooperation, even if I have to be the one to initiate it.",
+      "examples": [
+        "I try to translate between people so they understand each other.",
+        "I prefer ‘repairing’ the relationship over winning the argument.",
+        "I look for a solution that everyone can accept.",
+        "I find it hard to ignore relational tension for long."
+      ]
+    },
+    {
+      "id": "fe_p4",
+      "dir": 1,
+      "text": "I feel most stable when there’s emotional connection. When I’m low, I naturally seek support/affirmation—or feel the lack of it strongly.",
+      "examples": [
+        "Loneliness or disconnection hits me hard.",
+        "Kind reassurance helps me recover quickly.",
+        "I worry about being disliked or rejected more than being wrong.",
+        "I’m sensitive to social coldness or being excluded."
+      ]
+    },
+    {
+      "id": "fe_p5",
+      "dir": 1,
+      "text": "I actively include people and think about what others need emotionally, even when nobody asks.",
+      "examples": [
+        "I check in on people’s feelings by default.",
+        "I remember small social details to keep warmth.",
+        "I organize harmony: introductions, shared activities, morale.",
+        "I often become the ‘social glue’ without intending to."
+      ]
+    },
+    {
+      "id": "fe_p6",
+      "dir": 1,
+      "text": "People sometimes say I over-involve myself, people-please, or ‘manage’ the social field too much—even when I’m trying to keep things humane.",
+      "examples": [
+        "I’ve been told I worry too much about what others think.",
+        "I feel guilty if someone is upset around me.",
+        "I sometimes speak for the group or assume feelings too quickly.",
+        "I can struggle with boundaries when helping."
+      ]
+    },
+
+    {
+      "id": "fe_x1",
+      "dir": -1,
+      "text": "I rarely notice emotional cues or social norms; I’m comfortable ignoring atmosphere and doing my own thing.",
+      "examples": [
+        "I often miss tension, discomfort, or exclusion until told directly.",
+        "I don’t care much if others feel awkward around me.",
+        "I dislike ‘reading the room’ and see it as unnecessary.",
+        "I prioritize my goals even if it makes the room uncomfortable."
+      ]
+    },
+    {
+      "id": "fe_x2",
+      "dir": -1,
+      "text": "I treat relationships as mostly transactional; usefulness matters more than emotional connection or shared morale.",
+      "examples": [
+        "I keep people mainly if they provide value.",
+        "I don’t feel responsible for others’ feelings.",
+        "I dislike emotional caretaking and avoid it.",
+        "I rarely seek emotional support from others."
+      ]
+    },
+    {
+      "id": "fe_x3",
+      "dir": -1,
+      "text": "I prioritize personal preference/authenticity over social harmony; I’d rather be true to myself than adapt for the group.",
+      "examples": [
+        "I dislike conforming or smoothing things over.",
+        "I say what I feel even if it disrupts harmony.",
+        "I resist social expectations if they conflict with my values.",
+        "I don’t try to make things ‘comfortable’ if it feels fake."
+      ]
+    },
+    {
+      "id": "fe_x4",
+      "dir": -1,
+      "text": "In stressful situations, I become colder and more detached; connection doesn’t help me much compared to solving the problem alone.",
+      "examples": [
+        "When stressed, I withdraw rather than seek people.",
+        "I prefer private processing to talking it out.",
+        "Comfort doesn’t change much for me; solutions do.",
+        "I can ignore relational tension if the task matters."
+      ]
+    }
+  ]
+}
