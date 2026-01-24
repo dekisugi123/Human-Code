@@ -1,0 +1,117 @@
+{
+  "title": "Xác nhận Si (Dominant)",
+  "intro": "Trả lời theo kiểu mẫu dài hạn (nhiều năm, nhiều bối cảnh). Chỉ chọn 4–5 khi điều đó đúng ổn định. Si-dominant xây sự tự tin qua sự quen thuộc: so chiếu chi tiết hiện tại với trải nghiệm quá khứ, dựa vào quy trình đã chứng minh, và tìm sự ổn định/dự đoán được về mặt cảm giác và cách làm. Đây không chỉ là “thích thói quen”—mà là định hướng bản thân bằng tiền lệ cụ thể và tính nhất quán của chi tiết.",
+  "items": [
+    {
+      "id": "si_p1",
+      "dir": 1,
+      "text": "Tôi dễ chịu nhất khi chi tiết cụ thể khớp kỳ vọng (điều kiện cảm giác, quy trình, chuẩn mực). Sự không nhất quán bất ngờ dễ làm tôi chệch nhịp.",
+      "examples": [
+        "Tôi nhận ra những chi tiết ‘lệch’ (khoảng cách, chữ, thời điểm, đồ vật, luật).",
+        "Tôi thấy yên hơn khi biết ‘cách đúng’ để làm.",
+        "Môi trường lạ/chuẩn mực mơ hồ làm tôi thận trọng lúc đầu.",
+        "Khó chịu thể chất hoặc kích thích hỗn loạn ảnh hưởng tập trung nhanh."
+      ]
+    },
+    {
+      "id": "si_p2",
+      "dir": 1,
+      "text": "Trong tình huống mới, tôi thích đi cẩn thận và theo bước đã có/được thẩm quyền xác nhận hơn là ứng biến.",
+      "examples": [
+        "Tôi hay hỏi: “quy trình chuẩn là gì?” trước khi thử cách mới.",
+        "Tôi nghi ngờ phương pháp chưa thử nếu thiếu bằng chứng mạnh.",
+        "Tôi thấy trách nhiệm phải làm ‘đúng cách’ hơn là ‘sáng tạo cho vui’.",
+        "Tôi ưu tiên giảm rủi ro hơn theo sự mới lạ."
+      ]
+    },
+    {
+      "id": "si_p3",
+      "dir": 1,
+      "text": "Quyết định của tôi bị ảnh hưởng mạnh bởi học được gì từ quá khứ; tiền lệ quan trọng với tôi.",
+      "examples": [
+        "Tôi tin cái đã chạy trước đây hơn cái nghe hấp dẫn.",
+        "Tôi giữ ‘record’ trong đầu (hoặc ghi chép) về điều đã xảy ra và bài học.",
+        "Tôi so tình huống hiện tại với trường hợp tương tự trong quá khứ để quyết.",
+        "Tôi khó chịu khi người khác coi trải nghiệm là vô nghĩa."
+      ]
+    },
+    {
+      "id": "si_p4",
+      "dir": 1,
+      "text": "Thói quen và tính dự đoán được giúp tôi ổn định; thay đổi đột ngột hoặc bị ép ứng biến thường làm tôi stress lúc đầu.",
+      "examples": [
+        "Tôi thích có cấu trúc ngày/tuần tương đối ổn định.",
+        "Khi plan đổi bất ngờ, tôi cần thời gian để ‘định hướng lại’.",
+        "Tôi thích tiến đều hơn là xoay 180 độ liên tục.",
+        "Tôi làm tốt hơn khi đoán trước được điều sẽ xảy ra."
+      ]
+    },
+    {
+      "id": "si_p5",
+      "dir": 1,
+      "text": "Tôi giỏi xử lý chi tiết và phát hiện sai lệch; người khác hay dựa vào sự cẩn thận của tôi.",
+      "examples": [
+        "Tôi bắt lỗi người khác hay bỏ qua (số liệu, format, bước, thiếu hạng mục).",
+        "Tôi tỉ mỉ với checklist, tài liệu, và độ đúng.",
+        "Tôi không thích làm ẩu vì nó tạo lỗi tránh được.",
+        "Người khác hay nhận xét tôi kỹ và đáng tin."
+      ]
+    },
+    {
+      "id": "si_p6",
+      "dir": 1,
+      "text": "Khi stress hoặc xuống tinh thần, tôi có thể ‘kỹ tính’ hơn, hay phàn nàn chi tiết nhỏ, hoặc so sánh hiện tại tiêu cực với “đáng ra phải như vậy”/quá khứ.",
+      "examples": [
+        "Tôi bám vào lỗi nhỏ khi bị quá tải.",
+        "Tôi khó chịu với kiểu người mơ hồ, thiếu trách nhiệm, cẩu thả, không nhất quán.",
+        "Tôi nghĩ: “không phải làm như thế này.”",
+        "Tôi nhớ trải nghiệm quá khứ khá rõ và dùng nó làm chuẩn."
+      ]
+    },
+
+    {
+      "id": "si_x1",
+      "dir": -1,
+      "text": "Tôi hay cẩu thả chi tiết, ghét quy trình, và không quan tâm làm theo ‘cách đúng’.",
+      "examples": [
+        "Tôi hay bỏ sót lỗi cụ thể hoặc sự không nhất quán.",
+        "Tôi tránh checklist và thích làm đại cho xong.",
+        "Tôi thấy quy trình là ràng buộc vô ích.",
+        "Tôi hiếm khi thấy trách nhiệm về độ đúng của chi tiết."
+      ]
+    },
+    {
+      "id": "si_x2",
+      "dir": -1,
+      "text": "Tôi dễ ôm thay đổi lớn, rủi ro, cái mới và ý tưởng chưa thử; sự ổn định và quen thuộc không quan trọng với tôi.",
+      "examples": [
+        "Tôi thích đổi hướng đột ngột vì nó thú vị.",
+        "Tôi chấp nhận rủi ro nhanh mà không cần tiền lệ.",
+        "Tôi chán routine và sự dự đoán được.",
+        "Tôi thích khả năng hơn phương pháp đã chứng minh."
+      ]
+    },
+    {
+      "id": "si_x3",
+      "dir": -1,
+      "text": "Trải nghiệm quá khứ và bài học trước đây ít ảnh hưởng tôi; tôi hiếm khi dùng tiền lệ để quyết định.",
+      "examples": [
+        "Tôi không nhớ chi tiết quá khứ hoặc không dùng nó.",
+        "Tôi coi mọi tình huống như mới hoàn toàn.",
+        "Tôi dễ dismiss truyền thống/lịch sử/best practice.",
+        "Tôi không ‘neo’ vào cái từng chạy trước đây."
+      ]
+    },
+    {
+      "id": "si_x4",
+      "dir": -1,
+      "text": "Tôi bị hút bởi suy đoán trừu tượng và khả năng viển vông hơn là thực tế cụ thể và chi tiết đời sống.",
+      "examples": [
+        "Tôi thích lý thuyết hơn triển khai cụ thể.",
+        "Tôi chịu được mơ hồ và không cần rõ ràng về thao tác/cảm giác.",
+        "Tôi dễ tin mà không cần ví dụ grounded.",
+        "Tôi thường thấy mình ‘ở trên’ chi tiết hơn là dựa vào chi tiết."
+      ]
+    }
+  ]
+}
