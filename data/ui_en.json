@@ -51,7 +51,7 @@
   "screen_scale_3": "3",
   "screen_scale_4": "4",
   "screening_likert_aria": "Answer scale",
-  "screening_skip": "Skip / Can’t judge",
+  "screening_skip": "Skip (not enough experience)",
 
   "screening_hints_title": "Hints (grounded examples)",
   "screening_group_note": "Answer based on patterns across your life.",
