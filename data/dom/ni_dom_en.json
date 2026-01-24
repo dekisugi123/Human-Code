@@ -1,0 +1,127 @@
+{
+  "title": "Ni (Dominant) confirmation",
+  "intro": "Answer based on your long-term patterns. Choose 4–5 only if it is consistently true across your life. If you choose 4–5, you can optionally tick grounded examples (not required).",
+  "items": [
+    {
+      "id": "ni_p1",
+      "dir": 1,
+      "text": "I feel best when my life has a clear direction or purpose; without it I feel uneasy or adrift.",
+      "examples": [
+        "If I don’t know what I’m aiming toward, my motivation drops sharply.",
+        "I naturally look for a ‘north star’ before I commit time/effort.",
+        "Having a meaningful goal matters more to me than small daily comforts.",
+        "When my future feels unclear, I become anxious or overly serious.",
+        "I often ask myself ‘where is this going?’ about school/work/relationships."
+      ]
+    },
+    {
+      "id": "ni_p2",
+      "dir": 1,
+      "text": "I naturally synthesize information into a single underlying idea, theme, or implication.",
+      "examples": [
+        "I prefer one unifying explanation over many separate facts.",
+        "I quickly form a ‘big picture’ and then evaluate details through it.",
+        "I often notice what something ‘really means’ or where it is heading.",
+        "I dislike discussions that stay purely on surface details.",
+        "I often reduce a mess of information into a simple principle."
+      ]
+    },
+    {
+      "id": "ni_p3",
+      "dir": 1,
+      "text": "I often have strong intuitive impressions about how things will play out, even before I can explain why.",
+      "examples": [
+        "I get a clear ‘this will probably happen’ sense from subtle cues.",
+        "I can’t always explain my reasoning, but my forecast often proves correct.",
+        "I trust pattern-recognition more than step-by-step checking in many cases.",
+        "I feel uncomfortable when forced to act without a guiding insight.",
+        "I notice trajectory (where things are heading) more than the current snapshot."
+      ]
+    },
+    {
+      "id": "ni_p4",
+      "dir": 1,
+      "text": "I’m drawn to an ideal vision and I can delay gratification to pursue it; I can become perfectionistic about it.",
+      "examples": [
+        "I’d rather sacrifice short-term comfort for long-term progress.",
+        "I feel dissatisfied when results fall below my internal standard.",
+        "I can become controlling about quality because the ideal matters.",
+        "I get frustrated when people ‘settle’ too easily.",
+        "I track symbolic signs of progress (milestones, levels, status markers)."
+      ]
+    },
+    {
+      "id": "ni_p5",
+      "dir": 1,
+      "text": "When I’m low, I judge things as shallow/meaningless and I suffer when my future looks bleak or uncertain.",
+      "examples": [
+        "I become cynical when I can’t see meaning or direction.",
+        "A vague future makes me feel heavy or trapped.",
+        "I can become intense or withdrawn when my vision breaks.",
+        "I struggle to enjoy the present if the long-term path feels wrong.",
+        "I feel better once I re-establish a coherent ‘why’."
+      ]
+    },
+    {
+      "id": "ni_p6",
+      "dir": 1,
+      "text": "I often dislike people who feel shallow, short-sighted, narrow-minded, or unable to think ahead.",
+      "examples": [
+        "I get irritated by ‘living only for today’ with no larger aim.",
+        "I dislike reckless behavior that ignores future consequences.",
+        "I feel limited around people who can’t discuss deeper implications.",
+        "I dislike fickleness or constant switching with no direction.",
+        "I’m frustrated by conversations that never connect to meaning."
+      ]
+    },
+
+    {
+      "id": "ni_x1",
+      "dir": -1,
+      "text": "I rarely think about purpose or where my life is going; I’m fine living mostly in the moment.",
+      "examples": [
+        "I don’t care much about ‘calling’ or a big direction.",
+        "I feel okay without a long-range plan.",
+        "I mostly focus on immediate tasks and enjoyment.",
+        "Long-term vision talk feels unnecessary or boring.",
+        "I don’t feel anxious about an uncertain future."
+      ]
+    },
+    {
+      "id": "ni_x2",
+      "dir": -1,
+      "text": "I prefer literal, concrete talk and everyday details; symbolism/meaning talk feels vague or pointless.",
+      "examples": [
+        "I’d rather discuss practical steps than abstract themes.",
+        "I don’t enjoy interpreting deeper meaning in events or stories.",
+        "I prefer ‘what happened’ over ‘what it represents’.",
+        "I find philosophy-like discussion tiring.",
+        "I value clear facts more than interpretation."
+      ]
+    },
+    {
+      "id": "ni_x3",
+      "dir": -1,
+      "text": "I don’t need a single guiding framework; I’m happy to keep options open and change direction often.",
+      "examples": [
+        "I dislike committing to one long-term vision.",
+        "I prefer flexibility over focus.",
+        "I switch interests easily without needing a central theme.",
+        "I don’t feel stress from ‘unfinished direction’.",
+        "I feel trapped by long-horizon commitments."
+      ]
+    },
+    {
+      "id": "ni_x4",
+      "dir": -1,
+      "text": "People rarely describe me as intense, vague, unrealistic, or hard to read; I’m usually straightforward and concrete.",
+      "examples": [
+        "I’m usually seen as practical and present-focused.",
+        "I don’t get called ‘mysterious’ or ‘too serious’.",
+        "My thinking is easy for others to follow step-by-step.",
+        "I rarely get stuck in abstract future scenarios.",
+        "I rarely overthink meaning or implications."
+      ]
+    }
+  ]
+}
