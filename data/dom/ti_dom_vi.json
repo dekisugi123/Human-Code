@@ -1,0 +1,117 @@
+{
+  "title": "Xác nhận Ti (Dominant)",
+  "intro": "Trả lời theo kiểu mẫu dài hạn (nhiều năm, nhiều bối cảnh). Chỉ chọn 4–5 khi điều đó đúng ổn định. Ti-dominant là tự quyết bằng sự hiểu bên trong: chỉnh mô hình tư duy cho nhất quán, bắt lỗi mâu thuẫn, và tự chủ nhờ nắm cơ chế vận hành.",
+  "items": [
+    {
+      "id": "ti_p1",
+      "dir": 1,
+      "text": "Tôi có nhu cầu làm mọi thứ ‘hợp lý bên trong’. Nếu có mâu thuẫn logic, tôi khó chấp nhận cho tới khi gỡ được.",
+      "examples": [
+        "Tôi tự nhiên thấy lỗi logic/ngụy biện dù người khác không để ý.",
+        "Tôi hay dừng lại hỏi: “ý chính xác là gì?”",
+        "Tôi không thích kết luận dựa trên chữ nghĩa mơ hồ hoặc giả định yếu.",
+        "Khi mô hình trong đầu rõ, tôi rất bình tĩnh và quyết nhanh."
+      ]
+    },
+    {
+      "id": "ti_p2",
+      "dir": 1,
+      "text": "Tôi có xu hướng tự xây khung hiểu của mình thay vì tin thẩm quyền/truyền thống/đám đông nếu nó chưa ‘thuyết phục’ với tôi.",
+      "examples": [
+        "Tôi không theo một quy tắc chỉ vì “người ta nói vậy” nếu tôi chưa hiểu.",
+        "Tôi thích dựng lại logic từ gốc (first principles).",
+        "Tôi nghi ngờ thứ ‘chạy được’ nhưng không giải thích rõ được.",
+        "Tôi hay diễn giải lại bằng lời của mình để chắc là hiểu."
+      ]
+    },
+    {
+      "id": "ti_p3",
+      "dir": 1,
+      "text": "Gặp vấn đề, tôi tập trung vào cơ chế: nguyên nhân thật là gì và ‘đòn bẩy’ nào sửa được gọn nhất?",
+      "examples": [
+        "Tôi xử lý kiểu tách biến, thử giả thuyết, loại trừ dần.",
+        "Tôi thích giải pháp gọn/đẹp hơn là an ủi cảm xúc.",
+        "Tôi ưu tiên lời giải đơn giản, rõ cơ chế hơn là câu chuyện dài.",
+        "Tôi có năng lượng khi thứ gì đó trở nên hiểu được và giải được."
+      ]
+    },
+    {
+      "id": "ti_p4",
+      "dir": 1,
+      "text": "Tôi thích tự xử và tự phân tích. Tôi khó chịu khi bị bắt làm theo hướng dẫn mà không hiểu ‘vì sao’.",
+      "examples": [
+        "Tôi thường muốn tự mò trước khi nhờ người khác.",
+        "Tôi thấy bị bó khi người ta bắt theo bước mà không giải thích lý do.",
+        "Tôi có thể làm một mình lâu miễn là được tập trung.",
+        "Tôi thấy ‘đúng gu’ khi mình có năng lực và tự chủ."
+      ]
+    },
+    {
+      "id": "ti_p5",
+      "dir": 1,
+      "text": "Trong nói chuyện, tôi bị hút vào định nghĩa rõ và lập luận chặt. Tôi không thích kiểu ‘ép đồng ý’ hoặc đạo lý mơ hồ.",
+      "examples": [
+        "Tôi hay hỏi định nghĩa vì nhiều tranh cãi là do lẫn nghĩa.",
+        "Tôi khó chịu khi người ta đổi nghĩa giữa chừng.",
+        "Tôi có thể nói thẳng nếu logic sai dù hơi ngượng xã giao.",
+        "Tôi ưu tiên đúng/chuẩn hơn là dễ nghe."
+      ]
+    },
+    {
+      "id": "ti_p6",
+      "dir": 1,
+      "text": "Tôi từng bị nhận xét là lạnh/xa cách/khó đọc, dù tôi thấy mình chỉ đang trung tính và tập trung vào độ đúng.",
+      "examples": [
+        "Người khác bảo tôi ‘lạnh’ trong khi tôi chỉ không bị kích cảm xúc.",
+        "Tôi đôi khi quên thể hiện đồng cảm khi đang giải vấn đề.",
+        "Tôi nhạy với việc bị gán ‘kiêu’ trong khi tôi chỉ chính xác.",
+        "Tôi bị nói là overthink hoặc kẹt ở chi tiết logic."
+      ]
+    },
+
+    {
+      "id": "ti_x1",
+      "dir": -1,
+      "text": "Tôi hiếm khi để ý mâu thuẫn/lập luận sai, và tôi không quan trọng việc giải thích phải chặt logic.",
+      "examples": [
+        "Tôi ưu tiên cái dễ chịu/êm hơn là cái đúng kỹ thuật.",
+        "Tôi không thích phân tích tranh luận; thấy vô ích.",
+        "Tôi hay nhận theo vì tin người/đa số mà không cần rõ ràng.",
+        "Chính xác logic làm tôi thấy như ‘bắt bẻ’."
+      ]
+    },
+    {
+      "id": "ti_x2",
+      "dir": -1,
+      "text": "Tôi rất dễ bị lung lay bởi phê bình hay bất đồng; bị phản biện làm tôi thấy bị phủ định cá nhân hơn là một bài toán.",
+      "examples": [
+        "Bị góp ý tôi thấy đau/xấu hổ, khó bình tĩnh phân tích.",
+        "Tôi né tranh luận vì cảm giác không an toàn về cảm xúc.",
+        "Tôi cần người khác xác nhận thì mới tin suy nghĩ của mình.",
+        "Tôi đổi ý chủ yếu để tránh xung đột."
+      ]
+    },
+    {
+      "id": "ti_x3",
+      "dir": -1,
+      "text": "Để hoạt động tốt, tôi phụ thuộc nhiều vào routine, kế hoạch, hệ thống tổ chức bên ngoài (lịch, checklist), hơn là phân tích bên trong.",
+      "examples": [
+        "Không có lịch/checklist là tôi không bắt đầu được.",
+        "Tôi thích quy trình cứng hơn là tự hiểu rồi tự xử.",
+        "Tôi yên tâm khi mọi thứ đã được sắp sẵn và có trật tự.",
+        "Tôi không thích troubleshoot; tôi muốn cách làm có sẵn."
+      ]
+    },
+    {
+      "id": "ti_x4",
+      "dir": -1,
+      "text": "Tôi hay rối vì cảm xúc kéo tôi nhiều hướng; tôi khó giữ sự khách quan và tách khỏi cảm xúc.",
+      "examples": [
+        "Tâm trạng quyết định tôi tin gì/chọn gì nhiều.",
+        "Tôi khó tách sự thật khỏi cảm giác của mình.",
+        "Cảm xúc mâu thuẫn làm tôi không nghĩ rõ được.",
+        "Căng cảm xúc là trung tâm hơn sự rõ ràng logic."
+      ]
+    }
+  ]
+}
