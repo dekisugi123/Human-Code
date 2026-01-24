@@ -1,22 +1,22 @@
 {
   "pages": {
-    "ne_dom": "dom/ne_dom_vi.json",
-    "ni_dom": "dom/ni_dom_vi.json",
-    "se_dom": "dom/se_dom_vi.json",
-    "si_dom": "dom/si_dom_vi.json",
-    "te_dom": "dom/te_dom_vi.json",
-    "ti_dom": "dom/ti_dom_vi.json",
-    "fe_dom": "dom/fe_dom_vi.json",
-    "fi_dom": "dom/fi_dom_vi.json",
+    "ne_dom": "dom/ne_dom_en.json",
+    "ni_dom": "dom/ni_dom_en.json",
+    "se_dom": "dom/se_dom_en.json",
+    "si_dom": "dom/si_dom_en.json",
+    "te_dom": "dom/te_dom_en.json",
+    "ti_dom": "dom/ti_dom_en.json",
+    "fe_dom": "dom/fe_dom_en.json",
+    "fi_dom": "dom/fi_dom_en.json",
 
-    "si_inf": "inf/si_inf_vi.json",
-    "se_inf": "inf/se_inf_vi.json",
-    "ni_inf": "inf/ni_inf_vi.json",
-    "ne_inf": "inf/ne_inf_vi.json",
-    "ti_inf": "inf/ti_inf_vi.json",
-    "te_inf": "inf/te_inf_vi.json",
-    "fi_inf": "inf/fi_inf_vi.json",
-    "fe_inf": "inf/fe_inf_vi.json"
+    "si_inf": "inf/si_inf_en.json",
+    "se_inf": "inf/se_inf_en.json",
+    "ni_inf": "inf/ni_inf_en.json",
+    "ne_inf": "inf/ne_inf_en.json",
+    "ti_inf": "inf/ti_inf_en.json",
+    "te_inf": "inf/te_inf_en.json",
+    "fi_inf": "inf/fi_inf_en.json",
+    "fe_inf": "inf/fe_inf_en.json"
   },
   "routing": {
     "ne_dom": { "inf": "si_inf", "aux": ["ti_aux", "fi_aux"], "tert": ["fe_tert", "te_tert"] },
