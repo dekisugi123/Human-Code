@@ -1,7 +1,7 @@
 {
   "pages": {
     "ne_dom": "dom/ne_dom_vi.json",
-    "fi_dom": "dom/fi_dom_vi.json"
+    "fi_dom": "dom/fi_dom_vi.json",
     "ni_dom": "dom/ni_dom_vi.json"
   }
 }
